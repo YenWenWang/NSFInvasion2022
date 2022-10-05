@@ -22,9 +22,8 @@ title: Yen-Wen (Denny) Wang's site
 email: yen-wen.wang@yale.edu
 description: >- # this means to ignore newlines until "baseurl:"
   A mycologist studying evolution with bioinformatics
-#baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/Coinvasion2022" # the subpath of your site, e.g. /blog
 url: "https://yenwenwang.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: jekyllrb
 github_username:  YenWenWang
 
 # Build settings
