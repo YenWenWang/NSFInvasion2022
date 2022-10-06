@@ -18,12 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Yen-Wen (Denny) Wang's site
+title: Coinvasion Bioinformatics 2022
 email: yen-wen.wang@yale.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Bioinformatics course for Coinvasion workshop 2022, e.g. /blog
-url: "https://yenwenwang.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  YenWenWang
+url: "https://yenwenwang.github.io/Coinvasion2022" # the base hostname & protocol for your site, e.g. 
 
 # Build settings
 theme: minima
