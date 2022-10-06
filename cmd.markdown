@@ -180,7 +180,7 @@ ConCATenate `fileY` and `fileZ` and append them to the end of `fileX`
 </details>
 <br/>
 
-CoPy `fileX` into `Knowledge/Facts` and rename it into `math`
+##### CoPy `fileX` into `Knowledge/Facts` and rename it into `math`
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
