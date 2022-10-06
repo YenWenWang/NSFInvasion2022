@@ -36,7 +36,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-Go to the parent directory.
+#### Go to the parent directory.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -45,7 +45,7 @@ Go to the parent directory.
 </details>
 <br/>
 
-Go to back to the directory you were in (`XXX`).
+#### Go to back to the directory you were in (`XXX`).
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -62,7 +62,7 @@ Go to back to the directory you were in (`XXX`).
 </details>
 <br/>
 
-Go to the home directory.
+#### Go to the home directory.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -76,8 +76,8 @@ Go to the home directory.
 <br/>
 
 ### 2. File Exploration
-First, go to directory `XXXXX`.  
-LiSt the files.
+#### First, go to directory `XXXXX`.  
+#### LiSt the files.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -86,7 +86,7 @@ LiSt the files.
 </details>
 <br/>
 
-Which is the oldest file and which is the largest file?
+#### Which is the oldest file and which is the largest file?
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -103,7 +103,7 @@ Which is the oldest file and which is the largest file?
 </details>
 <br/>
 
-What's in `directory"X"`, where X can be anything?
+#### What's in `directory"X"`, where X can be anything?
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -113,7 +113,7 @@ What's in `directory"X"`, where X can be anything?
 </details>
 <br/>
 
-What's in `directoryA/fileA`?
+#### What's in `directoryA/fileA`?
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -129,7 +129,7 @@ What's in `directoryA/fileA`?
 
 ### 3. Super Basic File and Directory Handling
 
-Make a file named `fileX` with `1+1=3` as its content.
+#### Make a file named `fileX` with `1+1=3` as its content.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>  
@@ -145,7 +145,7 @@ Make a file named `fileX` with `1+1=3` as its content.
 </details>
 <br/>
 
-Make a directory called `Knowledge` and make two subdirectories in `Knowledge` called `Facts` and `Believes`.
+#### Make a directory called `Knowledge` and make two subdirectories in `Knowledge` called `Facts` and `Believes`.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -164,7 +164,7 @@ Make a directory called `Knowledge` and make two subdirectories in `Knowledge` c
 </details>
 <br/>
 
-ConCATenate `fileY` and `fileZ` and append them to the end of `fileX`
+#### ConCATenate `fileY` and `fileZ` and append them to the end of `fileX`
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -180,7 +180,7 @@ ConCATenate `fileY` and `fileZ` and append them to the end of `fileX`
 </details>
 <br/>
 
-##### CoPy `fileX` into `Knowledge/Facts` and rename it into `math`
+#### CoPy `fileX` into `Knowledge/Facts` and rename it into `math`
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -194,7 +194,7 @@ ConCATenate `fileY` and `fileZ` and append them to the end of `fileX`
 </details>
 <br/>
 
-Make `they're definitely correct` to the end of `fileX` without using `nano`.
+#### Make `they're definitely correct` to the end of `fileX` without using `nano`.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -204,7 +204,7 @@ Make `they're definitely correct` to the end of `fileX` without using `nano`.
 </details>
 <br/>
 
-ReMove `Knowledge/Facts/math`
+#### ReMove `Knowledge/Facts/math`
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
