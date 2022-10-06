@@ -14,7 +14,7 @@ Should be simple if you have done the exercises before
 
 ### 1. Directory Navigation
 
-What's the Present Working Directory? (i.e. which directory are you in?)
+#### What's the Present Working Directory? (i.e. which directory are you in?)
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -23,7 +23,7 @@ What's the Present Working Directory? (i.e. which directory are you in?)
 </details>
 <br/>
 
-Change Directory to `XXXXXXXXXX`.
+#### Change Directory to `XXXXXXXXXX`.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
