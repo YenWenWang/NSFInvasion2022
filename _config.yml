@@ -21,7 +21,7 @@
 title: Coinvasion Bioinformatics 2022
 email: yen-wen.wang@yale.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Bioinformatics course for Coinvasion workshop 2022, e.g. /blog
+  Bioinformatics course for Coinvasion workshop 2022
 url: "https://yenwenwang.github.io/Coinvasion2022" # the base hostname & protocol for your site, e.g. 
 
 # Build settings

@@ -3,25 +3,25 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Unix/Linux course | Yen-Wen (Denny) Wang’s site</title>
+<title>“Advanced” Linux | Coinvasion Bioinformatics 2022</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="Unix/Linux course" />
+<meta property="og:title" content="“Advanced” Linux" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Bioinformatics course for Coinvasion workshop 2022, e.g. /blog" />
-<meta property="og:description" content="Bioinformatics course for Coinvasion workshop 2022, e.g. /blog" />
-<link rel="canonical" href="http://localhost:4000/cmd" />
-<meta property="og:url" content="http://localhost:4000/cmd" />
-<meta property="og:site_name" content="Yen-Wen (Denny) Wang’s site" />
+<meta name="description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<meta property="og:description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<link rel="canonical" href="http://localhost:4000/LinuxAdvance" />
+<meta property="og:url" content="http://localhost:4000/LinuxAdvance" />
+<meta property="og:site_name" content="Coinvasion Bioinformatics 2022" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Unix/Linux course" />
+<meta property="twitter:title" content="“Advanced” Linux" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for Coinvasion workshop 2022, e.g. /blog","headline":"Unix/Linux course","url":"http://localhost:4000/cmd"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for Coinvasion workshop 2022","headline":"“Advanced” Linux","url":"http://localhost:4000/LinuxAdvance"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Yen-Wen (Denny) Wang&apos;s site" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Coinvasion Bioinformatics 2022" /></head>
 <body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Yen-Wen (Denny) Wang&#39;s site</a><nav class="site-nav">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Coinvasion Bioinformatics 2022</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -31,7 +31,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/cmd">Unix/Linux course</a><a class="page-link" href="/">Home</a></div>
+        <div class="trigger"><a class="page-link" href="/LinuxAdvance">&quot;Advanced&quot; Linux</a><a class="page-link" href="/LinuxIntro">Intro to Linux</a><a class="page-link" href="/about/">About</a><a class="page-link" href="/">Home</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -39,7 +39,7 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Unix/Linux course</h1>
+    <h1 class="post-title">&quot;Advanced&quot; Linux</h1>
   </header>
 
   <div class="post-content">
@@ -53,7 +53,7 @@
 
 <h3 id="1-directory-navigation">1. Directory Navigation</h3>
 
-<p>What’s the Present Working Directory? (i.e. which directory are you in?)</p>
+<h4 id="whats-the-present-working-directory-ie-which-directory-are-you-in">What’s the Present Working Directory? (i.e. which directory are you in?)</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -62,7 +62,7 @@
 </details>
 <p><br /></p>
 
-<p>Change Directory to <code class="language-plaintext highlighter-rouge">XXXXXXXXXX</code>.</p>
+<h4 id="change-directory-to-xxxxxxxxxx">Change Directory to <code class="language-plaintext highlighter-rouge">XXXXXXXXXX</code>.</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -75,7 +75,7 @@
 </details>
 <p><br /></p>
 
-<p>Go to the parent directory.</p>
+<h4 id="go-to-the-parent-directory">Go to the parent directory.</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -84,7 +84,7 @@
 </details>
 <p><br /></p>
 
-<p>Go to back to the directory you were in (<code class="language-plaintext highlighter-rouge">XXX</code>).</p>
+<h4 id="go-to-back-to-the-directory-you-were-in-xxx">Go to back to the directory you were in (<code class="language-plaintext highlighter-rouge">XXX</code>).</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -94,14 +94,12 @@
 
 <details>
   <summary><b><u>Click here to learn more!</u></b></summary>
-  <pre>
-    cd -
-  </pre>
-  You can use this code to hop back and forth between two directories.
+
+  You can use `cd -` to hop back and forth between two directories.
 </details>
 <p><br /></p>
 
-<p>Go to the home directory.</p>
+<h4 id="go-to-the-home-directory">Go to the home directory.</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -115,8 +113,8 @@
 <p><br /></p>
 
 <h3 id="2-file-exploration">2. File Exploration</h3>
-<p>First, go to directory <code class="language-plaintext highlighter-rouge">XXXXX</code>.<br />
-LiSt the files.</p>
+<h4 id="first-go-to-directory-xxxxx">First, go to directory <code class="language-plaintext highlighter-rouge">XXXXX</code>.</h4>
+<h4 id="list-the-files">LiSt the files.</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -125,7 +123,7 @@ LiSt the files.</p>
 </details>
 <p><br /></p>
 
-<p>Which is the oldest file and which is the largest file?</p>
+<h4 id="which-is-the-oldest-file-and-which-is-the-largest-file">Which is the oldest file and which is the largest file?</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -135,6 +133,7 @@ LiSt the files.</p>
 
 <details>
   <summary><b><u>Click here to learn more!</u></b></summary>
+  You can sort the files by time and size!
   <pre>
     ls -lht 
     ls -lhS
@@ -142,7 +141,7 @@ LiSt the files.</p>
 </details>
 <p><br /></p>
 
-<p>What’s in <code class="language-plaintext highlighter-rouge">directory"X"</code>, where X can be anything?</p>
+<h4 id="whats-in-directoryx-where-x-can-be-anything">What’s in <code class="language-plaintext highlighter-rouge">directory"X"</code>, where X can be anything?</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -152,7 +151,7 @@ LiSt the files.</p>
 </details>
 <p><br /></p>
 
-<p>What’s in <code class="language-plaintext highlighter-rouge">directoryA/fileA</code>?</p>
+<h4 id="whats-in-directoryafilea">What’s in <code class="language-plaintext highlighter-rouge">directoryA/fileA</code>?</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -168,7 +167,7 @@ LiSt the files.</p>
 
 <h3 id="3-super-basic-file-and-directory-handling">3. Super Basic File and Directory Handling</h3>
 
-<p>Make a file named <code class="language-plaintext highlighter-rouge">fileX</code> with <code class="language-plaintext highlighter-rouge">1+1=3</code> as its content.</p>
+<h4 id="make-a-file-named-filex-with-113-as-its-content">Make a file named <code class="language-plaintext highlighter-rouge">fileX</code> with <code class="language-plaintext highlighter-rouge">1+1=3</code> as its content.</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>  
@@ -184,7 +183,7 @@ LiSt the files.</p>
 </details>
 <p><br /></p>
 
-<p>Make a directory called <code class="language-plaintext highlighter-rouge">Knowledge</code> and make two subdirectories in <code class="language-plaintext highlighter-rouge">Knowledge</code> called <code class="language-plaintext highlighter-rouge">Facts</code> and <code class="language-plaintext highlighter-rouge">Believes</code>.</p>
+<h4 id="make-a-directory-called-knowledge-and-make-two-subdirectories-in-knowledge-called-facts-and-believes">Make a directory called <code class="language-plaintext highlighter-rouge">Knowledge</code> and make two subdirectories in <code class="language-plaintext highlighter-rouge">Knowledge</code> called <code class="language-plaintext highlighter-rouge">Facts</code> and <code class="language-plaintext highlighter-rouge">Believes</code>.</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -203,7 +202,7 @@ LiSt the files.</p>
 </details>
 <p><br /></p>
 
-<p>ConCATenate <code class="language-plaintext highlighter-rouge">fileY</code> and <code class="language-plaintext highlighter-rouge">fileZ</code> and append them to the end of <code class="language-plaintext highlighter-rouge">fileX</code></p>
+<h4 id="concatenate-filey-and-filez-and-append-them-to-the-end-of-filex">ConCATenate <code class="language-plaintext highlighter-rouge">fileY</code> and <code class="language-plaintext highlighter-rouge">fileZ</code> and append them to the end of <code class="language-plaintext highlighter-rouge">fileX</code></h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -212,14 +211,15 @@ LiSt the files.</p>
 </details>
 <details>
   <summary><b><u>Click here to learn more!</u></b></summary>
+
+  You can use `&gt;&gt;` to append things to a file, super useful!
   <pre>
     cat fileY fileZ &gt;&gt; fileX
   </pre>
-  &gt;&gt; can append things to a file, super useful!
 </details>
 <p><br /></p>
 
-<p>CoPy <code class="language-plaintext highlighter-rouge">fileX</code> into <code class="language-plaintext highlighter-rouge">Knowledge/Facts</code> and rename it into <code class="language-plaintext highlighter-rouge">math</code></p>
+<h4 id="copy-filex-into-knowledgefacts-and-rename-it-into-math">CoPy <code class="language-plaintext highlighter-rouge">fileX</code> into <code class="language-plaintext highlighter-rouge">Knowledge/Facts</code> and rename it into <code class="language-plaintext highlighter-rouge">math</code></h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -233,7 +233,7 @@ LiSt the files.</p>
 </details>
 <p><br /></p>
 
-<p>Make <code class="language-plaintext highlighter-rouge">they're definitely correct</code> to the end of <code class="language-plaintext highlighter-rouge">fileX</code> without using <code class="language-plaintext highlighter-rouge">nano</code>.</p>
+<h4 id="make-theyre-definitely-correct-to-the-end-of-filex-without-using-nano">Make <code class="language-plaintext highlighter-rouge">they're definitely correct</code> to the end of <code class="language-plaintext highlighter-rouge">fileX</code> without using <code class="language-plaintext highlighter-rouge">nano</code>.</h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -243,7 +243,7 @@ LiSt the files.</p>
 </details>
 <p><br /></p>
 
-<p>ReMove <code class="language-plaintext highlighter-rouge">Knowledge/Facts/math</code></p>
+<h4 id="remove-knowledgefactsmath">ReMove <code class="language-plaintext highlighter-rouge">Knowledge/Facts/math</code></h4>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -275,19 +275,19 @@ LiSt the files.</p>
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Yen-Wen (Denny) Wang&#39;s site</h2>
+    <h2 class="footer-heading">Coinvasion Bioinformatics 2022</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Yen-Wen (Denny) Wang&#39;s site</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
+          <li class="p-name">Coinvasion Bioinformatics 2022</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
       </div>
 
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/YenWenWang"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">YenWenWang</span></a></li></ul>
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>Bioinformatics course for Coinvasion workshop 2022, e.g. /blog</p>
+        <p>Bioinformatics course for Coinvasion workshop 2022</p>
       </div>
     </div>
 

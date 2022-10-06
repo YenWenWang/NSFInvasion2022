@@ -7,5 +7,11 @@ layout: home
 
 ## Welcome to bioinformatics courses for Co-invasion workshop 2022!
 
-### Table of Contents
-[Unix/Linux course](cmd)
+![Amanita muscaria](/img/Amuscaria.jpeg)
+
+<br/>
+
+## Table of Contents
+### Linux
+- [Intro to Linux](LinuxIntro)  
+- ["Advanced" Linux](LinuxAdvance)

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Intro to Linux | Coinvasion Bioinformatics 2022</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Intro to Linux" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<meta property="og:description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<link rel="canonical" href="http://localhost:4000/LinuxIntro" />
+<meta property="og:url" content="http://localhost:4000/LinuxIntro" />
+<meta property="og:site_name" content="Coinvasion Bioinformatics 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Intro to Linux" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for Coinvasion workshop 2022","headline":"Intro to Linux","url":"http://localhost:4000/LinuxIntro"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Coinvasion Bioinformatics 2022" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Coinvasion Bioinformatics 2022</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/LinuxAdvance">&quot;Advanced&quot; Linux</a><a class="page-link" href="/LinuxIntro">Intro to Linux</a><a class="page-link" href="/about/">About</a><a class="page-link" href="/">Home</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Intro to Linux</h1>
+  </header>
+
+  <div class="post-content">
+    <h2 id="what-are-we-going-to-learn">What are we going to learn?</h2>
+
+<p>Please press hint if only necessary
+<br /></p>
+
+<h2 id="review">Review</h2>
+<p>Should be simple if you have done the exercises before</p>
+
+<h3 id="1-directory-navigation">1. Directory Navigation</h3>
+
+<h4 id="whats-the-present-working-directory-ie-which-directory-are-you-in">What’s the Present Working Directory? (i.e. which directory are you in?)</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    pwd
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="change-directory-to-xxxxxxxxxx">Change Directory to <code class="language-plaintext highlighter-rouge">XXXXXXXXXX</code>.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cd XXXXXXXXX
+  </pre>
+  OR
+  <pre>
+    cd YYYYYYYYY
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="go-to-the-parent-directory">Go to the parent directory.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cd ..
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="go-to-back-to-the-directory-you-were-in-xxx">Go to back to the directory you were in (<code class="language-plaintext highlighter-rouge">XXX</code>).</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cd -
+  </pre>
+</details>
+
+<details>
+  <summary><b><u>Click here to learn more!</u></b></summary>
+
+  You can use `cd -` to hop back and forth between two directories.
+</details>
+<p><br /></p>
+
+<h4 id="go-to-the-home-directory">Go to the home directory.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cd
+  </pre>
+  OR
+  <pre>
+    cd .  
+  </pre>
+</details>
+<p><br /></p>
+
+<h3 id="2-file-exploration">2. File Exploration</h3>
+<h4 id="first-go-to-directory-xxxxx">First, go to directory <code class="language-plaintext highlighter-rouge">XXXXX</code>.</h4>
+<h4 id="list-the-files">LiSt the files.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    ls
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="which-is-the-oldest-file-and-which-is-the-largest-file">Which is the oldest file and which is the largest file?</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    ls -lh
+  </pre>
+</details>
+
+<details>
+  <summary><b><u>Click here to learn more!</u></b></summary>
+  You can sort the files by time and size!
+  <pre>
+    ls -lht 
+    ls -lhS
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="whats-in-directoryx-where-x-can-be-anything">What’s in <code class="language-plaintext highlighter-rouge">directory"X"</code>, where X can be anything?</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    ls directory*
+  </pre>
+  * is one of the wildcards, it can be anything at any length! However, the syntax is not the same in every situation. We will explore other usage of wildcards later!
+</details>
+<p><br /></p>
+
+<h4 id="whats-in-directoryafilea">What’s in <code class="language-plaintext highlighter-rouge">directoryA/fileA</code>?</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cat directoryA/fileA 
+  </pre>
+  OR
+  <pre>
+    less directoryA/fileA
+  </pre>
+  There are a lot more choices!
+</details>
+<p><br /></p>
+
+<h3 id="3-super-basic-file-and-directory-handling">3. Super Basic File and Directory Handling</h3>
+
+<h4 id="make-a-file-named-filex-with-113-as-its-content">Make a file named <code class="language-plaintext highlighter-rouge">fileX</code> with <code class="language-plaintext highlighter-rouge">1+1=3</code> as its content.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>  
+    nano fileX 
+    # type in 1+1=3
+    # control C
+    # click Y
+  </pre>
+  OR 
+  <pre>
+    echo 1+1=3 &gt; fileX  
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="make-a-directory-called-knowledge-and-make-two-subdirectories-in-knowledge-called-facts-and-believes">Make a directory called <code class="language-plaintext highlighter-rouge">Knowledge</code> and make two subdirectories in <code class="language-plaintext highlighter-rouge">Knowledge</code> called <code class="language-plaintext highlighter-rouge">Facts</code> and <code class="language-plaintext highlighter-rouge">Believes</code>.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    mkdir Truth
+    mkdir Knowledge/Facts
+    mkdir Knowledge/Believes
+  </pre>
+</details>
+<details>
+  <summary><b><u>Click here to learn more!</u></b></summary>
+  You can make all directories at once!
+  <pre>
+    mkdir -p Knowledge/Facts Knowledge/Believes
+  </pre>
+  -p is "recursive" this way you can create the parent and child directories at the same time.
+</details>
+<p><br /></p>
+
+<h4 id="concatenate-filey-and-filez-and-append-them-to-the-end-of-filex">ConCATenate <code class="language-plaintext highlighter-rouge">fileY</code> and <code class="language-plaintext highlighter-rouge">fileZ</code> and append them to the end of <code class="language-plaintext highlighter-rouge">fileX</code></h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cat fileX fileY fileZ &gt; fileX
+  </pre>
+</details>
+<details>
+  <summary><b><u>Click here to learn more!</u></b></summary>
+
+  You can use `&gt;&gt;` to append things to a file, super useful!
+  <pre>
+    cat fileY fileZ &gt;&gt; fileX
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="copy-filex-into-knowledgefacts-and-rename-it-into-math">CoPy <code class="language-plaintext highlighter-rouge">fileX</code> into <code class="language-plaintext highlighter-rouge">Knowledge/Facts</code> and rename it into <code class="language-plaintext highlighter-rouge">math</code></h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cp fileX Knowledge/Facts
+    mv Knowledge/Facts/fileX Knowledge/Facts/Math
+  </pre>
+  OR
+  <pre>
+    cp fileX Knowledge/Facts/Math
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="make-theyre-definitely-correct-to-the-end-of-filex-without-using-nano">Make <code class="language-plaintext highlighter-rouge">they're definitely correct</code> to the end of <code class="language-plaintext highlighter-rouge">fileX</code> without using <code class="language-plaintext highlighter-rouge">nano</code>.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    echo "they're definitely correct" &gt;&gt; fileX
+  </pre>
+  Notice the apostrophe will open a quote, so we need to use the double quotes to suppress it.
+</details>
+<p><br /></p>
+
+<h4 id="remove-knowledgefactsmath">ReMove <code class="language-plaintext highlighter-rouge">Knowledge/Facts/math</code></h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    rm Knowledge/Facts/math
+  </pre>
+</details>
+<p><br /></p>
+
+<p>ReMove <code class="language-plaintext highlighter-rouge">Knowledge</code></p>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    rm -r Knowledge
+  </pre>
+</details>
+<p><br /></p>
+
+<h2 id="new-stuff">New stuff!</h2>
+
+<h3 id="tar-and-zip">tar and zip</h3>
+<p>In bioinformatics we often deal with large files, and so we need to compress the files. Here you’ll learn about how to handle these files!</p>
+
+<h3 id="read-zipped-files-without-unzipping">read zipped files without unzipping</h3>
+
+<h3 id="see-contents-in-tar-without-unpacking">see contents in tar without unpacking</h3>
+
+<p><br /></p>
+
+<h2 id="good-practice-and-little-things-you-should-know">Good practice and Little things you should know</h2>
+
+<h3 id="dont-use-word-to-store-your-codes">Don’t use Word to store your codes</h3>
+
+<h3 id="new-line-and-carriage-return">New line and Carriage Return?</h3>
+<p>Sometimes codes behaves weirdly, why are txt files sometimes have blank lines when loaded into R?<br />
+So, a new line is actually a character <code class="language-plaintext highlighter-rouge">\n</code> in Linux (and Unix) (and a tab is <code class="language-plaintext highlighter-rouge">\t</code>). However, in Windows it’s <code class="language-plaintext highlighter-rouge">\r\n</code>, older MacOS use <code class="language-plaintext highlighter-rouge">\r</code>.<br />
+Here, <code class="language-plaintext highlighter-rouge">\n</code> means New line and <code class="language-plaintext highlighter-rouge">\r</code> means carriage Return and it’s because in type writer world you need to first return the carriage <code class="language-plaintext highlighter-rouge">\r</code> and make a line break <code class="language-plaintext highlighter-rouge">\n</code>.</p>
+
+<p>You can run something like below to remove <code class="language-plaintext highlighter-rouge">\r</code> (but it would not work for old MacOS)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/\r//g'
+</code></pre></div></div>
+
+<p>We will learn about <code class="language-plaintext highlighter-rouge">sed</code> more later!</p>
+
+<h2 id="also-see">Also see</h2>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Coinvasion Bioinformatics 2022</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Coinvasion Bioinformatics 2022</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Bioinformatics course for Coinvasion workshop 2022</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

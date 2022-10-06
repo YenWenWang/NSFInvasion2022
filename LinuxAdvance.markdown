@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /cmd
-title: "Unix/Linux course"
+permalink: /LinuxAdvance
+title: '"Advanced" Linux'
 ---
 
 ## What are we going to learn?
@@ -55,10 +55,8 @@ Should be simple if you have done the exercises before
 
 <details>
   <summary><b><u>Click here to learn more!</u></b></summary>
-  <pre>
-    cd -
-  </pre>
-  You can use this code to hop back and forth between two directories.
+
+  You can use `cd -` to hop back and forth between two directories.
 </details>
 <br/>
 
@@ -96,6 +94,7 @@ Should be simple if you have done the exercises before
 
 <details>
   <summary><b><u>Click here to learn more!</u></b></summary>
+  You can sort the files by time and size!
   <pre>
     ls -lht 
     ls -lhS
@@ -173,10 +172,11 @@ Should be simple if you have done the exercises before
 </details>
 <details>
   <summary><b><u>Click here to learn more!</u></b></summary>
+
+  You can use `>>` to append things to a file, super useful!
   <pre>
     cat fileY fileZ >> fileX
   </pre>
-  >> can append things to a file, super useful!
 </details>
 <br/>
 
