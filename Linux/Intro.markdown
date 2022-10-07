@@ -8,7 +8,9 @@ title: "Intro to Linux"
 
 Please press hint if only necessary  
 
-![band](../img/band.png)
+<br/>
+
+![band](/img/band.png)
 
 <br/>
 
@@ -223,6 +225,7 @@ ReMove `Knowledge`
     rm -r Knowledge
   </pre>
 </details>
+<br/>
 
 ![band](../img/band.png)
 <br/>
@@ -415,6 +418,8 @@ gzcat temp.txt.gz
 ```
 
 ### head and tail
+
+<br/>
 
 ![band](../img/band.png)
 <br/>
