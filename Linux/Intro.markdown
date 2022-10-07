@@ -6,7 +6,7 @@ title: "Intro to Linux"
 
 ## What are we going to learn?
 
-Please press hint if only necessary
+Please press hint if only necessary  
 
 ![band](../img/band.png)
 
@@ -224,7 +224,7 @@ ReMove `Knowledge`
   </pre>
 </details>
 
-![band](/img/band.png)
+![band](../img/band.png)
 <br/>
 
 ## New stuff!
@@ -416,7 +416,7 @@ gzcat temp.txt.gz
 
 ### head and tail
 
-![band](/img/band.png)
+![band](../img/band.png)
 <br/>
 
 ## Good practice and micellaneous things you should know

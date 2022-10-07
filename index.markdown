@@ -8,7 +8,6 @@ layout: home
 ## Welcome to bioinformatics courses for Co-invasion workshop 2022!
 
 ![Amanita muscaria](/img/Amuscaria.jpeg)
-![band](/img/band.png)
 
 <br/>
 
