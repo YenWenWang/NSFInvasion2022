@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /Linux/TreasureHunt
-title: 'What? There's a treasure Hunt?'
+title: "What? There's a Treasure Hunt?"
 ---
 
 ![pirate](../img/pirate.png)
