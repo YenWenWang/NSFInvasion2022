@@ -13,5 +13,5 @@ layout: home
 
 ## Table of Contents
 ### Linux
-- [Intro to Linux](LinuxIntro)  
-- ["Advanced" Linux](LinuxAdvance)
+- [Intro to Linux](Linux/Intro)  
+- ["Advanced" Linux](Linux/Advance)

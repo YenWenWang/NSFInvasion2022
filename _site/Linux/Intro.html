@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Intro to Linux | Coinvasion Bioinformatics 2022</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Intro to Linux" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<meta property="og:description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<link rel="canonical" href="http://localhost:4000/Linux/Intro" />
+<meta property="og:url" content="http://localhost:4000/Linux/Intro" />
+<meta property="og:site_name" content="Coinvasion Bioinformatics 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Intro to Linux" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for Coinvasion workshop 2022","headline":"Intro to Linux","url":"http://localhost:4000/Linux/Intro"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Coinvasion Bioinformatics 2022" /></head>
+
+  <body>
+    <!-- NAV -->
+<nav class="navbar navbar-expand-md navbar-light py-4">
+    <div class="container">
+      <a href="/" class="navbar-brand">
+        <h3 class="d-inline align-middle pl-3 text-primary">Jekyll and BS4</h3>
+      </a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/archive/" class="nav-link">Archive</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/" class="nav-link">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Intro to Linux</h1>
+  </header>
+
+  <div class="post-content">
+    <h2 id="what-are-we-going-to-learn">What are we going to learn?</h2>
+
+<p>Please press hint if only necessary
+<br /></p>
+
+<h2 id="review">Review</h2>
+<p>Should be simple if you have done the exercises before</p>
+
+<h3 id="1-directory-navigation">1. Directory Navigation</h3>
+
+<h4 id="whats-the-present-working-directory-ie-which-directory-are-you-in">What’s the Present Working Directory? (i.e. which directory are you in?)</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    pwd
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="change-directory-to-xxxxxxxxxx">Change Directory to <code class="language-plaintext highlighter-rouge">XXXXXXXXXX</code>.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cd XXXXXXXXX
+  </pre>
+  OR
+  <pre>
+    cd YYYYYYYYY
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="go-to-the-parent-directory">Go to the parent directory.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cd ..
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="go-to-back-to-the-directory-you-were-in-xxx">Go to back to the directory you were in (<code class="language-plaintext highlighter-rouge">XXX</code>).</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cd -
+  </pre>
+</details>
+
+<details>
+  <summary><b><u>Click here to learn more!</u></b></summary>
+
+  You can use `cd -` to hop back and forth between two directories.
+</details>
+<p><br /></p>
+
+<h4 id="go-to-the-home-directory">Go to the home directory.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cd
+  </pre>
+  OR
+  <pre>
+    cd .  
+  </pre>
+</details>
+<p><br /></p>
+
+<h3 id="2-file-exploration">2. File Exploration</h3>
+<h4 id="first-go-to-directory-xxxxx">First, go to directory <code class="language-plaintext highlighter-rouge">XXXXX</code>.</h4>
+<h4 id="list-the-files">LiSt the files.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    ls
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="which-is-the-oldest-file-and-which-is-the-largest-file">Which is the oldest file and which is the largest file?</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    ls -lh
+  </pre>
+</details>
+
+<details>
+  <summary><b><u>Click here to learn more!</u></b></summary>
+  You can sort the files by time and size!
+  <pre>
+    ls -lht 
+    ls -lhS
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="whats-in-directoryx-where-x-can-be-anything">What’s in <code class="language-plaintext highlighter-rouge">directory"X"</code>, where X can be anything?</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    ls directory*
+  </pre>
+  * is one of the wildcards, it can be anything at any length! However, the syntax is not the same in every situation. We will explore other usage of wildcards later!
+</details>
+<p><br /></p>
+
+<h4 id="whats-in-directoryafilea">What’s in <code class="language-plaintext highlighter-rouge">directoryA/fileA</code>?</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cat directoryA/fileA 
+  </pre>
+  OR
+  <pre>
+    less directoryA/fileA
+  </pre>
+  There are a lot more choices!
+</details>
+<p><br /></p>
+
+<h3 id="3-super-basic-file-and-directory-handling">3. Super Basic File and Directory Handling</h3>
+
+<h4 id="make-a-file-named-filex-with-113-as-its-content">Make a file named <code class="language-plaintext highlighter-rouge">fileX</code> with <code class="language-plaintext highlighter-rouge">1+1=3</code> as its content.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>  
+    nano fileX 
+    # type in 1+1=3
+    # control C
+    # click Y
+  </pre>
+  OR 
+  <pre>
+    echo 1+1=3 &gt; fileX  
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="make-a-directory-called-knowledge-and-make-two-subdirectories-in-knowledge-called-facts-and-believes">Make a directory called <code class="language-plaintext highlighter-rouge">Knowledge</code> and make two subdirectories in <code class="language-plaintext highlighter-rouge">Knowledge</code> called <code class="language-plaintext highlighter-rouge">Facts</code> and <code class="language-plaintext highlighter-rouge">Believes</code>.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    mkdir Truth
+    mkdir Knowledge/Facts
+    mkdir Knowledge/Believes
+  </pre>
+</details>
+<details>
+  <summary><b><u>Click here to learn more!</u></b></summary>
+  You can make all directories at once!
+  <pre>
+    mkdir -p Knowledge/Facts Knowledge/Believes
+  </pre>
+  -p is "recursive" this way you can create the parent and child directories at the same time.
+</details>
+<p><br /></p>
+
+<h4 id="concatenate-filey-and-filez-and-append-them-to-the-end-of-filex">ConCATenate <code class="language-plaintext highlighter-rouge">fileY</code> and <code class="language-plaintext highlighter-rouge">fileZ</code> and append them to the end of <code class="language-plaintext highlighter-rouge">fileX</code></h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cat fileX fileY fileZ &gt; fileX
+  </pre>
+</details>
+<details>
+  <summary><b><u>Click here to learn more!</u></b></summary>
+
+  You can use `&gt;&gt;` to append things to a file, super useful!
+  <pre>
+    cat fileY fileZ &gt;&gt; fileX
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="copy-filex-into-knowledgefacts-and-rename-it-into-math">CoPy <code class="language-plaintext highlighter-rouge">fileX</code> into <code class="language-plaintext highlighter-rouge">Knowledge/Facts</code> and rename it into <code class="language-plaintext highlighter-rouge">math</code></h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    cp fileX Knowledge/Facts
+    mv Knowledge/Facts/fileX Knowledge/Facts/Math
+  </pre>
+  OR
+  <pre>
+    cp fileX Knowledge/Facts/Math
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="make-theyre-definitely-correct-to-the-end-of-filex-without-using-nano">Make <code class="language-plaintext highlighter-rouge">they're definitely correct</code> to the end of <code class="language-plaintext highlighter-rouge">fileX</code> without using <code class="language-plaintext highlighter-rouge">nano</code>.</h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    echo "they're definitely correct" &gt;&gt; fileX
+  </pre>
+  Notice the apostrophe will open a quote, so we need to use the double quotes to suppress it.
+</details>
+<p><br /></p>
+
+<h4 id="remove-knowledgefactsmath">ReMove <code class="language-plaintext highlighter-rouge">Knowledge/Facts/math</code></h4>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    rm Knowledge/Facts/math
+  </pre>
+</details>
+<p><br /></p>
+
+<p>ReMove <code class="language-plaintext highlighter-rouge">Knowledge</code></p>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    rm -r Knowledge
+  </pre>
+</details>
+<p><br /></p>
+
+<h2 id="new-stuff">New stuff!</h2>
+
+<h3 id="compressions--archives">Compressions &amp; Archives</h3>
+<p>In bioinformatics we often deal with large files, and so we need to compress the files. Also, there will be times you want to package a folder into an archive, so it’s easier to move around. Here you’ll learn about how to handle these files!
+<br /></p>
+
+<h4 id="compression">Compression</h4>
+<p>The most common compression method is <code class="language-plaintext highlighter-rouge">gzip</code>. You might be quite familiar with <code class="language-plaintext highlighter-rouge">zip</code>, but that’s mostly used in Windows. <br />
+First, make two file called <code class="language-plaintext highlighter-rouge">mouth</code> and <code class="language-plaintext highlighter-rouge">pants</code>, and try to compress them (You can add any content you want into the two files.)<br />
+Since we are learning, let’s get some help.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gzip -h
+</code></pre></div></div>
+
+<p>It opens a manual and tells you how to use this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gzip [-123456789acdfhklLNnqrtVv] [-S .suffix] [&lt;file&gt; [&lt;file&gt; ...]]
+</code></pre></div></div>
+
+<p>It is a little bit confusing, but what you need to know is anything start with a <code class="language-plaintext highlighter-rouge">-</code> means it’s an option, and the manual tells you what they are below. You don’t need the options right now, here we only need <code class="language-plaintext highlighter-rouge">file</code>, without brackets, greater and lesser signs.</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    gzip mouth pants
+  </pre>
+</details>
+
+<p>After zipping it, list all files, what did you find?</p>
+
+<p>Let’s unzip it with <code class="language-plaintext highlighter-rouge">gunzip</code> first.</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    gunzip stuff.zip
+  </pre>
+</details>
+
+<p>What if we want to keep the original file?<br />
+Go check the manual again to see what you can do!</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+    gzip -k mouth pants
+  </pre>
+  OR
+  <pre>
+    gzip --keep mouth pants
+  </pre>
+</details>
+
+<details>
+  <summary><b><u>Fun Fact</u></b></summary>
+
+  Compressibility can be used to estimate the complexity and relatedness of genomes.  
+  See [Chen et al. 2000](/ref/Chen2000.pdf)
+</details>
+<p><br /></p>
+
+<h4 id="archive">Archive</h4>
+<p>We will use <code class="language-plaintext highlighter-rouge">tar</code> to arcive.<br />
+Let’s make a folder called <code class="language-plaintext highlighter-rouge">stuffs</code> and put <code class="language-plaintext highlighter-rouge">mouth</code> and <code class="language-plaintext highlighter-rouge">pants</code> in it. We will arcive <code class="language-plaintext highlighter-rouge">stuffs</code> into <code class="language-plaintext highlighter-rouge">stuffs.tar</code><br />
+Now, use <code class="language-plaintext highlighter-rouge">-h</code> again to get some help.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -h
+</code></pre></div></div>
+
+<p>You will see that tar is a lot more complicated, it can do a lot of things!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>First option must be a mode specifier:
+  -c Create  -r Add/Replace  -t List  -u Update  -x Extract
+</code></pre></div></div>
+
+<p>Since we want to make a new archive, we want to focus on <code class="language-plaintext highlighter-rouge">Create</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Create: tar -c [options] [&lt;file&gt; | &lt;dir&gt; | @&lt;archive&gt; | -C &lt;dir&gt; ]
+</code></pre></div></div>
+
+<p>As well as the common options:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Common Options:
+  -b #  Use # 512-byte records per I/O block
+  -f &lt;filename&gt;  Location of archive
+  -v    Verbose
+  -w    Interactive
+</code></pre></div></div>
+
+<p>And so this mean that we need <code class="language-plaintext highlighter-rouge">-c</code> to create and <code class="language-plaintext highlighter-rouge">-f</code> to indicate the name of the archive you want to create (Yes, I agree. <code class="language-plaintext highlighter-rouge">tar</code>’s manual isn’t the best).<br />
+People often use <code class="language-plaintext highlighter-rouge">-v</code> so they can track the progress, too.</p>
+
+<p>With all the information, let’s try to archive!</p>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+  tar -c -v -f stuffs.tar stuffs
+  </pre>
+  You can also put the three options altogether!
+  <pre>
+  tar -cvf stuffs.tar stuffs
+  </pre>
+</details>
+<p><br /></p>
+
+<p>List the files, what did you see?</p>
+
+<p>Now, remove the <code class="language-plaintext highlighter-rouge">stuffs</code> folder, and extract the tar file.<br />
+(Use <code class="language-plaintext highlighter-rouge">-h</code> for information!)</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+  rm -r stuffs
+  tar -x -v -f stuffs.tar stuffs
+  </pre>
+  OR
+  <pre>
+  rm -r stuffs
+  tar -xvf stuffs.tar stuffs
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="archive--compress">Archive + Compress</h4>
+<p>You can archive and compress at the same time with <code class="language-plaintext highlighter-rouge">tar</code>!<br />
+We will archive and compress <code class="language-plaintext highlighter-rouge">stuff</code> into <code class="language-plaintext highlighter-rouge">stuff.tar.gz</code></p>
+
+<p>Same drill: use <code class="language-plaintext highlighter-rouge">-h</code> for help and figure out how to do it!<br />
+(You don’t need the patterns)</p>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+  tar -czvf stuffs.tar.gz stuffs
+  </pre>
+</details>
+
+<p>Compare the file size between compressed and uncompressed archives.<br />
+Remember how to do it?</p>
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+  ls -lh stuffs.tar*
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="see-contents-in-tar-without-unpacking">See contents in tar without unpacking</h4>
+<p>Sometimes an archive is so huge, say 200 GB. You know extracting it will crash your poor laptop, but you want to know what’s inside. What should you do?</p>
+
+<p>Let’s look at <code class="language-plaintext highlighter-rouge">List</code> in the <code class="language-plaintext highlighter-rouge">tar</code> manual! You should be able to figure out how to do it.</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>
+  ls -lh stuffs.tar*
+  </pre>
+</details>
+
+<p>Now, extract <code class="language-plaintext highlighter-rouge">mouth</code> only (Same drill)</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  Remember that you need to provide the full path
+  <pre>
+  tar -xzf stuffs.tar stuffs/mouth
+  </pre>
+</details>
+<p><br /></p>
+
+<h4 id="read-compressed-files-without-extraction">Read compressed files without extraction</h4>
+<p>You can actually read compressed files without extracting them into new files! But, why do we want to do that? Because we can directly feed it into other commands with pipes <code class="language-plaintext highlighter-rouge">|</code>, which saves disk space and computational time (We will talk about it later).</p>
+
+<p>Let’s just run the followings</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo nonsense &gt; temp.txt
+gzip temp.txt
+gzcat temp.txt.gz
+</code></pre></div></div>
+
+<h3 id="head-and-tail">head and tail</h3>
+
+<h2 id="good-practice-and-little-things-you-should-know">Good practice and Little things you should know</h2>
+
+<h3 id="dont-use-word-to-store-your-codes">Don’t use Word to store your codes</h3>
+
+<h3 id="new-line-and-carriage-return">New line and Carriage Return?</h3>
+<p>Sometimes codes behaves weirdly, why are txt files sometimes have blank lines when loaded into R?<br />
+So, a new line is actually a character <code class="language-plaintext highlighter-rouge">\n</code> in Linux (and Unix) (and a tab is <code class="language-plaintext highlighter-rouge">\t</code>). However, in Windows it’s <code class="language-plaintext highlighter-rouge">\r\n</code>, older MacOS use <code class="language-plaintext highlighter-rouge">\r</code>.</p>
+
+<details>
+  <summary><b><u>Fun Fact</u></b></summary>
+
+  Here, `\n` means New line and `\r` means carriage Return and it's because in type writer world you need to first return the carriage `\r` and make a line break `\n`.
+</details>
+
+<p>You can run something like below to remove <code class="language-plaintext highlighter-rouge">\r</code> (but it would not work for old MacOS)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/\r//g'
+</code></pre></div></div>
+
+<p>We will learn about <code class="language-plaintext highlighter-rouge">sed</code> more later!</p>
+
+<h2 id="also-see">Also see</h2>
+
+  </div>
+
+</article>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Coinvasion Bioinformatics 2022</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Coinvasion Bioinformatics 2022</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Bioinformatics course for Coinvasion workshop 2022</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+  </body>
+</html>

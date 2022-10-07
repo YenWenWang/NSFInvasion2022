@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /LinuxAdvance
+permalink: /Linux/Advance
 title: '"Advanced" Linux'
 ---
 

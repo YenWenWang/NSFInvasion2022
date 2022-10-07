@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /LinuxIntro
+permalink: /Linux/Intro
 title: "Intro to Linux"
 ---
 
