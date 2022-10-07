@@ -4,7 +4,7 @@ permalink: /Linux
 title: "Linux course"
 ---
 ## Table of Contents
-- [Intro to Linux](/Linux/Intro)  
-- ["Advanced" Linux](/Linux/Advance)
+- [Intro to Linux](Intro)  
+- ["Advanced" Linux](Advance)
 
-- [Treasure Hunt](/Linux/TreasureHunt)
+- [Treasure Hunt](TreasureHunt)
