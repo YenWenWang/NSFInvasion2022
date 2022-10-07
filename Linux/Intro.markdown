@@ -7,14 +7,15 @@ title: "Intro to Linux"
 ## What are we going to learn?
 
 Please press hint if only necessary
+![band](/img/band.png)
 <br/>
 
 ## Review
 Should be simple if you have done the exercises before
 
-### 1. Directory Navigation
+### Directory Navigation
 
-#### What's the Present Working Directory? (i.e. which directory are you in?)
+What's the Present Working Directory? (i.e. which directory are you in?)
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -23,7 +24,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### Change Directory to `XXXXXXXXXX`.
+Change Directory to `XXXXXXXXXX`.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -36,7 +37,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### Go to the parent directory.
+Go to the parent directory.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -45,7 +46,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### Go to back to the directory you were in (`XXX`).
+Go to back to the directory you were in (`XXX`).
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -60,7 +61,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### Go to the home directory.
+Go to the home directory.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -73,9 +74,9 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-### 2. File Exploration
-#### First, go to directory `XXXXX`.  
-#### LiSt the files.
+### File Exploration
+First, go to directory `XXXXX`.  
+Then, LiSt the files.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -84,7 +85,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### Which is the oldest file and which is the largest file?
+Which is the oldest file and which is the largest file?
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -102,7 +103,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### What's in `directory"X"`, where X can be anything?
+What's in `directory"X"`, where X can be anything?
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -112,7 +113,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### What's in `directoryA/fileA`?
+What's in `directoryA/fileA`?
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -126,9 +127,9 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-### 3. Super Basic File and Directory Handling
+### Super Basic File and Directory Handling
 
-#### Make a file named `fileX` with `1+1=3` as its content.
+Make a file named `fileX` with `1+1=3` as its content.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>  
@@ -144,7 +145,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### Make a directory called `Knowledge` and make two subdirectories in `Knowledge` called `Facts` and `Believes`.
+Make a directory called `Knowledge` and make two subdirectories in `Knowledge` called `Facts` and `Believes`.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -163,7 +164,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### ConCATenate `fileY` and `fileZ` and append them to the end of `fileX`
+ConCATenate `fileY` and `fileZ` and append them to the end of `fileX`
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -180,7 +181,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### CoPy `fileX` into `Knowledge/Facts` and rename it into `math`
+CoPy `fileX` into `Knowledge/Facts` and rename it into `math`
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -194,7 +195,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### Make `they're definitely correct` to the end of `fileX` without using `nano`.
+Make `they're definitely correct` to the end of `fileX` without using `nano`.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -204,7 +205,7 @@ Should be simple if you have done the exercises before
 </details>
 <br/>
 
-#### ReMove `Knowledge/Facts/math`
+ReMove `Knowledge/Facts/math`
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>
@@ -220,6 +221,8 @@ ReMove `Knowledge`
     rm -r Knowledge
   </pre>
 </details>
+
+![band](/img/band.png)
 <br/>
 
 ## New stuff!
@@ -411,7 +414,10 @@ gzcat temp.txt.gz
 
 ### head and tail
 
-## Good practice and Little things you should know
+![band](/img/band.png)
+<br/>
+
+## Good practice and micellaneous things you should know
 
 ### Don't use Word to store your codes
 
@@ -424,8 +430,6 @@ So, a new line is actually a character `\n` in Linux (and Unix) (and a tab is `\
 
   Here, `\n` means New line and `\r` means carriage Return and it's because in type writer world you need to first return the carriage `\r` and make a line break `\n`.
 </details>
-
-
 
 You can run something like below to remove `\r` (but it would not work for old MacOS)
 
