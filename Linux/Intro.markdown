@@ -7,7 +7,9 @@ title: "Intro to Linux"
 ## What are we going to learn?
 
 Please press hint if only necessary
-![band](/img/band.png)
+
+![band](../img/band.png)
+
 <br/>
 
 ## Review
