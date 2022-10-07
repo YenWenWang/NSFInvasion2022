@@ -10,7 +10,7 @@ Please press hint if only necessary
 
 <br/>
 
-![band](/img/band.png)
+![band](../img/band.png)
 
 <br/>
 
@@ -59,9 +59,10 @@ Go to back to the directory you were in (`XXX`).
 </details>
 
 <details>
-  <summary><b><u>Click here to learn more!</u></b></summary>
-
+  <summary><b><u>C</u></b></summary>
+  
   You can use `cd -` to hop back and forth between two directories.
+  
 </details>
 <br/>
 
@@ -98,7 +99,7 @@ Which is the oldest file and which is the largest file?
 </details>
 
 <details>
-  <summary><b><u>Click here to learn more!</u></b></summary>
+  <summary><b><u>C</u></b></summary>
   You can sort the files by time and size!
   <pre>
     ls -lht 
@@ -159,7 +160,7 @@ Make a directory called `Knowledge` and make two subdirectories in `Knowledge` c
   </pre>
 </details>
 <details>
-  <summary><b><u>Click here to learn more!</u></b></summary>
+  <summary><b><u>C</u></b></summary>
   You can make all directories at once!
   <pre>
     mkdir -p Knowledge/Facts Knowledge/Believes
@@ -259,6 +260,7 @@ It is a little bit confusing, but what you need to know is anything start with a
     gzip mouth pants
   </pre>
 </details>
+<br/>
 
 After zipping it, list all files, what did you find?  
 
@@ -270,8 +272,9 @@ Let's unzip it with `gunzip` first.
     gunzip stuff.zip
   </pre>
 </details>
+<br/>
 
-What if we want to keep the original file?  
+What if we want to keep the original file when compressing??  
 Go check the manual again to see what you can do!
 
 <details>
@@ -373,6 +376,7 @@ Same drill: use `-h` for help and figure out how to do it!
   tar -czvf stuffs.tar.gz stuffs
   </pre>
 </details>
+<br/>
 
 Compare the file size between compressed and uncompressed archives.  
 Remember how to do it?
@@ -395,6 +399,7 @@ Let's look at `List` in the `tar` manual! You should be able to figure out how t
   ls -lh stuffs.tar*
   </pre>
 </details>
+<br/>
 
 Now, extract `mouth` only (Same drill)
 
@@ -418,6 +423,25 @@ gzcat temp.txt.gz
 ```
 
 ### head and tail
+You know `head` already it spits out the first few lines of a file.  
+But do you know `head` can do more than that?  
+For example, you can specify how many lines you want it to spit out.  
+Let's get some help first. 
+
+```
+head -h
+```
+
+Uh oh, `head` doesn't have -h option. But it still tells you how to use the command!
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  Remember that you need to provide the full path
+  <pre>
+  tar -xzf stuffs.tar stuffs/mouth
+  </pre>
+</details>
+<br/>
 
 <br/>
 
