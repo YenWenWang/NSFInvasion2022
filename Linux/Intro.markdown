@@ -22,60 +22,44 @@ Should be simple if you have done the exercises before
 What's the Present Working Directory? (i.e. which directory are you in?)
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    pwd
-  </pre>
+  <pre>pwd  </pre>
 </details>
 <br/>
 
 Change Directory to `XXXXXXXXXX`.
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cd XXXXXXXXX
-  </pre>
+  <pre>cd XXXXXXXXX  </pre>
   OR
-  <pre>
-    cd YYYYYYYYY
-  </pre>
+  <pre>cd YYYYYYYYY  </pre>
 </details>
 <br/>
 
 Go to the parent directory.
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cd ..
-  </pre>
+  <pre>cd ..  </pre>
 </details>
 <br/>
 
 Go to back to the directory you were in (`XXX`).
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cd -
-  </pre>
+  <pre>cd -  </pre>
 </details>
 
 <details>
-  <summary><b><u>C</u></b></summary>
-  
-  You can use `cd -` to hop back and forth between two directories.
-  
+  <summary><b><u>Click to learn more</u></b></summary>
+  You can use <code>cd -</code> to hop back and forth between two directories.
 </details>
 <br/>
 
 Go to the home directory.
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cd
-  </pre>
+  <pre>cd  </pre>
   OR
-  <pre>
-    cd .  
-  </pre>
+  <pre>cd ~  </pre>
 </details>
 <br/>
 
@@ -84,50 +68,39 @@ First, go to directory `XXXXX`.
 Then, LiSt the files.
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    ls
-  </pre>
+  <pre>ls  </pre>
 </details>
 <br/>
 
 Which is the oldest file and which is the largest file?
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    ls -lh
-  </pre>
+  <pre>ls -lh  </pre>
 </details>
 
 <details>
-  <summary><b><u>C</u></b></summary>
+  <summary><b><u>Click to learn more!</u></b></summary>
   You can sort the files by time and size!
-  <pre>
-    ls -lht 
-    ls -lhS
-  </pre>
+  <pre>ls -lht  
+ls -lhS  </pre>
 </details>
 <br/>
 
 What's in `directory"X"`, where X can be anything?
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    ls directory*
-  </pre>
-  * is one of the wildcards, it can be anything at any length! However, the syntax is not the same in every situation. We will explore other usage of wildcards later!
+  <pre>ls directory*  </pre>
+  <code>*</code> is one of the wildcards, it can be anything at any length! However, the syntax is not the same in every situation. We will explore other usage of wildcards later!
 </details>
 <br/>
 
 What's in `directoryA/fileA`?
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cat directoryA/fileA 
-  </pre>
+  <pre>cat directoryA/fileA  </pre>
   OR
-  <pre>
-    less directoryA/fileA
-  </pre>
+  <pre>less directoryA/fileA  </pre>
+  To leave <code>less</code> press q.</br>
   There are a lot more choices!
 </details>
 <br/>
@@ -137,75 +110,60 @@ What's in `directoryA/fileA`?
 Make a file named `fileX` with `1+1=3` as its content.
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>  
-    nano fileX 
-    # type in 1+1=3
-    # control C
-    # click Y
-  </pre>
+  <pre>nano fileX  
+# type in 1+1=3  
+# control C  
+# click Y  </pre>
   OR 
-  <pre>
-    echo 1+1=3 > fileX  
-  </pre>
+  <pre>echo 1+1=3 > fileX  </pre>
 </details>
 <br/>
 
 Make a directory called `Knowledge` and make two subdirectories in `Knowledge` called `Facts` and `Believes`.
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    mkdir Truth
-    mkdir Knowledge/Facts
-    mkdir Knowledge/Believes
-  </pre>
+  <pre>mkdir Knowledge  
+mkdir Knowledge/Facts  
+mkdir Knowledge/Believes  </pre>
 </details>
 <details>
-  <summary><b><u>C</u></b></summary>
+  <summary><b><u>Click to learn more</u></b></summary>
   You can make all directories at once!
-  <pre>
-    mkdir -p Knowledge/Facts Knowledge/Believes
-  </pre>
-  -p is "recursive" this way you can create the parent and child directories at the same time.
+  <pre>mkdir -p Knowledge/Facts Knowledge/Believes  </pre>
+  <code>-p</code> is "recursive" this way you can create the parent and child directories at the same time.
 </details>
 <br/>
 
 ConCATenate `fileY` and `fileZ` and append them to the end of `fileX`
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cat fileX fileY fileZ > fileX
-  </pre>
+  <pre>cat fileX fileY fileZ > temp  
+mv temp fileX   </pre>
+  You can't simply run 
+  <pre>cat fileX fileY fileZ > fileX  </pre>
+  It is because the fileX is opened as a writing file already and cannot be read. And this solution is not elegant, so check <code>Click to learn more!</code>.
 </details>
 <details>
-  <summary><b><u>Click here to learn more!</u></b></summary>
-
-  You can use `>>` to append things to a file, super useful!
-  <pre>
-    cat fileY fileZ >> fileX
-  </pre>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  You can use <code>>></code> to append things to a file, super useful!
+  <pre>cat fileY fileZ >> fileX  </pre>
 </details>
 <br/>
 
 CoPy `fileX` into `Knowledge/Facts` and rename it into `math`
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cp fileX Knowledge/Facts
-    mv Knowledge/Facts/fileX Knowledge/Facts/Math
-  </pre>
+  <pre>cp fileX Knowledge/Facts  
+mv Knowledge/Facts/fileX Knowledge/Facts/Math  </pre>
   OR
-  <pre>
-    cp fileX Knowledge/Facts/Math
-  </pre>
+  <pre>cp fileX Knowledge/Facts/Math  </pre>
 </details>
 <br/>
 
 Make `they're definitely correct` to the end of `fileX` without using `nano`.
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    echo "they're definitely correct" >> fileX
-  </pre>
+  <pre>echo "they're definitely correct" >> fileX  </pre>
   Notice the apostrophe will open a quote, so we need to use the double quotes to suppress it.
 </details>
 <br/>
@@ -213,18 +171,14 @@ Make `they're definitely correct` to the end of `fileX` without using `nano`.
 ReMove `Knowledge/Facts/math`
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    rm Knowledge/Facts/math
-  </pre>
+  <pre>rm Knowledge/Facts/math  </pre>
 </details>
 <br/>
 
 ReMove `Knowledge`
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    rm -r Knowledge
-  </pre>
+  <pre>rm -r Knowledge  </pre>
 </details>
 <br/>
 
@@ -256,9 +210,7 @@ It is a little bit confusing, but what you need to know is anything start with a
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    gzip mouth pants
-  </pre>
+  <pre>gzip mouth pants  </pre>
 </details>
 <br/>
 
@@ -268,9 +220,8 @@ Let's unzip it with `gunzip` first.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    gunzip stuff.zip
-  </pre>
+  <pre>gunzip *.gz  </code>
+  If you want to do this, you should make sure that there's no other gz files.
 </details>
 <br/>
 
@@ -279,21 +230,18 @@ Go check the manual again to see what you can do!
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    gzip -k mouth pants
-  </pre>
+  <pre>gzip -k mouth pants  </pre>
   OR
-  <pre>
-    gzip --keep mouth pants
-  </pre>
+  <pre>gzip --keep mouth pants  </pre>
 </details>
 
 
 <details>
   <summary><b><u>Fun Fact</u></b></summary>
 
-  Compressibility can be used to estimate the complexity and relatedness of genomes.  
-  See [Chen et al. 2000](/ref/Chen2000.pdf)
+  Compressibility can be used to estimate the complexity and relatedness of genomes. <br/>
+  See <a href="/ref/Chen2000.pdf">Chen et al. 2000</a>  
+
 </details>
 <br/>
 
@@ -335,13 +283,9 @@ People often use `-v` so they can track the progress, too.
 With all the information, let's try to archive!
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-  tar -c -v -f stuffs.tar stuffs
-  </pre>
+  <pre>tar -c -v -f stuffs.tar stuffs  </code>
   You can also put the three options altogether!
-  <pre>
-  tar -cvf stuffs.tar stuffs
-  </pre>
+  <pre>tar -cvf stuffs.tar stuffs  </pre>
 </details>
 <br/>
 
@@ -352,15 +296,11 @@ Now, remove the `stuffs` folder, and extract the tar file.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-  rm -r stuffs
-  tar -x -v -f stuffs.tar stuffs
-  </pre>
+  <pre>rm -r stuffs  
+tar -x -v -f stuffs.tar stuffs  </pre>
   OR
-  <pre>
-  rm -r stuffs
-  tar -xvf stuffs.tar stuffs
-  </pre>
+  <pre>rm -r stuffs  
+tar -xvf stuffs.tar stuffs</pre>
 </details>
 <br/>
 
@@ -372,9 +312,7 @@ Same drill: use `-h` for help and figure out how to do it!
 (You don't need the patterns)
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-  tar -czvf stuffs.tar.gz stuffs
-  </pre>
+  <pre>tar -czvf stuffs.tar.gz stuffs  </pre>
 </details>
 <br/>
 
@@ -382,9 +320,7 @@ Compare the file size between compressed and uncompressed archives.
 Remember how to do it?
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-  ls -lh stuffs.tar*
-  </pre>
+  <pre>ls -lh stuffs.tar*  </pre>
 </details>
 <br/>
 
@@ -395,9 +331,7 @@ Let's look at `List` in the `tar` manual! You should be able to figure out how t
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-  ls -lh stuffs.tar*
-  </pre>
+  <pre>ls -lh stuffs.tar*  </pre>
 </details>
 <br/>
 
@@ -406,9 +340,7 @@ Now, extract `mouth` only (Same drill)
 <details>
   <summary><b><u>Hint</u></b></summary>
   Remember that you need to provide the full path
-  <pre>
-  tar -xzf stuffs.tar stuffs/mouth
-  </pre>
+  <pre>tar -xzf stuffs.tar stuffs/mouth  </pre>
 </details>
 <br/>
 
@@ -432,17 +364,36 @@ Let's get some help first.
 head -h
 ```
 
-Uh oh, `head` doesn't have -h option. But it still tells you how to use the command!
+Uh oh, `head` doesn't have `-h` option. But it still tells you how to use the command!  
+Why don't we try to read file see what's the first 20 lines of `XXXXXXX`?
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  Remember that you need to provide the full path
-  <pre>
-  tar -xzf stuffs.tar stuffs/mouth
-  </pre>
+  <pre>head -n 20 XXXXXXX  </pre>
 </details>
 <br/>
 
+Now, let's try to use `tail` to find out the last 30 lines of `XXXXXXX`. (The syntax is the same).
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>tail -n 30 XXXXXXX  </pre>
+</details>
+<br/>
+
+Sometimes, you want to remove the first few lines. And you can use `tail` to do that!  
+However, we don't have a good manual. So, let's google to get help and try to remove the first line using `tail`!
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>tail -n +2 Linux.markdown  </pre>
+</details>
+<br/>
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  <code>head</code> should be able to do similar things, too, but it depends on the version that you have: My laptop isn't capable of that :(.
+</details>
 <br/>
 
 ![band](../img/band.png)
@@ -451,6 +402,25 @@ Uh oh, `head` doesn't have -h option. But it still tells you how to use the comm
 ## Good practice and micellaneous things you should know
 
 ### Don't use Word to store your codes
+Word messes up everything! To prove it, try TYPE in the following and paste in terminal.
+
+```
+echo "stupid" > Microsoft Word
+```
+
+What did you find?  
+
+OK so it's not Word is stupid but it's too smart that it automatically changes some of the characters for the writers. However, it's not good for Bioinformatics.  
+So, I suggest you use a text editor or [Visual Studio Code](https://code.visualstudio.com/) to store your codes.  
+(Visual Studio Code is quite useful. It understand some computer languages and will highlight things to help you read your codes.)
+
+<br/>
+
+### comm and diff
+
+
+
+<br/>
 
 ### New line and Carriage Return?
 Sometimes codes behaves weirdly, why are txt files sometimes have blank lines when loaded into R?  
@@ -459,7 +429,7 @@ So, a new line is actually a character `\n` in Linux (and Unix) (and a tab is `\
 <details>
   <summary><b><u>Fun Fact</u></b></summary>
 
-  Here, `\n` means New line and `\r` means carriage Return and it's because in type writer world you need to first return the carriage `\r` and make a line break `\n`.
+  Here, <code>\n</code> means New line and <code>\r</code> means carriage Return and it's because in type writer world you need to first return the carriage <code>\r</code> and make a line break <code>\n</code>.
 </details>
 
 You can run something like below to remove `\r` (but it would not work for old MacOS)

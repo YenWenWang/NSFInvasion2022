@@ -7,4 +7,3 @@ title: "Linux course"
 - [Intro to Linux](Linux/Intro)  
 - ["Advanced" Linux](Linux/Advance)
 
-- [Treasure Hunt](Linux/TreasureHunt)
