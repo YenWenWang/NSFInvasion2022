@@ -26,9 +26,10 @@ What's the Present Working Directory? (i.e. which directory are you in?)
 </details>
 <br/>
 
-Change Directory to `XXXXXXXXXX`.
+Change Directory to `Intro/Review`.
 <details>
   <summary><b><u>Hint</u></b></summary>
+  You can use either absolute path or relative path.
   <pre>cd XXXXXXXXX  </pre>
   OR
   <pre>cd YYYYYYYYY  </pre>
@@ -42,14 +43,14 @@ Go to the parent directory.
 </details>
 <br/>
 
-Go to back to the directory you were in (`XXX`).
+Go to back to the directory you were in (`Review`).
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>cd -  </pre>
 </details>
 
 <details>
-  <summary><b><u>Click to learn more</u></b></summary>
+  <summary><b><u>Click to learn more!</u></b></summary>
   You can use <code>cd -</code> to hop back and forth between two directories.
 </details>
 <br/>
@@ -64,7 +65,7 @@ Go to the home directory.
 <br/>
 
 ### File Exploration
-First, go to directory `XXXXX`.  
+First, go to directory `Intro/Review/FileExploration`.  
 Then, LiSt the files.
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -76,6 +77,8 @@ Which is the oldest file and which is the largest file?
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>ls -lh  </pre>
+  <code>-l</code> provide the details of the files and <code>-h</code> provides human-readable file size etc. <br/>
+  We merged the two options together into <code>-lh</code> (This only works with single character options.)
 </details>
 
 <details>
@@ -86,7 +89,10 @@ ls -lhS  </pre>
 </details>
 <br/>
 
-What's in `directory"X"`, where X can be anything?
+You might find that some of the "files" are directories. But how to tell which one is which?
+Look at the first column of your `ls -l` results. If it starts with a `d`, it's a directory! Other options include using tab completion (my personal go to), or `ls -p`, if there's a `/` after the name, that's a directory.
+
+Now, what's in `directory"X"`, where X can be anything?
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>ls directory*  </pre>
@@ -94,19 +100,19 @@ What's in `directory"X"`, where X can be anything?
 </details>
 <br/>
 
-What's in `directoryA/fileA`?
+What's in `directoryNovels/TheDoomsDay`?
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>cat directoryA/fileA  </pre>
+  <pre>cat directoryNovels/TheDoomsDay  </pre>
   OR
-  <pre>less directoryA/fileA  </pre>
-  To leave <code>less</code> press q.</br>
+  <pre>less directoryNovels/TheDoomsday  </pre>
+  To leave <code>less</code> press q.<br/>
   There are a lot more choices!
 </details>
 <br/>
 
 ### Super Basic File and Directory Handling
-
+Go to directory `Intro/Review/FileDirHandle`.  
 Make a file named `fileX` with `1+1=3` as its content.
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -127,7 +133,7 @@ mkdir Knowledge/Facts
 mkdir Knowledge/Believes  </pre>
 </details>
 <details>
-  <summary><b><u>Click to learn more</u></b></summary>
+  <summary><b><u>Click to learn more!</u></b></summary>
   You can make all directories at once!
   <pre>mkdir -p Knowledge/Facts Knowledge/Believes  </pre>
   <code>-p</code> is "recursive" this way you can create the parent and child directories at the same time.
@@ -188,12 +194,13 @@ ReMove `Knowledge`
 ## New stuff!
 
 ### Compressions & Archives
+
 In bioinformatics we often deal with large files, and so we need to compress the files. Also, there will be times you want to package a folder into an archive, so it's easier to move around. Here you'll learn about how to handle these files!
 <br/>
 
 #### Compression
 The most common compression method is `gzip`. You might be quite familiar with `zip`, but that's mostly used in Windows.   
-First, make two file called `mouth` and `pants`, and try to compress them (You can add any content you want into the two files.)  
+First, go to `Intro/NewStuff/CompArch`, make two file called `mouth` and `pants`, and try to compress them (You can add any content you want into the two files.)  
 Since we are learning, let's get some help.
 
 ```
@@ -220,7 +227,7 @@ Let's unzip it with `gunzip` first.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>gunzip *.gz  </code>
+  <pre>gunzip *.gz  </pre>
   If you want to do this, you should make sure that there's no other gz files.
 </details>
 <br/>
@@ -246,8 +253,8 @@ Go check the manual again to see what you can do!
 <br/>
 
 #### Archive
-We will use `tar` to arcive.  
-Let's make a folder called `stuffs` and put `mouth` and `pants` in it. We will arcive `stuffs` into `stuffs.tar`  
+We will use `tar` to archive.  
+Let's make a folder called `stuffs` and put `mouth` and `pants` in it. We will archive `stuffs` into `stuffs.tar`  
 Now, use `-h` again to get some help.
 
 ```
@@ -283,7 +290,7 @@ People often use `-v` so they can track the progress, too.
 With all the information, let's try to archive!
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>tar -c -v -f stuffs.tar stuffs  </code>
+  <pre>tar -c -v -f stuffs.tar stuffs  </pre>
   You can also put the three options altogether!
   <pre>tar -cvf stuffs.tar stuffs  </pre>
 </details>
@@ -354,8 +361,8 @@ gzip temp.txt
 gzcat temp.txt.gz
 ```
 
-### head and tail
-You know `head` already it spits out the first few lines of a file.  
+### Head and Tail  
+You know `head` already it spits out the first few lines of a file. It could be handy if you want to take a quick glance at a file.  
 But do you know `head` can do more than that?  
 For example, you can specify how many lines you want it to spit out.  
 Let's get some help first. 
@@ -365,19 +372,20 @@ head -h
 ```
 
 Uh oh, `head` doesn't have `-h` option. But it still tells you how to use the command!  
-Why don't we try to read file see what's the first 20 lines of `XXXXXXX`?
+Why don't we go to `Intro/NewStuff/HeadTailAndWordCount` and try to read file see what's the first three lines of `HeadAndTails.txt`?
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>head -n 20 XXXXXXX  </pre>
+  <pre>head -n 3 HeadAndTails.txt  </pre>
 </details>
 <br/>
 
-Now, let's try to use `tail` to find out the last 30 lines of `XXXXXXX`. (The syntax is the same).
+On the other hand, when you are dealing error messages you may want to look at the last few lines of the file. Then, we can use `tail`.  
+Now, let's try to find out the last two lines of `HeadAndTails.txt`. (The syntax is the same).
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>tail -n 30 XXXXXXX  </pre>
+  <pre>tail -n 2 HeadAndTails.txt  </pre>
 </details>
 <br/>
 
@@ -394,6 +402,75 @@ However, we don't have a good manual. So, let's google to get help and try to re
   <summary><b><u>Click to learn more!</u></b></summary>
   <code>head</code> should be able to do similar things, too, but it depends on the version that you have: My laptop isn't capable of that :(.
 </details>
+
+<br/>
+
+### Counting Characters, Words and Lines
+Sometimes you need to count how many nucleotides there are in a gene, or you want to count how many files there are in a directory.  
+Stay in `Intro/NewStuff/HeadTailAndWordCount` and run 
+```
+wc HeadsAndTails.txt
+```
+You can see that there are four columns, the first three are numeric the last one is your file name.  
+But what does each number mean? Try to find it out yourself!
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>tail -n +2 Linux.markdown  </pre>
+</details>
+<br/>
+
+You can also use options to specify which number you want to see. Use `-h` to invoke "manual", and play with the four options!
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  You may notice <code>-m</code> and <code>-c</code> are nearly the same. That's because <code>-m</code> is character <code>-c</code> is bytes and normally one character is one byte. But when we use certain coding systems, some characters require two bytes to store, which makes the difference.
+</details>
+
+Now, let's do something else. Try to use `wc` to count the files! (remember `ls`?)  
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>ls -l > listoffiles  
+wc -l listoffiles  </pre><br/>
+  That gives you 2 files, but there should be one only. You can find out why by running <code>ls</code> again. To avoid this, we can simply not make the file <code>listoffiles</code>. We will talk about how to do it later!
+</details>
+<br/>
+
+Note: It's also not that simple to count nucleotides, but this is a starting point.
+
+<br/>
+
+### Same and Different
+#### Diff
+Say today your lab is sharing a dataset and you made some edits, but you forgot what they are exactly. We can use `diff` to solve this issue.  
+Head to `Intro/NewStuff/DiffComm` and compare `AfricanCountriesA` and `AfricanCountriesB`
+
+```
+diff AfricanCountriesA AfricanCountriesB
+```
+
+Try to figure out what the results mean!  
+Note: This is a very simple dataset so you can infer what the command is doing by looking at the dataset. Now, what if you have larger datasets and you want to know what the command is doing without Googling or asking? (It's a useful skill!)
+<br/>
+
+#### Comm
+`diff` can tell you where there's a difference, but sometimes you want to know what's the same. To do so, we can use `comm`. Let's run the following and see what happens.
+
+```
+comm AfricanCountriesA AfricanCountriesB
+```
+
+What are the three columns?
+
+We can use the options to suppress certain columns. Play with the three options `-1`, `-2` and `-3`.  
+You can also combine the options into `-12`, `-13` and `-23`. 
+And so, back to the original problem, how to get the lines common to both `AfricanCountriesA` and `AfricanCountriesB`?  
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>comm -12 AfricanCountriesA AfricanCountriesB  </pre>
+</details>
 <br/>
 
 ![band](../img/band.png)
@@ -402,10 +479,10 @@ However, we don't have a good manual. So, let's google to get help and try to re
 ## Good practice and micellaneous things you should know
 
 ### Don't use Word to store your codes
-Word messes up everything! To prove it, try TYPE in the following and paste in terminal.
+Word messes up everything! To prove it, try TYPE in the following and paste in terminal to run it.
 
 ```
-echo "stupid" > Microsoft Word
+echo "stupid" > MicrosoftWord
 ```
 
 What did you find?  
@@ -416,19 +493,32 @@ So, I suggest you use a text editor or [Visual Studio Code](https://code.visuals
 
 <br/>
 
-### comm and diff
+### Space Oddity
+Do you know how to read a file `Coinvasion workshop.txt` with cat?
+The space between `Coinvasion` and `workshop` make your system thinks they are two different files!
 
+No worries, there's a solution. Just add `\` before the space like this:
+```
+cat Coinvasion\ workshop.txt
+```
+`\`, the "back slash", is a special character that can suppress other special characters' function (or will give a character a function). We will explore it later. (the next section has some examples, too.)  
 
+My recommendation is to avoid spaces in your file naming system (you probably already know that). Alternatives include using upper cases, hyphens, underscores... Such as,
+
+```
+CoinvasionWorkshop.txt
+Coinvasion-workshop.txt
+Coinvasion_workshop.txt
+```
 
 <br/>
 
-### New line and Carriage Return?
-Sometimes codes behaves weirdly, why are txt files sometimes have blank lines when loaded into R?  
-So, a new line is actually a character `\n` in Linux (and Unix) (and a tab is `\t`). However, in Windows it's `\r\n`, older MacOS use `\r`.
+### New line and Carriage Return
+Sometimes codes behaves weirdly, why are txt files sometimes have blank lines when loaded into R? This is especially common when you save an Excel file into a txt file.  
+So, a new line is actually a character `\n` in Linux (and Unix) (and a tab is `\t`). However, in Windows it's `\r\n`, older MacOS use `\r`. And Office Excel follow the Windows coding system.  
 
 <details>
   <summary><b><u>Fun Fact</u></b></summary>
-
   Here, <code>\n</code> means New line and <code>\r</code> means carriage Return and it's because in type writer world you need to first return the carriage <code>\r</code> and make a line break <code>\n</code>.
 </details>
 
@@ -439,5 +529,7 @@ sed 's/\r//g'
 ```
 
 We will learn about `sed` more later!
+
+<br/>
 
 ## Also see
