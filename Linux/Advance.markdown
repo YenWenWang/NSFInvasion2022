@@ -7,17 +7,22 @@ title: '"Advanced" Linux'
 Notes:
 
 Blast (Maybe another page)
-pipe: (Maybe in basic?)
-cut: csv and tsv
-grep:
-sed: sg, ^ and $ lines
-variables: (use with grep and sed?, export or not)
-loops: (here they'll need to use variables)
+
+Fundemental stuff
+Advanced grep: add in some regular expression
+Advanced sed: ^ and $, some regular expression.
 if else
-sort and uniq (add diff?)
+loops: (here they'll need to use variables)
+
+Table related
+cut: csv and tsv
+more sort: -k 
 awk
 
+Crazy stuff:
 regular expression?
+Process substitution and command substitution
+
 
 ## What are we going to learn?
 

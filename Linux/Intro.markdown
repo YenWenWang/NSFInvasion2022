@@ -4,6 +4,8 @@ permalink: /Linux/Intro
 title: "Intro to Linux"
 ---
 
+Need a section called Redirect output to file.
+
 ## What are we going to learn?
 
 Please press hint if only necessary  
@@ -191,7 +193,7 @@ ReMove `Knowledge`
 ![band](../img/band.png)
 <br/>
 
-## New stuff!
+## "New" stuff!
 
 ### Compressions & Archives
 
@@ -233,7 +235,16 @@ Let's unzip it with `gunzip` first.
 <br/>
 
 What if we want to keep the original file when compressing??  
-Go check the manual again to see what you can do!
+Go check the manual again to see what you can do!  
+This time, we will use:
+
+```
+man gzip
+```
+
+This opens the detailed manual with less. You can press `q` to leave.
+
+Now, let's complete the task!
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -299,7 +310,7 @@ With all the information, let's try to archive!
 List the files, what did you see?
 
 Now, remove the `stuffs` folder, and extract the tar file.  
-(Use `-h` for information!)
+(Use `tar -h` or `man tar` for information!)
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -315,7 +326,7 @@ tar -xvf stuffs.tar stuffs</pre>
 You can archive and compress at the same time with `tar`!  
 We will archive and compress `stuff` into `stuff.tar.gz`
 
-Same drill: use `-h` for help and figure out how to do it!  
+Same drill: use `man` or `-h` for help and figure out how to do it!  
 (You don't need the patterns)
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -365,14 +376,7 @@ gzcat temp.txt.gz
 You know `head` already it spits out the first few lines of a file. It could be handy if you want to take a quick glance at a file.  
 But do you know `head` can do more than that?  
 For example, you can specify how many lines you want it to spit out.  
-Let's get some help first. 
-
-```
-head -h
-```
-
-Uh oh, `head` doesn't have `-h` option. But it still tells you how to use the command!  
-Why don't we go to `Intro/NewStuff/HeadTailAndWordCount` and try to read file see what's the first three lines of `HeadAndTails.txt`?
+Same drill, go to `Intro/NewStuff/HeadTailAndWordCount` and try to read file see what's the first three lines of `HeadAndTails.txt`?
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -406,19 +410,13 @@ However, we don't have a good manual. So, let's google to get help and try to re
 <br/>
 
 ### Counting Characters, Words and Lines
-Sometimes you need to count how many nucleotides there are in a gene, or you want to count how many files there are in a directory.  
+Sometimes you need to count how many raw reads you got from a sequencing service, or you want to count mamy nucleotides there are in a gene. Then, we can use `wc`.  
 Stay in `Intro/NewStuff/HeadTailAndWordCount` and run 
 ```
 wc HeadsAndTails.txt
 ```
 You can see that there are four columns, the first three are numeric the last one is your file name.  
 But what does each number mean? Try to find it out yourself!
-
-<details>
-  <summary><b><u>Hint</u></b></summary>
-  <pre>tail -n +2 Linux.markdown  </pre>
-</details>
-<br/>
 
 You can also use options to specify which number you want to see. Use `-h` to invoke "manual", and play with the four options!
 
@@ -427,24 +425,41 @@ You can also use options to specify which number you want to see. Use `-h` to in
   You may notice <code>-m</code> and <code>-c</code> are nearly the same. That's because <code>-m</code> is character <code>-c</code> is bytes and normally one character is one byte. But when we use certain coding systems, some characters require two bytes to store, which makes the difference.
 </details>
 
-Now, let's do something else. Try to use `wc` to count the files! (remember `ls`?)  
+Note: It's also not that simple to count nucleotides, but this is a starting point.
+
+### Pipes `|`
+Pipes `|` are one of the most powerful tool in Linux in my opinion.  
+
+Before we learn about pipe, let's revisit `wc` and `ls`. Go to `Intro/NewStuff/pipe` and figure out a way to count files in the folder!  
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>ls -l > listoffiles  
 wc -l listoffiles  </pre><br/>
-  That gives you 2 files, but there should be one only. You can find out why by running <code>ls</code> again. To avoid this, we can simply not make the file <code>listoffiles</code>. We will talk about how to do it later!
+  That gives you 8 files, but there should be 7 only. 
 </details>
 <br/>
 
-Note: It's also not that simple to count nucleotides, but this is a starting point.
+If you did not use `|`, you might get one more file counted due to the temporary file. To avoid this, we can simply not make the temporary file with `|`. Run:
 
+```
+ls -l | wc -l
+```
+What `|` is doing here is storing the "standard output" (STDOUT) from `ls` into memory and directly feed it as "standard input" (STDIN) to the next step. So, not only it saves space, it also saves a lot of time!  
+
+Let's use `|` again to get the 3rd to 8th lines of `BadGuy`!
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>head -n 8 BadGuy | tail -n 5  </pre><br/>
+  Need some calculations!
+</details>
 <br/>
 
 ### Same and Different
 #### Diff
 Say today your lab is sharing a dataset and you made some edits, but you forgot what they are exactly. We can use `diff` to solve this issue.  
-Head to `Intro/NewStuff/DiffComm` and compare `AfricanCountriesA` and `AfricanCountriesB`
+Head to `Intro/NewStuff/DiffSort` and compare `AfricanCountriesA` and `AfricanCountriesB`
 
 ```
 diff AfricanCountriesA AfricanCountriesB
@@ -473,13 +488,179 @@ And so, back to the original problem, how to get the lines common to both `Afric
 </details>
 <br/>
 
+
+### Sort and Unique
+#### Sort
+`sort` can be useful to organize things. Let's sort `AfricanCountriesA` with 
+```
+sort AfricanCountriesA
+```
+How are the countries sorted?
+
+Now, let's sort `numbers`. How are the numbers sorted?  
+Try to figure out how to sort it numerically! 
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>sort -n numbers  </pre>
+</details>
+<br/>
+
+#### Unique
+`uniq` can be used to remove duplicated items and is often used with `sort`. Why? Run:
+
+```
+uniq numbers
+```
+
+You'll see that it only removes a `23`. That is because it only compares the two lines next to each other. So `sort` can solve this issue! Try again!
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>sort -n numbers | uniq  </pre>
+</details>
+
+<br/>
+
+### Basic grep and sed
+#### grep
+`grep` is a tool that you can use to search a pattern in files. There are many uses, but we are going to learn the basic ones first.  
+First let's find anything with `Africa` in `AfricanCountriesA`.
+
+```
+grep Africa AfricanCountriesA
+```
+
+You should see two countries. Now, let's do the inverse: find everything without `Africa`. (Check `-v` in the manual.)
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>grep -v Africa AfricanCountriesA  </pre>
+</details>
+
+<br/>
+
+We can also count how many hits without `Africa` we got. (There are multiple ways.)
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>grep -cv Africa AfricanCountriesA  </pre>
+  OR
+  <pre>grep -v Africa AfricanCountriesA | wc -l  </pre>
+</details>
+
+<br/>
+
+Lastly, check out `-o`. What does it do? And let's search for "c".
+
+```
+grep -o c AfricanCountriesA
+```
+
+It just print out a bunch of "c". Seems useless right? But there's actually some uses for it. Check the manual and discuss what use there might be!
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  It print out all exact hits. (And multiple times within a line). <br/>
+  You can pipe it to <code>wc -l</code> and get a count of the hits!
+  <pre>grep -o c AfricanCountriesA | wc -l  </pre>
+  There are more uses for it and you'll find it out when you learn about advanced <code>grep</code>! 
+</details>
+
+<br/>
+
+#### sed
+`sed` is another command with a whole lot of uses. However, it's syntax is quite strange, so practicing it would help you master this useful command. We're covering two most common ones: substitute and delete. 
+
+We'll start with "delete". Let's open `sed` manual with `man` and look at synopsis.
+```
+sed [-Ealnru] command [-I extension] [-i extension] [file ...]
+```
+Here we need `command` and `file`. File is simple, but what should `command` be? We can scroll down to `Sed Functions`.  
+You will see there's a whole bunch of functions you can use, but to substitute a line, we need `d`. Scroll down and you should see a section start with this:
+```
+[2addr]d
+```
+
+`[2addr]` means that you can provide two addresses where you want the command to act on. The manual do provide information on how to use it but I'll just let you know two common cases.
+
+The first one is a number (or multiple number splitting by `,`). It specifies which `line` the command will take place. Try to remove the third and fifth lines from `AfricanCountriesA`.
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>sed '3,5d' AfricanCountriesA  </pre>
+  It's a good practice to add <code>'</code> for sed command because there often are weird characters that bash may interpret differently.
+</details>
+<br/>
+
+The second one is a query (like `grep`), but you need one `/` on the two sides of the query. And it will remove the lines that match.  
+Try to remove lines with `Africa` from `AfricanCountriesA`.
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>sed '/Africa/d' AfricanCountriesA  </pre>
+  Remember how to do the same thing with <code>grep</code>?
+</details>
+<br/>
+
+Now, let's move on to "substitute".  
+When we look at the manual, we'll see:
+```
+[2addr]s/regular expression/replacement/flags
+```
+Basically the `regular expression` is your query. And you can replace the query with `replacement`. `[2addr]` usage is like its usage in `d`, which we can leave blank here (so that it will do the command on every line). `flags` are some additional options for the command. Let's leave it blank now.
+And so, try to replace `a` with `x`
+
+```
+sed 's/a/x/' AfricanCountriesA
+```
+
+What did you find?  
+It doesn't seem to replace every `a` right? Look at the flags and find one that allows you to replace every `a`.
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>sed 's/a/x/g' AfricanCountriesA  </pre>
+  "g" stands for global! (I think.)
+</details>
+<br/>
+
+You can also replace multiple characters and special characters. Howabout replacing "an" with "@$!"? 
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>sed 's/an/@$!/g' AfricanCountriesA  </pre>
+</details>
+<br/>
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  Sometimes you may want to replace <code>/</code> with something else, but <code>/</code> is used already! <br/>
+  If this is the case, you can use other characters except for <code>\</code> to replace <code>/</code>! E.g.
+  <pre>sed 's@/@X@g' yourfile  </pre>
+</details>
+
+Both `grep` and `sed` also allow super-useful fuzzy matching with regular expressions. We will explore them tomorrow!
+
+<br/>
+
+### Paths and Variables
+Something about export too.
+
+
 ![band](../img/band.png)
 <br/>
 
-## Good practice and micellaneous things you should know
+## Good practice and miscellaneous things you should know
+
+### Tabs Tabs Tabs!
+OK I should have said this before, but if you're stuck, just press `tab`!
+
+Some more details: A normal UNIX syntax is start with a command and add options, arguments etc. If you press `tab` when you are at the command part, it will search in your `PATH` and try to find one that fits to fill in. If you press `tab` when you at the options/arguments part it will search in your present working directory and try to find a file (including directories) that fits to fill in.  
+If there are more than two hits, it won't give you anything. But then, you can press `tab` another time and it will give you a list of hits.
+
+<br/>
 
 ### Don't use Word to store your codes
-Word messes up everything! To prove it, try TYPE in the following and paste in terminal to run it.
+Word messes up everything! To prove it, try to TYPE in the followings and paste in terminal to run it.
 
 ```
 echo "stupid" > MicrosoftWord
@@ -489,7 +670,7 @@ What did you find?
 
 OK so it's not Word is stupid but it's too smart that it automatically changes some of the characters for the writers. However, it's not good for Bioinformatics.  
 So, I suggest you use a text editor or [Visual Studio Code](https://code.visualstudio.com/) to store your codes.  
-(Visual Studio Code is quite useful. It understand some computer languages and will highlight things to help you read your codes.)
+(Visual Studio Code is quite useful. It understands some computer languages and will highlight things to help you read your codes.)
 
 <br/>
 
@@ -513,7 +694,7 @@ Coinvasion_workshop.txt
 
 <br/>
 
-### New line and Carriage Return
+### New Line and Carriage Return
 Sometimes codes behaves weirdly, why are txt files sometimes have blank lines when loaded into R? This is especially common when you save an Excel file into a txt file.  
 So, a new line is actually a character `\n` in Linux (and Unix) (and a tab is `\t`). However, in Windows it's `\r\n`, older MacOS use `\r`. And Office Excel follow the Windows coding system.  
 
@@ -521,14 +702,17 @@ So, a new line is actually a character `\n` in Linux (and Unix) (and a tab is `\
   <summary><b><u>Fun Fact</u></b></summary>
   Here, <code>\n</code> means New line and <code>\r</code> means carriage Return and it's because in type writer world you need to first return the carriage <code>\r</code> and make a line break <code>\n</code>.
 </details>
+<br/>
 
-You can run something like below to remove `\r` (but it would not work for old MacOS)
+Do you know how to remove `\r`? (Remember `sed`?)
 
-```
-sed 's/\r//g'
-```
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>sed 's/\r//g' file  </pre>
+</details>
+<br/>
 
-We will learn about `sed` more later!
+![band](../img/band.png)
 
 <br/>
 
