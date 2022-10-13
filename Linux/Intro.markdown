@@ -17,7 +17,7 @@ Please press hint if only necessary
 <br/>
 
 ## Review
-Should be simple if you have done the exercises before
+This should be quite simple if you have done the exercises before.
 
 ### Directory Navigation
 
@@ -226,7 +226,7 @@ It is a little bit confusing, but what you need to know is anything start with a
 
 After zipping it, list all files, what did you find?  
 
-Let's unzip it with `gunzip` first.
+Now, let's unzip it with `gunzip`.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -328,7 +328,7 @@ You can archive and compress at the same time with `tar`!
 We will archive and compress `stuff` into `stuff.tar.gz`
 
 Same drill: use `man` or `-h` for help and figure out how to do it!  
-(You don't need the patterns)
+
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>tar -czvf stuffs.tar.gz stuffs  </pre>
@@ -418,7 +418,7 @@ wc HeadsAndTails.txt
 You can see that there are four columns, the first three are numeric the last one is your file name.  
 But what does each number mean? Try to find it out yourself!
 
-You can also use options to specify which number you want to see. Use `-h` to invoke "manual", and play with the four options!
+You can also use options to specify which number you want to see. Look at manual and play with the four options!
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
@@ -645,6 +645,12 @@ Both `grep` and `sed` also allow super-useful fuzzy matching with regular expres
 
 <br/>
 
+![band](../img/band.png)
+
+<br/>
+
+## Good practice and miscellaneous things you should know
+
 ### Paths and Variables
 Variables are useful when you need to run same codes with different arguments. Let's say we want to run `cat` and `echo` multiple times. We can use a variable, let's say `file`, and also assign a value `AfricanCountriesA` to `file`. 
 
@@ -654,7 +660,7 @@ cat $file
 echo $file
 ```
 
-This way, you will be able to see the contents of `AfricanCountriesA`.  
+We first use `=` to assign the variable. Then, we call the variable with `$`. This way, we will be able to see the contents of `AfricanCountriesA` and the file name itself.  
 We can further assign different values to `file`. Such as,
 
 ```
@@ -666,12 +672,6 @@ echo $file
 It might not seem very useful right now, but if you have complicated codes. You only need to save the codes once instead of multiple times if you use variables. We will also talk about other uses soon (tomorrow!)
 
 <br/>
-
-![band](../img/band.png)
-
-<br/>
-
-## Good practice and miscellaneous things you should know
 
 ### Tabs Tabs Tabs!
 OK I should have said this before, but if you're stuck, just press `tab`!
