@@ -646,10 +646,26 @@ Both `grep` and `sed` also allow super-useful fuzzy matching with regular expres
 <br/>
 
 ### Paths and Variables
+Variables are useful when you need to run same codes with different arguments. Let's say we want to run `cat` and `echo` multiple times. We can use a variable, let's say `file`, and also assign a value `AfricanCountriesA` to `file`. 
 
+```
+file=AfricanCountriesA
+cat $file
+echo $file
+```
 
-Something about export too.
+This way, you will be able to see the contents of `AfricanCountriesA`.  
+We can further assign different values to `file`. Such as,
 
+```
+file=AfricanCountriesB
+cat $file
+echo $file
+```
+
+It might not seem very useful right now, but if you have complicated codes. You only need to save the codes once instead of multiple times if you use variables. We will also talk about other uses soon (tomorrow!)
+
+<br/>
 
 ![band](../img/band.png)
 
@@ -660,7 +676,7 @@ Something about export too.
 ### Tabs Tabs Tabs!
 OK I should have said this before, but if you're stuck, just press `tab`!
 
-Some more details: A normal UNIX syntax is start with a command and add options, arguments etc. If you press `tab` when you are at the command part, it will search in your `PATH` and try to find one that fits to fill in. If you press `tab` when you at the options/arguments part it will search in your present working directory and try to find a file (including directories) that fits to fill in.  
+Some more details: A normal UNIX syntax is start with a command and add options, arguments etc. If you press `tab` when you are at the command part, it will search in your `PATH` (a special environmental variable that's already defined) and try to find one that fits to fill in. If you press `tab` when you at the options/arguments part it will search in your present working directory and try to find a file (including directories) that fits to fill in.  
 If there are more than two hits, it won't give you anything. But then, you can press `tab` another time and it will give you a list of hits.
 
 <br/>
