@@ -191,6 +191,7 @@ ReMove `Knowledge`
 <br/>
 
 ![band](../img/band.png)
+
 <br/>
 
 ## "New" stuff!
@@ -400,7 +401,6 @@ However, we don't have a good manual. So, let's google to get help and try to re
   <summary><b><u>Hint</u></b></summary>
   <pre>tail -n +2 Linux.markdown  </pre>
 </details>
-<br/>
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
@@ -424,8 +424,10 @@ You can also use options to specify which number you want to see. Use `-h` to in
   <summary><b><u>Click to learn more!</u></b></summary>
   You may notice <code>-m</code> and <code>-c</code> are nearly the same. That's because <code>-m</code> is character <code>-c</code> is bytes and normally one character is one byte. But when we use certain coding systems, some characters require two bytes to store, which makes the difference.
 </details>
+<br/>
 
 Note: It's also not that simple to count nucleotides, but this is a starting point.
+<br/>
 
 ### Pipes `|`
 Pipes `|` are one of the most powerful tool in Linux in my opinion.  
@@ -637,16 +639,20 @@ You can also replace multiple characters and special characters. Howabout replac
   If this is the case, you can use other characters except for <code>\</code> to replace <code>/</code>! E.g.
   <pre>sed 's@/@X@g' yourfile  </pre>
 </details>
+<br/>
 
 Both `grep` and `sed` also allow super-useful fuzzy matching with regular expressions. We will explore them tomorrow!
 
 <br/>
 
 ### Paths and Variables
+
+
 Something about export too.
 
 
 ![band](../img/band.png)
+
 <br/>
 
 ## Good practice and miscellaneous things you should know
