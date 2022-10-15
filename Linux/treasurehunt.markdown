@@ -4,7 +4,7 @@ permalink: /Linux/TreasureHunt
 title: "What? There's a Treasure Hunt?"
 ---
 
-![pirate](../img/pirate.png)
+![pirate](../img/pirate.jpg)
 
 Legend has it that the ancient pirates of the kingdom of Bioinformatican have discovered the wondrous <i>Amanita oceanica</i> in the hidden ruins of Pretoria, South Africa.  
 It's said that this mushroom could grant immortality. The pirates used the mushrooms to make themselves immortal, but unfortunately, they were not able to find a way out of the maze-like cave. They died without ever finding their way back home and became the first victims of Isiququmadevu.  
@@ -16,7 +16,7 @@ The secret message: (decoded already)
 > YARRRR!!!!  
   So, I see you want to find Amanita oceanica. I will tell you how to find it. But! You need to prove that you have a proper skill in coding in Linux and bioinformatics knowledge!  
   There will be two more secret messages and you need to follow through them to get to the answer.  
-  First message is inside "message1/secret", but which one is it?! Go to the fasta file, find out the only sequence name that doesn't start with "genus"! The number in that sequence name is what you need to find your next message!  
+  First message is inside "message1/secret", but which one is it?! Go to the fasta file, find out the only sequence name that doesn't start with "genus". The number in that sequence name is what you need to find your next message!  
   You can decrypt the secret message with the tool you used for this message. The tool doesn't care if there's one line or multiple lines it seems.  
   YARRRR!!!!
 
