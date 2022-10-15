@@ -28,13 +28,14 @@ What's the Present Working Directory? (i.e. which directory are you in?)
 </details>
 <br/>
 
-Change Directory to `Intro/Review`.
+Change Directory to `LinuxIntro/Review`.
 <details>
   <summary><b><u>Hint</u></b></summary>
   You can use either absolute path or relative path.
-  <pre>cd XXXXXXXXX  </pre>
+  <pre>cd LinuxIntro/Review  </pre>
   OR
-  <pre>cd YYYYYYYYY  </pre>
+  <pre>cd /[pwd]/LinuxIntro/Review  </pre>
+  (replace <code>[pwd]</code> with your <code>[pwd]</code> output.)
 </details>
 <br/>
 
@@ -67,7 +68,7 @@ Go to the home directory.
 <br/>
 
 ### File Exploration
-First, go to directory `Intro/Review/FileExploration`.  
+First, go to directory `LinuxIntro/Review/FileExploration`.  
 Then, LiSt the files.
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -102,28 +103,36 @@ Now, what's in `directory"X"`, where X can be anything?
 </details>
 <br/>
 
-What's in `directoryNovels/TheDoomsDay`?
+What's in `directoryRecipes/FiveSpiceSeaweed`?
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>cat directoryNovels/TheDoomsDay  </pre>
+  <pre>cat directoryRecipes/FiveSpiceSeaweed  </pre>
   OR
-  <pre>less directoryNovels/TheDoomsday  </pre>
+  <pre>less directoryRecipes/FiveSpiceSeaweed  </pre>
   To leave <code>less</code> press q.<br/>
   There are a lot more choices!
 </details>
 <br/>
 
 ### Super Basic File and Directory Handling
-Go to directory `Intro/Review/FileDirHandle`.  
-Make a file named `fileX` with `1+1=3` as its content.
+Go to directory `LinuxIntro/Review/FileDirHandle`.  
+Make a file named `fileX` with `1+1=3` as its content with `nano`.
+
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>nano fileX  
 # type in 1+1=3  
 # control C  
 # click Y  </pre>
-  OR 
+</details>
+<br/>
+
+Let's remove `fileX` and use `echo` and `>` instead.
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
   <pre>echo 1+1=3 > fileX  </pre>
+  <code>echo</code>
 </details>
 <br/>
 
@@ -180,6 +189,7 @@ ReMove `Knowledge/Facts/math`
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>rm Knowledge/Facts/math  </pre>
+  Note: this is dangerous, the files you <code>rm</code> are gone forever. You can't get it back from the recycle bin!
 </details>
 <br/>
 
@@ -203,7 +213,7 @@ In bioinformatics we often deal with large files, and so we need to compress the
 
 #### Compression
 The most common compression method is `gzip`. You might be quite familiar with `zip`, but that's mostly used in Windows.   
-First, go to `Intro/NewStuff/CompArch`, make two file called `mouth` and `pants`, and try to compress them (You can add any content you want into the two files.)  
+First, go to `LinuxIntro/NewStuff/CompArch`, make two file called `mouth` and `pants`, and try to compress them (You can add any content you want into the two files.)  
 Since we are learning, let's get some help.
 
 ```
@@ -243,7 +253,7 @@ This time, we will use:
 man gzip
 ```
 
-This opens the detailed manual with less. You can press `q` to leave.
+This opens the detailed manual with `less`. You can scroll up and down with your mouse and press `q` to leave.
 
 Now, let's complete the task!
 
@@ -303,7 +313,7 @@ With all the information, let's try to archive!
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>tar -c -v -f stuffs.tar stuffs  </pre>
-  You can also put the three options altogether!
+  You can also put the all three options together!
   <pre>tar -cvf stuffs.tar stuffs  </pre>
 </details>
 <br/>
@@ -366,7 +376,7 @@ Now, extract `mouth` only (Same drill)
 #### Read compressed files without extraction
 You can actually read compressed files without extracting them into new files! But, why do we want to do that? Because we can directly feed it into other commands with pipes `|`, which saves disk space and computational time (We will talk about it later).
 
-Let's just run the followings
+Let's run the followings and see what you got.
 ```
 echo nonsense > temp.txt
 gzip temp.txt
@@ -377,7 +387,7 @@ gzcat temp.txt.gz
 You know `head` already it spits out the first few lines of a file. It could be handy if you want to take a quick glance at a file.  
 But do you know `head` can do more than that?  
 For example, you can specify how many lines you want it to spit out.  
-Same drill, go to `Intro/NewStuff/HeadTailAndWordCount` and try to read file see what's the first three lines of `HeadAndTails.txt`?
+Same drill, go to `LinuxIntro/NewStuff/HeadTailAndWordCount` and try to read file see what's the first three lines of `HeadAndTails.txt`?
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -411,7 +421,7 @@ However, we don't have a good manual. So, let's google to get help and try to re
 
 ### Counting Characters, Words and Lines
 Sometimes you need to count how many raw reads you got from a sequencing service, or you want to count mamy nucleotides there are in a gene. Then, we can use `wc`.  
-Stay in `Intro/NewStuff/HeadTailAndWordCount` and run 
+Stay in `LinuxIntro/NewStuff/HeadTailAndWordCount` and run 
 ```
 wc HeadsAndTails.txt
 ```
@@ -432,7 +442,7 @@ Note: It's also not that simple to count nucleotides, but this is a starting poi
 ### Pipes `|`
 Pipes `|` are one of the most powerful tool in Linux in my opinion.  
 
-Before we learn about pipe, let's revisit `wc` and `ls`. Go to `Intro/NewStuff/pipe` and figure out a way to count files in the folder!  
+Before we learn about pipe, let's revisit `wc` and `ls`. Go to `LinuxIntro/NewStuff/pipe` and figure out a way to count files in the folder!  
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -461,7 +471,7 @@ Let's use `|` again to get the 3rd to 8th lines of `BadGuy`!
 ### Same and Different
 #### Diff
 Say today your lab is sharing a dataset and you made some edits, but you forgot what they are exactly. We can use `diff` to solve this issue.  
-Head to `Intro/NewStuff/DiffSort` and compare `AfricanCountriesA` and `AfricanCountriesB`
+Head to `LinuxIntro/NewStuff/DiffSort` and compare `AfricanCountriesA` and `AfricanCountriesB`
 
 ```
 diff AfricanCountriesA AfricanCountriesB
@@ -738,4 +748,4 @@ Do you know how to remove `\r`? (Remember `sed`?)
 
 <br/>
 
-## Also see
+## See also 

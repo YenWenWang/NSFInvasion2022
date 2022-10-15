@@ -15,3 +15,6 @@ layout: home
 ### Linux
 - [Intro to Linux](Linux/Intro)  
 - ["Advanced" Linux](Linux/Advance)
+
+### Others
+- [Blast](misc/blast)
