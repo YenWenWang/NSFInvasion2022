@@ -4,9 +4,6 @@ permalink: /Linux/Intro
 title: "Intro to Linux"
 ---
 
-Need a section called Redirect output to file.
-
-## What are we going to learn?
 
 Please press hint if only necessary  
 

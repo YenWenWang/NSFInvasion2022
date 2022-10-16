@@ -76,4 +76,12 @@ Okay, that is all good, but the output format isn't the best: it's hard to extra
 Take a look at your output. What does each column mean?
 
 
+Now, let's try to use our protein database. 
 
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>blastp -db [databasename] -query [proteinfasta] -outfmt 6 -out blastp-fmt6.txt  </pre>
+</details>
+<br/>
+
+How's the performance of it? When will it be more or less favored than a nucleotide database?
