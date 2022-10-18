@@ -22,7 +22,7 @@ Let's go to folder `LinuxAdvance/forloops` and copy three of your genome assembl
 
 ```
 for f in *.fasta
-do  makeblastdb -dbtype nucl $f
+do  makeblastdb -dbtype nucl -in $f
 done
 ```
 
@@ -33,7 +33,7 @@ Note that you can have multiple lines after do and the for loop will run through
 ```
 for f in *.fasta
 do  echo making database for $f
-    makeblastdb -dbtype nucl $f
+    makeblastdb -dbtype nucl -in $f
 done
 ```
 
@@ -43,7 +43,7 @@ How about you try to run blast through all databases now? Copy the fasta with ge
   <summary><b><u>Hint</u></b></summary>
   You can run something like this. (replace <code>blastn</code> with <code>tblastn</code> if you have a protein query.)
   <pre>for f in *.fasta  
-do  blastn -db $f -query [&ltyourquery&gt] -outfmt 6 -out tblastn-$f.txt  
+do  blastn -db $f -query [&ltyourquery&gt] -outfmt 6 -out blastn-$f.txt  
 done</pre>
 </details>
 <br/>
