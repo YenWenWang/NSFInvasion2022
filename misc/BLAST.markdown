@@ -4,11 +4,8 @@ permalink: /misc/blast
 title: "Blast"
 ---
 
-blastn
-tblastn
-blastp
-blastx
-tblastx
+add why things are fragmented?
+add what happens if you have gene duplication/paralogs
 
 ### Knowing your dataset
 #### Queries
@@ -29,7 +26,7 @@ Making databases for Blast is quite straightforward. You only need `makeblastdb`
 I will help you with the genome database.
 
 ```
-makeblastdb -dbtype nucl -in [yourfasta]
+makeblastdb -dbtype nucl -in [<yourfasta>]
 ```
 
 Basically, you need to specify it's a nucleotide database. Check what's in the directory!
@@ -48,10 +45,10 @@ Now, you also know how to make a protein database! (Use `makeblastdb -help` to g
 We will start with `blastn`, which is using a nucleotide query to search in a nucleotide database. Let's try 
 
 ```
-blastn -db [databasename] -query query.fasta -out blastn.txt
+blastn -db [<databasename>] -query query.fasta -out blastn.txt
 ```
 
-`[databasename]` is your fasta filename, if you didn't use the `-out` option.
+`[<databasename>]` is your fasta filename, if you didn't use the `-out` option.
 
 Now, take a look at `blastn.txt`. What did you see? Why is that?
 
@@ -59,7 +56,7 @@ How about we translate the genes into protein using [Expasy](https://web.expasy.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>tblastn -db [databasename] -query [proteinfasta] -out tblastn.txt  </pre>
+  <pre>tblastn -db [&ltdatabasename&gt] -query [&ltproteinfasta&gt] -out tblastn.txt  </pre>
 </details>
 <br/>
 
@@ -69,19 +66,24 @@ Okay, that is all good, but the output format isn't the best: it's hard to extra
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>tblastn -db [databasename] -query [proteinfasta] -outfmt 6 -out tblastn-fmt6.txt  </pre>
+  <pre>tblastn -db [&ltdatabasename&gt] -query [&ltproteinfasta&gt] -outfmt 6 -out tblastn-fmt6.txt  </pre>
 </details>
 <br/>
 
-Take a look at your output. What does each column mean?
-
+Take a look at your output. What does each column mean?  
+Why does each query have multiple hits?
 
 Now, let's try to use our protein database. 
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>blastp -db [databasename] -query [proteinfasta] -outfmt 6 -out blastp-fmt6.txt  </pre>
+  <pre>blastp -db [&ltdatabasename&gt] -query [&ltproteinfasta&gt] -outfmt 6 -out blastp-fmt6.txt  </pre>
 </details>
 <br/>
 
 How's the performance of it? When will it be more or less favored than a nucleotide database?
+
+
+## See also
+- [Smith Waterman algorithm](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm)
+- [Blast output format 6](https://www.metagenomics.wiki/tools/blast/blastn-output-format-6)

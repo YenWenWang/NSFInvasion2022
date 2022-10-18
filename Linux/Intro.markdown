@@ -31,8 +31,8 @@ Change Directory to `LinuxIntro/Review`.
   You can use either absolute path or relative path.
   <pre>cd LinuxIntro/Review  </pre>
   OR
-  <pre>cd /[pwd]/LinuxIntro/Review  </pre>
-  (replace <code>[pwd]</code> with your <code>[pwd]</code> output.)
+  <pre>cd /[&ltpwd&gt]/LinuxIntro/Review  </pre>
+  (replace <code>[&ltpwd&gt]</code> with your <code>[pwd]</code> output.)
 </details>
 <br/>
 
@@ -129,7 +129,7 @@ Let's remove `fileX` and use `echo` and `>` instead.
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>echo 1+1=3 > fileX  </pre>
-  <code>echo</code>
+  <code>echo</code> will just print out the exact same thing you typed in. But <code>></code> redirect it to <code>fileX</code>.
 </details>
 <br/>
 
@@ -171,6 +171,13 @@ CoPy `fileX` into `Knowledge/Facts` and rename it into `math`
 mv Knowledge/Facts/fileX Knowledge/Facts/Math  </pre>
   OR
   <pre>cp fileX Knowledge/Facts/Math  </pre>
+</details>
+<br/>
+
+CoPy `Knowledge/Facts/Math` into current directory without renaming
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>cp fileX Knowledge/Facts/Math .
 </details>
 <br/>
 
