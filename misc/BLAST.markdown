@@ -56,7 +56,7 @@ How about we translate the genes into protein using [Expasy](https://web.expasy.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>tblastn -db [&ltdatabasename&gt] -query [&ltproteinfasta&gt] -out tblastn.txt  </pre>
+  <pre>tblastn -db [&lt;databasename&gt;] -query [&lt;proteinfasta&gt;] -out tblastn.txt  </pre>
 </details>
 <br/>
 
@@ -66,7 +66,7 @@ Okay, that is all good, but the output format isn't the best: it's hard to extra
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>tblastn -db [&ltdatabasename&gt] -query [&ltproteinfasta&gt] -outfmt 6 -out tblastn-fmt6.txt  </pre>
+  <pre>tblastn -db [&lt;databasename&gt;] -query [&lt;proteinfasta&gt;] -outfmt 6 -out tblastn-fmt6.txt  </pre>
 </details>
 <br/>
 
@@ -77,7 +77,7 @@ Now, let's try to use our protein database.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>blastp -db [&ltdatabasename&gt] -query [&ltproteinfasta&gt] -outfmt 6 -out blastp-fmt6.txt  </pre>
+  <pre>blastp -db [&lt;databasename&gt;] -query [&lt;proteinfasta&gt;] -outfmt 6 -out blastp-fmt6.txt  </pre>
 </details>
 <br/>
 

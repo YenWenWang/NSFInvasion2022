@@ -43,227 +43,338 @@
   </header>
 
   <div class="post-content">
-    <h2 id="what-are-we-going-to-learn">What are we going to learn?</h2>
+    <p>Notes:</p>
 
-<p>Please press hint if only necessary
-<br /></p>
+<p>Table related
+cut: csv and tsv
+more sort: -k 
+awk</p>
 
-<h2 id="review">Review</h2>
-<p>Should be simple if you have done the exercises before</p>
+<p>Crazy stuff:
+Process substitution and command substitution</p>
 
-<h3 id="1-directory-navigation">1. Directory Navigation</h3>
+<h2 id="loops-and-ifs">Loops and ifs</h2>
+<h3 id="for">for</h3>
+<p>We are using BLAST to learn about loops. And we will be using your favorite genes. First, we will build multiple databases with <code class="language-plaintext highlighter-rouge">for</code> loops and blast each databases.<br />
+Let’s go to folder <code class="language-plaintext highlighter-rouge">LinuxAdvance/forloops</code> and copy three of your genome assemblies into the folder.</p>
 
-<h4 id="whats-the-present-working-directory-ie-which-directory-are-you-in">What’s the Present Working Directory? (i.e. which directory are you in?)</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for f in *.fasta
+do  makeblastdb -dbtype nucl -in $f
+done
+</code></pre></div></div>
+
+<p>Let’s see what’s going on here. The first line uses a wild card and so it’s basically <code class="language-plaintext highlighter-rouge">for f in A.fasta B.fasta C.fasta</code>. This will create a variable call <code class="language-plaintext highlighter-rouge">f</code>. <code class="language-plaintext highlighter-rouge">A.fasta</code> will be assigned to <code class="language-plaintext highlighter-rouge">f</code> for the first iteration, <code class="language-plaintext highlighter-rouge">B.fasta</code> will be the next, and so on and so forth.<br />
+Move on to the next line. <code class="language-plaintext highlighter-rouge">do</code> states the things you are going to do for an iteration. And <code class="language-plaintext highlighter-rouge">$f</code> is calling the variable <code class="language-plaintext highlighter-rouge">f</code>. So, for the first iteration, we are running <code class="language-plaintext highlighter-rouge">makeblastdb -dbtype nucl A.fasta</code>. So on and so forth.
+Note that you can have multiple lines after do and the for loop will run through all of them. For example: (Don’t run)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for f in *.fasta
+do  echo making database for $f
+    makeblastdb -dbtype nucl -in $f
+done
+</code></pre></div></div>
+
+<p>How about you try to run blast through all databases now? Copy the fasta with genes of interest into the folder and write a code to complete the task!</p>
+
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    pwd
-  </pre>
+  You can run something like this. (replace <code>blastn</code> with <code>tblastn</code> if you have a protein query.)
+  <pre>for f in *.fasta  
+do  blastn -db $f -query [&lt;yourquery&gt;] -outfmt 6 -out blastn-$f.txt  
+done</pre>
 </details>
 <p><br /></p>
 
-<h4 id="change-directory-to-xxxxxxxxxx">Change Directory to <code class="language-plaintext highlighter-rouge">XXXXXXXXXX</code>.</h4>
+<p>Did you get an issue with your query fasta being treated as a database? There are at least three strategies to deal with it. The first one is to avoid <code class="language-plaintext highlighter-rouge">for</code> assigning it your variable <code class="language-plaintext highlighter-rouge">f</code>. For example, you can rename it, put it into a different folder or use some clever scheme in your wildcard to exclude the query.<br />
+Or, you can use <code class="language-plaintext highlighter-rouge">if</code> (I’m still proposing using the former, since it will be cleaner).</p>
+
 <details>
-  <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cd XXXXXXXXX
-  </pre>
-  OR
-  <pre>
-    cd YYYYYYYYY
-  </pre>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  <code>for</code> loops are also useful if you want to generate a series of number. Try the followings:  
+  <pre>for n in {1..20}  
+do  echo $n
+done</pre>
 </details>
 <p><br /></p>
 
-<h4 id="go-to-the-parent-directory">Go to the parent directory.</h4>
+<h3 id="if-else">if else</h3>
+<p>I’m not using <code class="language-plaintext highlighter-rouge">if</code> <code class="language-plaintext highlighter-rouge">else</code> a lot, but I think it’s worth mentioning.
+Using our former task as example, we want to avoid your query. Therefore we need a <code class="language-plaintext highlighter-rouge">if</code> clause saying “if <code class="language-plaintext highlighter-rouge">f</code> is query, skip it”, or “if <code class="language-plaintext highlighter-rouge">f</code> is not query, do some stuff”.<br />
+Let’s start with the second strategy with an example.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x=somestring
+if [ $x != somestring ]
+then echo $x is not somestring
+fi
+</code></pre></div></div>
+
+<p>In this example, we first assign “somestring” to <code class="language-plaintext highlighter-rouge">x</code>. The second line ask if <code class="language-plaintext highlighter-rouge">x</code> is not somestring (<code class="language-plaintext highlighter-rouge">!=</code> is not equal). Now, the <code class="language-plaintext highlighter-rouge">[]</code> pass a true to if, so the if clause continue to run things from <code class="language-plaintext highlighter-rouge">then</code> to <code class="language-plaintext highlighter-rouge">fi</code>. You can try assign something else to <code class="language-plaintext highlighter-rouge">x</code> and see what happens.
+Note: You need the space between <code class="language-plaintext highlighter-rouge">[</code> and <code class="language-plaintext highlighter-rouge">$x</code> and between <code class="language-plaintext highlighter-rouge">somestring</code> and <code class="language-plaintext highlighter-rouge">]</code>.</p>
+
+<p>Now, let’s try the first strategy.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x=somestring
+if [ $x == somestring ]
+then echo
+else echo $x is not somestring
+fi
+</code></pre></div></div>
+
+<p>Here, there’s an else clause to say “if the things in <code class="language-plaintext highlighter-rouge">[]</code> is false, in this case: <code class="language-plaintext highlighter-rouge">x</code> is somestring (<code class="language-plaintext highlighter-rouge">==</code> is equal), run some <code class="language-plaintext highlighter-rouge">echo $x is not somestring</code>.<br />
+You can see the solution is not elegant. You still need to run something when <code class="language-plaintext highlighter-rouge">[]</code> is true (I just gave it an <code class="language-plaintext highlighter-rouge">echo</code>). So, avoid this solution, but <code class="language-plaintext highlighter-rouge">else</code> is useful when you want to run something dichotomous.</p>
+
 <details>
-  <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cd ..
-  </pre>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  There's also <code>elif</code> so you can process multiple if else together. Go learn it yourself!
 </details>
 <p><br /></p>
 
-<h4 id="go-to-back-to-the-directory-you-were-in-xxx">Go to back to the directory you were in (<code class="language-plaintext highlighter-rouge">XXX</code>).</h4>
+<p>Try to write a code with <code class="language-plaintext highlighter-rouge">for</code> and <code class="language-plaintext highlighter-rouge">if</code> to avoid using query fasta!</p>
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cd -
-  </pre>
-</details>
-
-<details>
-  <summary><b><u>Click here to learn more!</u></b></summary>
-
-  You can use `cd -` to hop back and forth between two directories.
+  <pre>for f in *.fasta  
+do  if [ $f != [&lt;yourquery&gt;] ]  
+    then blastn -db $f -query [&lt;yourquery&gt;] -outfmt 6 -out tblastn-$f.txt  
+    fi  
+done</pre>
 </details>
 <p><br /></p>
 
-<h4 id="go-to-the-home-directory">Go to the home directory.</h4>
+<h3 id="while-loops">while loops</h3>
+<p>The third strategy is to use <code class="language-plaintext highlighter-rouge">while</code> loops.<br />
+The most common usage of <code class="language-plaintext highlighter-rouge">while</code> loop is to read a file and it will go through each line and assign them to variables.
+Let’s go to <code class="language-plaintext highlighter-rouge">LinuxAdvance/forloops</code>, take a look at <code class="language-plaintext highlighter-rouge">testfile</code> and run this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while read l
+do  echo $l is a letter
+done &lt; testfile
+</code></pre></div></div>
+
+<p>Could you figure out what’s going on?</p>
+
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cd
-  </pre>
-  OR
-  <pre>
-    cd .  
-  </pre>
+  The first line saying while you are reading a line from a file, you assign it to <code>l</code> and do the things between <code>do</code> and <code>done</code>.  
+  The last line uses <code>&lt;</code> to indicate which file you are reading.
 </details>
 <p><br /></p>
 
-<h3 id="2-file-exploration">2. File Exploration</h3>
-<h4 id="first-go-to-directory-xxxxx">First, go to directory <code class="language-plaintext highlighter-rouge">XXXXX</code>.</h4>
-<h4 id="list-the-files">LiSt the files.</h4>
+<p>Now, your turn, copy three of your genome assemblies and the fasta with genes of interest into the folder. Then, write a code to complete the task.
+Note: use <code class="language-plaintext highlighter-rouge">nano</code> to create the files that you are reading with <code class="language-plaintext highlighter-rouge">while</code>.</p>
+
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    ls
-  </pre>
+  It should be something like this:
+  <pre>while read l
+do makeblastdb -dbtype nucl $l
+  blastn -db $l -query [&lt;yourquery&gt;] -outfmt 6 -out tblastn-$l.txt  
+done &lt; [&lt;yourfastalist&gt;] </pre>
+Also see that I combined makeblastdb and blast so I don't need two loops! 
 </details>
 <p><br /></p>
 
-<h4 id="which-is-the-oldest-file-and-which-is-the-largest-file">Which is the oldest file and which is the largest file?</h4>
 <details>
-  <summary><b><u>Hint</u></b></summary>
-  <pre>
-    ls -lh
-  </pre>
-</details>
-
-<details>
-  <summary><b><u>Click here to learn more!</u></b></summary>
-  You can sort the files by time and size!
-  <pre>
-    ls -lht 
-    ls -lhS
-  </pre>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  There's also <code>elif</code> so you can process multiple if else together. Go learn it yourself!
 </details>
 <p><br /></p>
 
-<h4 id="whats-in-directoryx-where-x-can-be-anything">What’s in <code class="language-plaintext highlighter-rouge">directory"X"</code>, where X can be anything?</h4>
+<h2 id="advance-sed-and-grep">Advance sed and grep</h2>
+<h3 id="sed-with-variables">sed with variables</h3>
+<p>To make a combined database with multiple genomes, we technically only need to concatenate all the genome files and then use <code class="language-plaintext highlighter-rouge">makeblastdb</code>. However, it would be hard to know which contig or scaffold is from which sample. So, we are going back to <code class="language-plaintext highlighter-rouge">sed</code> to label these contigs/scaffolds. And although we do not necessarily need complicated coding to accomplish it, it’s a good point to introduce you regular expressions. Just bear with me.</p>
+
+<p>If we look at our assemblies, each sequence have a sequence name start with <code class="language-plaintext highlighter-rouge">&gt;</code>. The easiest way to add sample information is to replace <code class="language-plaintext highlighter-rouge">&gt;</code> with <code class="language-plaintext highlighter-rouge">&gt;[&lt;sample name&gt;]</code>.<br />
+Note that because you are using <code class="language-plaintext highlighter-rouge">''</code> in <code class="language-plaintext highlighter-rouge">sed</code> and that will suppress the meaning of <code class="language-plaintext highlighter-rouge">$</code> for calling variables, so you’ll need to use <code class="language-plaintext highlighter-rouge">''</code> to address it. Basically, if you want to replace variable <code class="language-plaintext highlighter-rouge">X</code> with variable <code class="language-plaintext highlighter-rouge">Y</code>, you should code</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/'$X'/'$Y'/g' [&lt;somefile&gt;]
+</code></pre></div></div>
+
+<p>Now, you should have all the things you need to figure it out!<br />
+Let’s go to <code class="language-plaintext highlighter-rouge">LinuxAdvance/sedblast</code>, copy a few assembled genomes there and try it out! (Don’t stop at making database but also do the blast part.)</p>
+
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    ls directory*
-  </pre>
-  * is one of the wildcards, it can be anything at any length! However, the syntax is not the same in every situation. We will explore other usage of wildcards later!
+  I'm skipping the <code>makeblastdb</code> and <code>blast</code>
+  <pre>for f in *.fasta  
+do  sed 's/&gt;/&gt;'$f'/g' $f &gt; temp  
+    mv temp $f
+done  
+cat *.fasta &gt; compiled.fasta  </pre>
+  You will get something that's sort of usable with this script.<br />
+  But it's ugly. you will have <code>.fasta</code> inside your sequences. What can you do? Well, just pipe it to another <code>sed</code> to remove it (and maybe replace it with something sensible!)
+</details>
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  You might find making a temporary file very inelegant. You can check out <code>-i</code>. I just never remember to use it :).
 </details>
 <p><br /></p>
 
-<h4 id="whats-in-directoryafilea">What’s in <code class="language-plaintext highlighter-rouge">directoryA/fileA</code>?</h4>
+<p>Take a look at the blast results what did you find?</p>
+
+<h3 id="sed-with-regular-expression-regex">sed with regular expression (Regex)</h3>
+
+<h4 id="beginning-and-end-of-a-line">Beginning and end of a line.</h4>
+
+<p>Normally you won’t have this problem, but what if there’s an additional <code class="language-plaintext highlighter-rouge">&gt;</code> in the middle of the sequence name? That will also add in the sample name that you don’t need right?</p>
+
+<p>So, we can use <code class="language-plaintext highlighter-rouge">^</code> to specify that <code class="language-plaintext highlighter-rouge">&gt;</code> needs to be at the beginning. Like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for f in *.fasta  
+do  sed 's/^&gt;/&gt;'$f'/g' $f &gt; temp  
+    mv temp $f
+done 
+</code></pre></div></div>
+
+<p>Sometimes you also want to add something to the end of a sequence. You can then use <code class="language-plaintext highlighter-rouge">$</code> to specify.
+For example: (do not run)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/A$/B/g' 
+</code></pre></div></div>
+
+<p>This will replace every <code class="language-plaintext highlighter-rouge">A</code> at end of a line with <code class="language-plaintext highlighter-rouge">B</code>.</p>
+
+<p>I hope that you are interested in Regex now. And we will learn some other useful Regex!</p>
+
+<h4 id="wildcards">Wildcards</h4>
+
+<p>Let’s head to <code class="language-plaintext highlighter-rouge">LinuxAdvance/sedregex</code>, take a look at the file <code class="language-plaintext highlighter-rouge">ECMspecies</code> and learn about more Regex.<br />
+First we will learn <code class="language-plaintext highlighter-rouge">.</code>. <code class="language-plaintext highlighter-rouge">.</code> means any single character. Let’s see what happen if we run these two scripts:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/./XXX/' ECMspecies
+sed 's/../XXX/' ECMspecies
+</code></pre></div></div>
+
+<p>Notice that I didn’t add <code class="language-plaintext highlighter-rouge">g</code> at the end of the <code class="language-plaintext highlighter-rouge">sed</code> expression, so it will only replace the first match.</p>
+
+<p><code class="language-plaintext highlighter-rouge">*</code> is often used with <code class="language-plaintext highlighter-rouge">.</code>. What it does is matching the preceding element zero or more times (It’s different from <code class="language-plaintext highlighter-rouge">bash</code>’s wildcard.)</p>
+
+<p>So what does this do?</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/ .*/XXX/g' ECMspecies
+</code></pre></div></div>
+
+<p>Let’s try to add <code class="language-plaintext highlighter-rouge">feminine</code> after genus names that end with <code class="language-plaintext highlighter-rouge">a</code>, add <code class="language-plaintext highlighter-rouge">masculine</code> after genus names that end with <code class="language-plaintext highlighter-rouge">us</code>. Also, remove the numbers and species. (Ignore <code class="language-plaintext highlighter-rouge">Tuber</code>)</p>
+
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cat directoryA/fileA 
-  </pre>
-  OR
-  <pre>
-    less directoryA/fileA
-  </pre>
-  There are a lot more choices!
+  <pre>sed 's/a .*/a feminine/g' ECMspecies | sed 's/us .*/us masculine/g'  </pre>
 </details>
 <p><br /></p>
 
-<h3 id="3-super-basic-file-and-directory-handling">3. Super Basic File and Directory Handling</h3>
+<h4 id="bracket-expressions">Bracket expressions</h4>
 
-<h4 id="make-a-file-named-filex-with-113-as-its-content">Make a file named <code class="language-plaintext highlighter-rouge">fileX</code> with <code class="language-plaintext highlighter-rouge">1+1=3</code> as its content.</h4>
+<p>Although <code class="language-plaintext highlighter-rouge">.</code> is useful, we can’t do more nuanced edits. For example, it can not do something like only editting <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">c</code> in the file. But, we can use bracket expressions <code class="language-plaintext highlighter-rouge">[]</code>.</p>
+
+<p>How bracket expression works is that you place everything that you want to match inside the bracket. Such as,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/[ac]/XXX/' ECMspecies
+</code></pre></div></div>
+
+<p>Notice that, again, I did not use <code class="language-plaintext highlighter-rouge">g</code>. Take a look at the results. What happened?</p>
+
+<p>We can also use <code class="language-plaintext highlighter-rouge">-</code> to replace a series of characters or numbers. For example,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/[a-c]/XXX/' ECMspecies
+sed 's/[0-3]/XXX/' ECMspecies
+</code></pre></div></div>
+
+<p>What just happened then? Look at the <code class="language-plaintext highlighter-rouge">Boletus</code> line. Found anything?</p>
+
+<p>You can also specify the amount of times of these brackets need to appear with <code class="language-plaintext highlighter-rouge">\{\}</code>. Let’s look at how it works without brackets first.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/l{2}/XXX/' ECMspecies
+</code></pre></div></div>
+
+<p>What does this do?</p>
+
+<p>You can replace the <code class="language-plaintext highlighter-rouge">l</code> with brackets. Like,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/[ac]\{2\}/XXX/' ECMspecies
+</code></pre></div></div>
+
+<p>You can also specify a range of number of characters. Like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/[lsu]\{1,\}/XXX/' ECMspecies
+sed 's/[lsu]\{1,3\}/XXX/' ECMspecies
+</code></pre></div></div>
+
+<p>What does each of these do?</p>
+
+<p>Now, you should know how to replace the numbers only. Let’s try to replace them with <code class="language-plaintext highlighter-rouge">N</code>!</p>
+
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>  
-    nano fileX 
-    # type in 1+1=3
-    # control C
-    # click Y
-  </pre>
-  OR 
-  <pre>
-    echo 1+1=3 &gt; fileX  
-  </pre>
+  <pre>sed 's/[0-9]\{1,\}/N/' ECMspecies  </pre>
 </details>
+
 <p><br /></p>
 
-<h4 id="make-a-directory-called-knowledge-and-make-two-subdirectories-in-knowledge-called-facts-and-believes">Make a directory called <code class="language-plaintext highlighter-rouge">Knowledge</code> and make two subdirectories in <code class="language-plaintext highlighter-rouge">Knowledge</code> called <code class="language-plaintext highlighter-rouge">Facts</code> and <code class="language-plaintext highlighter-rouge">Believes</code>.</h4>
+<p>Lastly, you should also know that you can add <code class="language-plaintext highlighter-rouge">^</code> at the beginning of the brackets to indicate “not”.
+For example,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/[^0-9]/X/g' ECMspecies
+</code></pre></div></div>
+<p>What does it do?</p>
+
+<p><br /></p>
+
+<h4 id="marked-subexpression">Marked subexpression</h4>
+
+<p>Now, let’s say we want move the numbers to the beginning of the line, we can use marked subexpression <code class="language-plaintext highlighter-rouge">\(\)</code>.</p>
+
+<p>Run the followings:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo ABCDEFGH | sed 's/^\(.*\)\(F\)/\2\1/'
+</code></pre></div></div>
+
+<p>What does it do? Let’s ignore the <code class="language-plaintext highlighter-rouge">\(\)</code> first.<br />
+<code class="language-plaintext highlighter-rouge">^</code> indicates the match needs to start from the beginning. After <code class="language-plaintext highlighter-rouge">.*</code> we find <code class="language-plaintext highlighter-rouge">F</code> and we replace them with <code class="language-plaintext highlighter-rouge">\2</code> and <code class="language-plaintext highlighter-rouge">\1</code>.<br />
+<code class="language-plaintext highlighter-rouge">\1</code> and <code class="language-plaintext highlighter-rouge">\2</code> are defined by <code class="language-plaintext highlighter-rouge">\(\)</code>. <code class="language-plaintext highlighter-rouge">\1</code> corresponds to the first and <code class="language-plaintext highlighter-rouge">\2</code> correspond to the second.</p>
+
+<p>If it makes sense, try to move the numbers to the beginning of the line like this:</p>
+
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    mkdir Truth
-    mkdir Knowledge/Facts
-    mkdir Knowledge/Believes
-  </pre>
+  <pre>sed 's/\(.*\) \([0-9]\{1,\}\)/\2 \1/' ECMspecies  </pre>
 </details>
-<details>
-  <summary><b><u>Click here to learn more!</u></b></summary>
-  You can make all directories at once!
-  <pre>
-    mkdir -p Knowledge/Facts Knowledge/Believes
-  </pre>
-  -p is "recursive" this way you can create the parent and child directories at the same time.
-</details>
+
 <p><br /></p>
 
-<h4 id="concatenate-filey-and-filez-and-append-them-to-the-end-of-filex">ConCATenate <code class="language-plaintext highlighter-rouge">fileY</code> and <code class="language-plaintext highlighter-rouge">fileZ</code> and append them to the end of <code class="language-plaintext highlighter-rouge">fileX</code></h4>
+<h4 id="grep">grep</h4>
+<p><code class="language-plaintext highlighter-rouge">grep</code> also supports the usage of Regex. Are you able to find all the genera with species number equal or higher than 10 but lower than 100? (10~99)</p>
+
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cat fileX fileY fileZ &gt; fileX
-  </pre>
+  <pre>grep ' [0-9]\{2\} ' ECMspecies  </pre>
 </details>
-<details>
-  <summary><b><u>Click here to learn more!</u></b></summary>
 
-  You can use `&gt;&gt;` to append things to a file, super useful!
-  <pre>
-    cat fileY fileZ &gt;&gt; fileX
-  </pre>
-</details>
 <p><br /></p>
 
-<h4 id="copy-filex-into-knowledgefacts-and-rename-it-into-math">CoPy <code class="language-plaintext highlighter-rouge">fileX</code> into <code class="language-plaintext highlighter-rouge">Knowledge/Facts</code> and rename it into <code class="language-plaintext highlighter-rouge">math</code></h4>
 <details>
-  <summary><b><u>Hint</u></b></summary>
-  <pre>
-    cp fileX Knowledge/Facts
-    mv Knowledge/Facts/fileX Knowledge/Facts/Math
-  </pre>
-  OR
-  <pre>
-    cp fileX Knowledge/Facts/Math
-  </pre>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  The Regex we used was POSIX basic regex. There's also a thing called POSIX extended basic regex. You can use <code>-E</code> to enable it. You don't need <code>\</code> for <code>{}</code> and <code>()</code> if you are using the extended version. And there are a few other functions that you can use. Learn more [here](https://en.wikipedia.org/wiki/Regular_expression)!
 </details>
+
 <p><br /></p>
 
-<h4 id="make-theyre-definitely-correct-to-the-end-of-filex-without-using-nano">Make <code class="language-plaintext highlighter-rouge">they're definitely correct</code> to the end of <code class="language-plaintext highlighter-rouge">fileX</code> without using <code class="language-plaintext highlighter-rouge">nano</code>.</h4>
-<details>
-  <summary><b><u>Hint</u></b></summary>
-  <pre>
-    echo "they're definitely correct" &gt;&gt; fileX
-  </pre>
-  Notice the apostrophe will open a quote, so we need to use the double quotes to suppress it.
-</details>
+<p><img src="/img/band.png" alt="band" /></p>
+
 <p><br /></p>
 
-<h4 id="remove-knowledgefactsmath">ReMove <code class="language-plaintext highlighter-rouge">Knowledge/Facts/math</code></h4>
-<details>
-  <summary><b><u>Hint</u></b></summary>
-  <pre>
-    rm Knowledge/Facts/math
-  </pre>
-</details>
-<p><br /></p>
+<h2 id="dealing-with-tables">dealing with tables</h2>
 
-<p>ReMove <code class="language-plaintext highlighter-rouge">Knowledge</code></p>
-<details>
-  <summary><b><u>Hint</u></b></summary>
-  <pre>
-    rm -r Knowledge
-  </pre>
-</details>
-<p><br /></p>
+<h3 id="cut">cut</h3>
 
-<h2 id="did-i-say-that-theres-a-treasure-hunt">Did I say that there’s a treasure hunt?!</h2>
+<h3 id="sort">sort</h3>
 
-<h2 id="also-see">Also see</h2>
+<p>cut: csv and tsv
+more sort: -k 
+awk</p>
+
+<p>cut</p>
+
+<p>sort</p>
+
+<p>awk!</p>
+
 
   </div>
 

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Blast | Coinvasion Bioinformatics 2022</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Blast" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<meta property="og:description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<link rel="canonical" href="http://localhost:4000/misc/blast" />
+<meta property="og:url" content="http://localhost:4000/misc/blast" />
+<meta property="og:site_name" content="Coinvasion Bioinformatics 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Blast" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for Coinvasion workshop 2022","headline":"Blast","url":"http://localhost:4000/misc/blast"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Coinvasion Bioinformatics 2022" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Coinvasion Bioinformatics 2022</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/Linux">Linux course</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Blast</h1>
+  </header>
+
+  <div class="post-content">
+    <p>add why things are fragmented?
+add what happens if you have gene duplication/paralogs</p>
+
+<h3 id="knowing-your-dataset">Knowing your dataset</h3>
+<h4 id="queries">Queries</h4>
+
+<p>To start to BLAST on local computers, we will first use two of my favorite genes, encoding DNA polymerase alpha subunit B, and Clathrin heavy chain, as examples. These genes are supposed to be single copied so they would be easier to deal with than many of genes of your interest.<br />
+I’ve took the coding sequences (CDSs) from <i>Amanita phalloides</i> and stored them in a fasta file: <code class="language-plaintext highlighter-rouge">BLAST/query.fasta</code>.
+So let’s head to <code class="language-plaintext highlighter-rouge">BLAST</code> and see what we are dealing with.</p>
+
+<h4 id="databases">Databases</h4>
+
+<p>You should have already played with the genomes already. Pick your favorite one and copy it into the <code class="language-plaintext highlighter-rouge">BLAST</code> directory. Also, we want to generate a protein database as well. Normally, it would be come from a genome annotation, but we will use BUSCOs instead.<br />
+And so, we need to put all the BUSCOs into a file. Figure out a way to do that with the commands we learned! (Single-copied only should be fine.)</p>
+
+<h3 id="making-databases">Making databases</h3>
+
+<p>Making databases for Blast is quite straightforward. You only need <code class="language-plaintext highlighter-rouge">makeblastdb</code>, <code class="language-plaintext highlighter-rouge">-dbtype</code> and <code class="language-plaintext highlighter-rouge">-in</code>. (You might notice that we there’s only one hyphen before these multiple-character options. It’s simply because different developers use different syntax. So, you’ll need to look at tutorials/manuals to learn these softwares.)</p>
+
+<p>I will help you with the genome database.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>makeblastdb -dbtype nucl -in [&lt;yourfasta&gt;]
+</code></pre></div></div>
+
+<p>Basically, you need to specify it’s a nucleotide database. Check what’s in the directory!</p>
+
+<p>Now, you also know how to make a protein database! (Use <code class="language-plaintext highlighter-rouge">makeblastdb -help</code> to get help.)</p>
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  It is worth noting that you can change output database name with <code>-out</code>. It is useful when you want to build a database for a fasta from a different folder. For example,
+  <pre>makeblastdb -dbtype nucl -in somedir/somefasta -out XXX  </pre>
+</details>
+<p><br /></p>
+
+<h3 id="blast">BLAST!!</h3>
+
+<p>We will start with <code class="language-plaintext highlighter-rouge">blastn</code>, which is using a nucleotide query to search in a nucleotide database. Let’s try</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blastn -db [&lt;databasename&gt;] -query query.fasta -out blastn.txt
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">[&lt;databasename&gt;]</code> is your fasta filename, if you didn’t use the <code class="language-plaintext highlighter-rouge">-out</code> option.</p>
+
+<p>Now, take a look at <code class="language-plaintext highlighter-rouge">blastn.txt</code>. What did you see? Why is that?</p>
+
+<p>How about we translate the genes into protein using <a href="https://web.expasy.org/translate/">Expasy</a>, save them into fasta format and use the protein sequences to blast? (Which blast should you use?)</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>tblastn -db [&lt;databasename&gt;] -query [&lt;proteinfasta&gt;] -out tblastn.txt  </pre>
+</details>
+<p><br /></p>
+
+<p>What did you find? Why does it perform differently from <code class="language-plaintext highlighter-rouge">blastn</code>?</p>
+
+<p>Okay, that is all good, but the output format isn’t the best: it’s hard to extract information. I like to use <code class="language-plaintext highlighter-rouge">-outfmt 6</code> instead. It gives you a “tab-delimited file”, which is basically a table.</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>tblastn -db [&lt;databasename&gt;] -query [&lt;proteinfasta&gt;] -outfmt 6 -out tblastn-fmt6.txt  </pre>
+</details>
+<p><br /></p>
+
+<p>Take a look at your output. What does each column mean?<br />
+Why does each query have multiple hits?</p>
+
+<p>Now, let’s try to use our protein database.</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>blastp -db [&lt;databasename&gt;] -query [&lt;proteinfasta&gt;] -outfmt 6 -out blastp-fmt6.txt  </pre>
+</details>
+<p><br /></p>
+
+<p>How’s the performance of it? When will it be more or less favored than a nucleotide database?</p>
+
+<h2 id="see-also">See also</h2>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm">Smith Waterman algorithm</a></li>
+  <li><a href="https://www.metagenomics.wiki/tools/blast/blastn-output-format-6">Blast output format 6</a></li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Coinvasion Bioinformatics 2022</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Coinvasion Bioinformatics 2022</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Bioinformatics course for Coinvasion workshop 2022</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

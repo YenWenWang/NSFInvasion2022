@@ -15,7 +15,7 @@ Crazy stuff:
 Process substitution and command substitution
 
 
-## Loops and ifs
+## Loops and Ifs
 ### for
 We are using BLAST to learn about loops. And we will be using your favorite genes. First, we will build multiple databases with `for` loops and blast each databases.  
 Let's go to folder `LinuxAdvance/forloops` and copy three of your genome assemblies into the folder.
@@ -43,7 +43,7 @@ How about you try to run blast through all databases now? Copy the fasta with ge
   <summary><b><u>Hint</u></b></summary>
   You can run something like this. (replace <code>blastn</code> with <code>tblastn</code> if you have a protein query.)
   <pre>for f in *.fasta  
-do  blastn -db $f -query [&ltyourquery&gt] -outfmt 6 -out blastn-$f.txt  
+do  blastn -db $f -query [&lt;yourquery&gt;] -outfmt 6 -out blastn-$f.txt  
 done</pre>
 </details>
 <br/>
@@ -61,8 +61,8 @@ done</pre>
 <br/>
 
 ### if else
-I'm not using `if` `else` a lot, but I think it's worth mentioning.
-Using our former task as example, we want to avoid your query. Therefore we need a `if` clause saying "if `f` is query, skip it", or "if `f` is not query, do some stuff".  
+I don't not use `if` `else` a lot, but I think it's worth mentioning.  
+Using our former task as example, we want to avoid your query. Therefore, we need a `if` clause saying "if `f` is query, skip it", or "if `f` is not query, do some stuff".  
 Let's start with the second strategy with an example.
 
 ```
@@ -98,8 +98,8 @@ Try to write a code with `for` and `if` to avoid using query fasta!
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>for f in *.fasta  
-do  if [ $f != [&ltyourquery&gt] ]  
-    then blastn -db $f -query [&ltyourquery&gt] -outfmt 6 -out tblastn-$f.txt  
+do  if [ $f != [&lt;yourquery&gt;] ]  
+    then blastn -db $f -query [&lt;yourquery&gt;] -outfmt 6 -out tblastn-$f.txt  
     fi  
 done</pre>
 </details>
@@ -108,7 +108,7 @@ done</pre>
 ### while loops
 The third strategy is to use `while` loops.  
 The most common usage of `while` loop is to read a file and it will go through each line and assign them to variables.
-Let's go to `LinuxAdvance/forloops`, take a look at `testfile` and run this:
+Let's go to `LinuxAdvance/whileloops`, take a look at `testfile` and run this:
 
 ```
 while read l
@@ -116,13 +116,12 @@ do  echo $l is a letter
 done < testfile
 ```
 
-
-Could you figure out what's going on?
+Could you figure out what while does?
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   The first line saying while you are reading a line from a file, you assign it to <code>l</code> and do the things between <code>do</code> and <code>done</code>.  
-  The last line uses <code>&lt</code> to indicate which file you are reading.
+  The last line uses <code>&lt;</code> to indicate which file you are reading.
 </details>
 <br/>
 
@@ -134,15 +133,26 @@ Note: use `nano` to create the files that you are reading with `while`.
   It should be something like this:
   <pre>while read l
 do makeblastdb -dbtype nucl $l
-  blastn -db $l -query [&ltyourquery&gt] -outfmt 6 -out tblastn-$l.txt  
-done &lt [&ltyourfastalist&gt] </pre>
+  blastn -db $l -query [&lt;yourquery&gt;] -outfmt 6 -out tblastn-$l.txt  
+done &lt; [&lt;yourfastalist&gt;] </pre>
 Also see that I combined makeblastdb and blast so I don't need two loops! 
+</details>
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  Remember that you can combine the variables with a string and so, you don't need to add <code>.fasta</code> in your fasta list!
+  <pre>while read l
+do makeblastdb -dbtype nucl $l
+  blastn -db $l.fasta -query [&lt;yourquery&gt;] -outfmt 6 -out tblastn-$l.txt  
+done &lt; [&lt;yourfastalist&gt;] </pre>
+  This way, your output file name won't have the ugly <code>.fasta</code> and be so much cleaner!
 </details>
 <br/>
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
-  There's also <code>elif</code> so you can process multiple if else together. Go learn it yourself!
+  If you type something like 
+  <pre>while read A B C  </pre>
+  It will treat your read in file like a table and put the three columns into variable <code>A</code>, <code>B</code> and <code>C</code>!
 </details>
 <br/>
 
@@ -341,9 +351,190 @@ If it makes sense, try to move the numbers to the beginning of the line like thi
 
 ## dealing with tables
 
-cut
+### cut
 
-sort
+After that tangent, let's go back to our Blast results. The format of outfmt is a table, in tab-separated values (`.tsv`). Note: there's also comma-separated values (`.csv`).
 
-awk!
+Go to `LinuxAdvance/tables` and copy one of your Blast result into the folder. The option that I use the most is `-f` (field). Check the manual with `man` to see how to cut out the E-value.
 
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>cut -f 11 [&lt;yourblastresults&gt;]  </pre>
+</details>
+<br/>
+
+You can also cut out a few columns. Let's try the query sequence id, database sequence id, and the start and end for both query and databases. 
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>cut -f 1,2,7-10 [&lt;yourblastresults&gt;]  </pre>
+</details>
+<br/>
+
+<details>
+  <summary><b><u>Click to learn more</u></b></summary>
+  <code>.csv</code> is often better than <code>.tsv</code> because handling tabs is not the easiest thing to do. You can use <code>-d</code> to let <code>cut</code> to recognize <code>,</code> instead of tabs as delimiter.
+</details>
+<br/>
+
+### sort
+
+We used `sort` before. However, it sorts by lines. It can sort a table by columns as well.
+
+You can take a look at `-k` (field) in the manual first and see what you find.
+
+```
+-k field1[,field2], --key=field1[,field2]
+```
+
+Basically you need to specify a range to sort with. And normally we only want one column, so it would be something like `-k 1,1`.
+
+Let's try to sort the identity column. 
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  <pre>sort -k 3,3 [&lt;yourblastresults&gt;]  </pre>
+</details>
+<br/>
+
+However, you might notice that the sort doesn't make sense at all. It's sorting by characters not numbers.  
+To solve this issue, we can add `n` before `k`.
+
+```
+sort -nk 3,3 [<yourblastresults>]
+```
+
+It's also possible to reverse the order
+
+```
+sort -nrk 3,3 [<yourblastresults>]
+```
+
+You can also sort by more than one column. By adding more `-k`.
+
+```
+sort -k 1,1 -nrk 3,3 [<yourblastresults>]
+```
+
+Let's see if you can sort the file by query id, reverse order of database id and a reverse numeric order for the identity.
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>sort -k 1,1 -rk 2,2 -nrk 3,3 [&lt;yourblastresults&gt;]  </pre>
+</details>
+<br/>
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  Like <code>cut</code>, you can let <code>sort</code> to recognize <code>,</code> instead of tabs as delimiter, but with <code>-t</code>.
+</details>
+<br/>
+
+### awk
+
+#### variables in awk
+Well, `awk` is a beast. To me, it's a computational language just like R, C and python, but simpler.  
+We won't be able to cover everything about `awk`. Neither I know much about it, but we'll just go through a few to show case the power of `awk`.
+
+Let's run this and see what happens
+
+```
+awk '{print $3, $1}' [<yourblastresults>]
+```
+
+As you can see, it prints out the third and first fields linked by ` `. The fields were indicated by `$`. The ` ` is a delimiter introduced by `,`. See what happen if you don't include `,`!
+
+OK, but what if we want to use something else as delimiter?  
+We can set the output field separater `OFS`, with `-v`.
+
+```
+awk -v 'OFS=\t' '{print $3, $1}' [<yourblastresults>]
+```
+
+The space is now replaced with a tab, which is coded as `\t`.
+
+If you want specifically give a special delimiter between two fields, you can replace `,` with your delimiter and `"`. For example:
+
+```
+awk '{print $3 "xxx" $1}' [<yourblastresults>]
+```
+
+You may have notice that `awk` treat things in `""` as a string and just glue everything together.
+
+Now, your turn. Try to print out the database sequence ids and start and end of the database sequences of each line using a `.csv` format. And instead comma, let's place `-` between the start and end.
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>awk -v 'OFS=,' '{print $2, $9 "-" $10}' [&lt;yourblastresults&gt;] </pre>
+</details>
+<br/>
+
+#### Calculations
+
+You can do calculations in awk as well.
+For example, you can add up a couple numbers:
+
+```
+awk '{print $9 + $10 - 3}' [<yourblastresults>]
+```
+
+Here, because `3` is a number, you don't need to add `""` around it. 
+
+There are also some functions you can use such as square root.
+
+```
+awk '{print sqrt($9 + $10 - 3)}' [<yourblastresults>]
+```
+
+Let's calculate the length of each database sequence of each hit (start to end). (There's no absolute function in `awk`. The easy way is to use square and then square root: `sqrt(X^2)`).
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>awk '{print sqrt(($9 - $10)^2) + 1}' [&lt;yourblastresults&gt;] </pre>
+</details>
+<br/>
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  You should notice that Blast tells you the position of the start and the position of the end. Therefore, <code>end - start</code> is not accurate. Instead, you'll need to add 1.
+  <br/>
+  Math is important!!!
+</details>
+<br/>
+
+#### begin and end
+
+Notice that `awk` does stuff in `{}` line by line. But sometimes, we want to do things at the beginning or the end of reading a file.
+
+For example, we can print out some stuff to the output file.
+
+```
+awk 'BEGIN{print "start!"}{print $3, $1}END{done!}' [<yourblastresults>]
+```
+
+You can imagine, if we do some calculation etc. It could be quite powerful. 
+
+Like, we can calculate how many lines there are in the file.
+
+```
+awk 'BEGIN{i = 1}{print $3, $1; i = i + 1}END{print "We have " i " lines!"}' [<yourblastresults>]
+```
+
+First, we assign `1` to a variable `i` at the beginning. Then we read lines, print out and do the things after `;`, which is assign `i+1` to `i`. (`;` indicates the first job is done, and move on to the next part. Just like the new lines in Linux). And at the end, we print out the i.
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  We actually don't need to do this to count the lines. This is just an example.
+</details>
+<br/>
+
+#### if else
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  <code>awk</code> also support <code>sed</code> like expression (something like <code>/ABC/</code>). But I don't use it often since it seems like you can just use if else clauses instead.
+</details>
+<br/>
+
+#### NR
+fastq to fasta

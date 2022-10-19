@@ -683,6 +683,13 @@ cat $file
 echo $file
 ```
 
+You can also combine the variables with other strings to create new strings. They will just glue together. For example,
+
+```
+char=B
+cat AfricanCountries$char
+```
+
 It might not seem very useful right now, but if you have complicated codes. You only need to save the codes once instead of multiple times if you use variables. We will also talk about other uses soon (tomorrow!)
 
 <br/>
