@@ -570,7 +570,7 @@ Using `NR`, could you print out the 3rd to 5th lines of your blast results?
 </details>
 <br/>
 
-Lastly, let's try to write a code to turn fastq files to fasta files! Make a small fastq file with only 20 lines with `head`.  
+Lastly, let's try to write a code to turn fastq files to fasta files! Subset a fastq file with `head -n 40` to your current directory.  
 Remember fastqs are in four line blocks. The first line is the sequence name with `@` at the beginning. And the second line is the sequence. Here, `%` will be useful. It outputs remainder from a division. For example, `9 % 3 == 0` and `6 % 5 == 1`.  
 Also, you don't need to do it solely with `awk`. Be creative!
 
