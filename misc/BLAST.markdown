@@ -4,22 +4,21 @@ permalink: /misc/blast
 title: "Blast"
 ---
 
-add why things are fragmented?
-add what happens if you have gene duplication/paralogs
+![band](../img/band.png)
 
-### Knowing your dataset
-#### Queries
+## Knowing your dataset
+### Queries
 
 To start to BLAST on local computers, we will first use two of my favorite genes, encoding DNA polymerase alpha subunit B, and Clathrin heavy chain, as examples. These genes are supposed to be single copied so they would be easier to deal with than many of genes of your interest.  
 I've took the coding sequences (CDSs) from <i>Amanita phalloides</i> and stored them in a fasta file: `BLAST/query.fasta`.
 So let's head to `BLAST` and see what we are dealing with.
 
-#### Databases
+### Databases
 
 You should have already played with the genomes already. Pick your favorite one and copy it into the `BLAST` directory. Also, we want to generate a protein database as well. Normally, it would be come from a genome annotation, but we will use BUSCOs instead.  
 And so, we need to put all the BUSCOs into a file. Figure out a way to do that with the commands we learned! (Single-copied only should be fine.)
 
-### Making databases
+## Making databases
 
 Making databases for Blast is quite straightforward. You only need `makeblastdb`, `-dbtype` and `-in`. (You might notice that we there's only one hyphen before these multiple-character options. It's simply because different developers use different syntax. So, you'll need to look at tutorials/manuals to learn these softwares.)
 
@@ -40,7 +39,7 @@ Now, you also know how to make a protein database! (Use `makeblastdb -help` to g
 </details>
 <br/>
 
-### BLAST!!
+## BLAST!!
 
 We will start with `blastn`, which is using a nucleotide query to search in a nucleotide database. Let's try 
 
@@ -82,7 +81,6 @@ Now, let's try to use our protein database.
 <br/>
 
 How's the performance of it? When will it be more or less favored than a nucleotide database?
-
 
 ## See also
 - [Smith Waterman algorithm](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm)

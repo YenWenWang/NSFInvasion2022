@@ -4,16 +4,7 @@ permalink: /Linux/Advance
 title: '"Advanced" Linux'
 ---
 
-Notes:
-
-Table related
-cut: csv and tsv
-more sort: -k 
-awk
-
-Crazy stuff:
-Process substitution and command substitution
-
+![band](../img/band.png)
 
 ## Loops and Ifs
 ### for
@@ -105,7 +96,7 @@ done</pre>
 </details>
 <br/>
 
-### while loops
+### while
 The third strategy is to use `while` loops.  
 The most common usage of `while` loop is to read a file and it will go through each line and assign them to variables.
 Let's go to `LinuxAdvance/whileloops`, take a look at `testfile` and run this:
@@ -191,7 +182,7 @@ Take a look at the blast results what did you find?
 
 ### sed with regular expression (Regex)
 
-#### Beginning and end of a line.
+#### Start and End of a line
 
 Normally you won't have this problem, but what if there's an additional `>` in the middle of the sequence name? That will also add in the sample name that you don't need right?
 
@@ -215,7 +206,7 @@ This will replace every `A` at end of a line with `B`.
 
 I hope that you are interested in Regex now. And we will learn some other useful Regex!
 
-#### Wildcards
+#### Wild Cards
 
 Let's head to `LinuxAdvance/sedregex`, take a look at the file `ECMspecies` and learn about more Regex.  
 First we will learn `.`. `.` means any single character. Let's see what happen if we run these two scripts:
@@ -242,7 +233,7 @@ Let's try to add `feminine` after genus names that end with `a`, add `masculine`
 </details>
 <br/>
 
-#### Bracket expressions
+#### Bracket Expressions
 
 Although `.` is useful, we can't do more nuanced edits. For example, it can not do something like only editting `a` and `c` in the file. But, we can use bracket expressions `[]`.
 
@@ -305,7 +296,7 @@ What does it do?
 
 <br/>
 
-#### Marked subexpression
+#### Marked Subexpression
 
 Now, let's say we want move the numbers to the beginning of the line, we can use marked subexpression `\(\)`. 
 
@@ -328,7 +319,7 @@ If it makes sense, try to move the numbers to the beginning of the line like thi
 
 <br/>
 
-#### grep
+### grep
 `grep` also supports the usage of Regex. Are you able to find all the genera with species number equal or higher than 10 but lower than 100? (10~99)
 
 <details>
@@ -349,7 +340,7 @@ If it makes sense, try to move the numbers to the beginning of the line like thi
 
 <br/>
 
-## dealing with tables
+## Dealing with Tables
 
 ### cut
 
@@ -432,7 +423,7 @@ Let's see if you can sort the file by query id, reverse order of database id and
 
 ### awk
 
-#### variables in awk
+#### Variables in awk
 Well, `awk` is a beast. To me, it's a computational language just like R, C and python, but simpler.  
 We won't be able to cover everything about `awk`. Neither I know much about it, but we'll just go through a few to show case the power of `awk`.
 
@@ -442,7 +433,7 @@ Let's run this and see what happens
 awk '{print $3, $1}' [<yourblastresults>]
 ```
 
-As you can see, it prints out the third and first fields linked by ` `. The fields were indicated by `$`. The ` ` is a delimiter introduced by `,`. See what happen if you don't include `,`!
+As you can see, it prints out the third and first fields linked by a space. The fields were indicated by `$` (Note: `$0` is the whole line). The space is a delimiter introduced by `,`. See what happen if you don't include `,`! 
 
 OK, but what if we want to use something else as delimiter?  
 We can set the output field separater `OFS`, with `-v`.
@@ -502,7 +493,7 @@ Let's calculate the length of each database sequence of each hit (start to end).
 </details>
 <br/>
 
-#### begin and end
+#### Begin and End
 
 Notice that `awk` does stuff in `{}` line by line. But sometimes, we want to do things at the beginning or the end of reading a file.
 
@@ -529,6 +520,30 @@ First, we assign `1` to a variable `i` at the beginning. Then we read lines, pri
 <br/>
 
 #### if else
+You can also use `if` and `else` in `awk`.  
+If we want to print out all the lines of `queryA` hits but replace others with `XXX`, we can do something like this
+
+```
+awk '{if($1=="queryA"){print $0}else{print "XXX"}}' [<yourblastresults>]
+```
+
+Here, `awk` runs the stuff inside the first `{}` when reading each line. And it meets an `if` clause, asking if the first field is `queryA`. If yes, run the things in the second `{}`; if no, run the things in the third `{}`.
+
+Let's see if you can use it to figure out the directions of the hits! (You can use `>`, `<` and do calculations inside the `if` clause too!)
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>awk '{if($10>$9){print "+"}else{print "-"}}' [&lt;yourblastresults&gt;]  </pre>
+</details>
+<br/>
+
+If clause also can use some operators, such as AND `&&` and OR `||`. Guess what happens if you run the code below: (It might not work with your result.)
+
+```
+awk '{if($9>100 && $10<3000){print $0}}' [<yourblastresults>]
+```
+
+Play with it to get the idea.
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
@@ -536,5 +551,32 @@ First, we assign `1` to a variable `i` at the beginning. Then we read lines, pri
 </details>
 <br/>
 
-#### NR
-fastq to fasta
+#### Line Numbers
+
+There are some native variables in `awk`. I'll only introduce Number of Records `NR`.  
+You can think `NR` as the line numbers. Let's see what happen if we run this:
+
+```
+awk -v 'OFS=\t' '{print NR, $0}' [<yourblastresults>]
+```
+
+What did it do?  
+Using `NR`, could you print out the 3rd to 5th lines of your blast results?
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>awk '{if(NR&gt;2 && NR&lt;6){print $0}}' [&lt;yourblastresults&gt;]  </pre>
+  You can replace <code>NR&gt;2</code> with <code>NR&gt;=3</code> which could be more intuitive.
+</details>
+<br/>
+
+Lastly, let's try to write a code to turn fastq files to fasta files! Make a small fastq file with only 20 lines with `head`.  
+Remember fastqs are in four line blocks. The first line is the sequence name with `@` at the beginning. And the second line is the sequence. Here, `%` will be useful. It outputs remainder from a division. For example, `9 % 3 == 0` and `6 % 5 == 1`.  
+Also, you don't need to do it solely with `awk`. Be creative!
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>awk '{if(NR%4==1 || NR%4==2){print}}' [&lt;yourfastqfile&gt;] | sed 's/@/>/g'  </pre>
+</details>
+<br/>
+

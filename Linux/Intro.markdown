@@ -4,8 +4,8 @@ permalink: /Linux/Intro
 title: "Intro to Linux"
 ---
 
-
-Please press hint if only necessary  
+Please press hint if only necessary.  
+Press "Click to learn more!" even if you completed the tasks without hints.
 
 <br/>
 
@@ -177,7 +177,7 @@ mv Knowledge/Facts/fileX Knowledge/Facts/Math  </pre>
 CoPy `Knowledge/Facts/Math` into current directory without renaming
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>cp fileX Knowledge/Facts/Math .
+  <pre>cp fileX Knowledge/Facts/Math .  </pre>
 </details>
 <br/>
 
@@ -718,7 +718,7 @@ So, I suggest you use a text editor or [Visual Studio Code](https://code.visuals
 <br/>
 
 ### Space Oddity
-Do you know how to read a file `Coinvasion workshop.txt` with cat?
+Do you know how to read a file `Coinvasion workshop.txt` with `cat`?
 The space between `Coinvasion` and `workshop` make your system thinks they are two different files!
 
 No worries, there's a solution. Just add `\` before the space like this:
