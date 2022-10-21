@@ -17,7 +17,7 @@ do  makeblastdb -dbtype nucl -in $f
 done
 ```
 
-Let's see what's going on here. The first line uses a wild card and so it's basically `for f in A.fasta B.fasta C.fasta`. This will create a variable call `f`. `A.fasta` will be assigned to `f` for the first iteration, `B.fasta` will be the next, and so on and so forth.  
+Let's see what's going on here. The first line uses a wild card and so it's basically `for f in A.fasta B.fasta C.fasta`. This will create a variable called `f`. `A.fasta` will be assigned to `f` for the first iteration, `B.fasta` will be the next, and so on and so forth.  
 Move on to the next line. `do` states the things you are going to do for an iteration. And `$f` is calling the variable `f`. So, for the first iteration, we are running `makeblastdb -dbtype nucl A.fasta`. So on and so forth.
 Note that you can have multiple lines after do and the for loop will run through all of them. For example: (Don't run)
 
@@ -165,17 +165,13 @@ Let's go to `LinuxAdvance/sedblast`, copy a few assembled genomes there and try 
   <summary><b><u>Hint</u></b></summary>
   I'm skipping the <code>makeblastdb</code> and <code>blast</code>
   <pre>for f in *.fasta  
-do  sed 's/>/>'$f'/g' $f > temp  
-    mv temp $f
-done  
-cat *.fasta > compiled.fasta  </pre>
+do  sed 's/>/>'$f'/g' $f >> compiled.fasta
+done  </pre>
   You will get something that's sort of usable with this script.<br/>
-  But it's ugly. you will have <code>.fasta</code> inside your sequences. What can you do? Well, just pipe it to another <code>sed</code> to remove it (and maybe replace it with something sensible!)
+  But it's ugly. you will have <code>.fasta</code> inside your sequences. What can you do? Well, just pipe it to another <code>sed</code> to remove it (and maybe replace it with something sensible!) <br/>
+  Also, if you already have <code>compiled.fasta</code>, it will just be appended continously. So, make sure you remove it first.
 </details>
-<details>
-  <summary><b><u>Click to learn more!</u></b></summary>
-  You might find making a temporary file very inelegant. You can check out <code>-i</code>. I just never remember to use it :).
-</details>
+
 <br/>
 
 Take a look at the blast results what did you find?
@@ -204,6 +200,7 @@ sed 's/A$/B/g' somefile
 
 This will replace every `A` at end of a line with `B`. 
 
+`^` and `$` are parts of regular expression (Regex). They specify certain search patterns. Using it you can do some more specific or fuzzy searches.
 I hope that you are interested in Regex now. And we will learn some other useful Regex!
 
 #### Wild Cards
@@ -257,7 +254,7 @@ What just happened then? Look at the `Boletus` line. Found anything?
 You can also specify the amount of times of these brackets need to appear with `\{\}`. Let's look at how it works without brackets first.
 
 ```
-sed 's/l{2}/XXX/' ECMspecies
+sed 's/l\{2\}/XXX/' ECMspecies
 ```
 
 What does this do?
@@ -306,11 +303,17 @@ Run the followings:
 echo ABCDEFGH | sed 's/^\(.*\)\(F\)/\2\1/'
 ```
 
-What does it do? Let's ignore the `\(\)` first.  
+What does it do? Let's ignore the `\(\)` first. And so it will look like:
+```
+echo ABCDEFGH | sed 's/^.*F/\2\1/'
+```
 `^` indicates the match needs to start from the beginning. After `.*` we find `F` and we replace them with `\2` and `\1`.  
 `\1` and `\2` are defined by `\(\)`. `\1` corresponds to the first and `\2` correspond to the second.  
 
-If it makes sense, try to move the numbers to the beginning of the line like this:
+If it makes sense, try to move the numbers to the beginning of lines in `ECMspecies` like this:
+```
+114 Laccaria species
+```
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -326,8 +329,6 @@ If it makes sense, try to move the numbers to the beginning of the line like thi
   <summary><b><u>Hint</u></b></summary>
   <pre>grep ' [0-9]\{2\} ' ECMspecies  </pre>
 </details>
-
-<br/>
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
@@ -360,7 +361,6 @@ You can also cut out a few columns. Let's try the query sequence id, database se
   <summary><b><u>Hint</u></b></summary>
   <pre>cut -f 1,2,7-10 [&lt;yourblastresults&gt;]  </pre>
 </details>
-<br/>
 
 <details>
   <summary><b><u>Click to learn more</u></b></summary>
@@ -413,7 +413,6 @@ Let's see if you can sort the file by query id, reverse order of database id and
   <summary><b><u>Hint</u></b></summary>
   <pre>sort -k 1,1 -rk 2,2 -nrk 3,3 [&lt;yourblastresults&gt;]  </pre>
 </details>
-<br/>
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
@@ -483,7 +482,6 @@ Let's calculate the length of each database sequence of each hit (start to end).
   <summary><b><u>Hint</u></b></summary>
   <pre>awk '{print sqrt(($9 - $10)^2) + 1}' [&lt;yourblastresults&gt;] </pre>
 </details>
-<br/>
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
@@ -508,10 +506,10 @@ You can imagine, if we do some calculation etc. It could be quite powerful.
 Like, we can calculate how many lines there are in the file.
 
 ```
-awk 'BEGIN{i = 1}{print $3, $1; i = i + 1}END{print "We have " i " lines!"}' [<yourblastresults>]
+awk 'BEGIN{i = 0}{print $3, $1; i = i + 1}END{print "We have " i " lines!"}' [<yourblastresults>]
 ```
 
-First, we assign `1` to a variable `i` at the beginning. Then we read lines, print out and do the things after `;`, which is assign `i+1` to `i`. (`;` indicates the first job is done, and move on to the next part. Just like the new lines in Linux). And at the end, we print out the i.
+First, we assign `0` to a variable `i` at the beginning. Then we read lines, print out and do the things after `;`, which is assign `i+1` to `i`. (`;` indicates the first job is done, and move on to the next part. Just like the new lines in Linux). And at the end, we print out `i`.
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
