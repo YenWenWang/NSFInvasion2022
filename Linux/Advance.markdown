@@ -199,7 +199,7 @@ Sometimes you also want to add something to the end of a sequence. You can then 
 For example: (do not run)
 
 ```
-sed 's/A$/B/g' 
+sed 's/A$/B/g' somefile
 ```
 
 This will replace every `A` at end of a line with `B`. 

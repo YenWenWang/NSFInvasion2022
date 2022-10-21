@@ -13,10 +13,14 @@ To start to BLAST on local computers, we will first use two of my favorite genes
 I've took the coding sequences (CDSs) from <i>Amanita phalloides</i> and stored them in a fasta file: `BLAST/query.fasta`.
 So let's head to `BLAST` and see what we are dealing with.
 
+<br/>
+
 ### Databases
 
 You should have already played with the genomes already. Pick your favorite one and copy it into the `BLAST` directory. Also, we want to generate a protein database as well. Normally, it would be come from a genome annotation, but we will use BUSCOs instead.  
 And so, we need to put all the BUSCOs into a file. Figure out a way to do that with the commands we learned! (Single-copied only should be fine.)
+
+<br/>
 
 ## Making databases
 
@@ -81,6 +85,39 @@ Now, let's try to use our protein database.
 <br/>
 
 How's the performance of it? When will it be more or less favored than a nucleotide database?
+<br/>
+
+## Get sequence
+
+Often times we want to get the sequences instead of just having the hit range. There are multiple ways to do it. Here, we will use the Blast suite. 
+
+Let's add an option `-parse_seqids`. To your `makeblastdb`.
+
+```
+makeblastdb -dbtype nucl -in [<yourfasta>] -parse_seqids
+```
+
+Adding this option will provide some more information to the database allowing later sequence extraction.
+
+Then you can run:
+
+```
+blastdbcmd -db [<yourfasta>] -dbtype nucl -entry [<hitsequenceid>] -range [<hitsequencerange>]
+```
+
+Note that `hitsequencerange` should be typed like `3-21`. 
+
+You can also extract multiple genes at once. Such as, 
+
+```
+blastdbcmd -db [<yourfasta>] -dbtype nucl -entry_batch [<yourregionsofinterest>]
+```
+
+`yourregionsofinterest` should be a file name including an entry and a range in each line, separated by space. For example, `seqid 3-21`.
+
+Now, try to extract your own genes! Think and discuss what's the most sensible strategy for your study.  
+
+<br/>
 
 ## See also
 - [Smith Waterman algorithm](https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm)
