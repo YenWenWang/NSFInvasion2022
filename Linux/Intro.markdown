@@ -31,7 +31,7 @@ Change Directory to `LinuxIntro/Review`.
   You can use either absolute path or relative path.
   <pre>cd LinuxIntro/Review  </pre>
   OR
-  <pre>cd /[&ltpwd&gt]/LinuxIntro/Review  </pre>
+  <pre>cd /[&ltpwd&gt]/DennyMaterials/LinuxIntro/Review  </pre>
   (replace <code>[&ltpwd&gt]</code> with your <code>[pwd]</code> output.)
 </details>
 <br/>
