@@ -111,7 +111,7 @@ Could you figure out what while does?
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  The first line saying while you are reading a line from a file, you assign it to <code>l</code> and do the things between <code>do</code> and <code>done</code>.  
+  The first line says that while you are reading a line from a file, you assign it to <code>l</code> and do the things between <code>do</code> and <code>done</code>.  
   The last line uses <code>&lt;</code> to indicate which file you are reading.
 </details>
 <br/>

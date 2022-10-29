@@ -22,4 +22,10 @@ The secret message: (decoded already)
   YARRRR!!!!
 
 
+To get the materials, run the followings
+
+```
+git clone https://github.com/YenWenWang/Coinvasion2022TreasureHunt.git
+```
+
 Good luck!
