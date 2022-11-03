@@ -3,25 +3,25 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>“Advanced” Linux | Coinvasion Bioinformatics 2022</title>
+<title>“Advanced” Linux | NSF Invasion Workshop 2022 - Bioinformatics</title>
 <meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="“Advanced” Linux" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Bioinformatics course for Coinvasion workshop 2022" />
-<meta property="og:description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<meta name="description" content="Bioinformatics course for NSF Invasion workshop 2022" />
+<meta property="og:description" content="Bioinformatics course for NSF Invasion workshop 2022" />
 <link rel="canonical" href="http://localhost:4000/Linux/Advance" />
 <meta property="og:url" content="http://localhost:4000/Linux/Advance" />
-<meta property="og:site_name" content="Coinvasion Bioinformatics 2022" />
+<meta property="og:site_name" content="NSF Invasion Workshop 2022 - Bioinformatics" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="“Advanced” Linux" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for Coinvasion workshop 2022","headline":"“Advanced” Linux","url":"http://localhost:4000/Linux/Advance"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for NSF Invasion workshop 2022","headline":"“Advanced” Linux","url":"http://localhost:4000/Linux/Advance"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Coinvasion Bioinformatics 2022" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="NSF Invasion Workshop 2022 - Bioinformatics" /></head>
 <body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Coinvasion Bioinformatics 2022</a><nav class="site-nav">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">NSF Invasion Workshop 2022 - Bioinformatics</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -43,17 +43,9 @@
   </header>
 
   <div class="post-content">
-    <p>Notes:</p>
+    <p><img src="/img/band.png" alt="band" /></p>
 
-<p>Table related
-cut: csv and tsv
-more sort: -k 
-awk</p>
-
-<p>Crazy stuff:
-Process substitution and command substitution</p>
-
-<h2 id="loops-and-ifs">Loops and ifs</h2>
+<h2 id="loops-and-ifs">Loops and Ifs</h2>
 <h3 id="for">for</h3>
 <p>We are using BLAST to learn about loops. And we will be using your favorite genes. First, we will build multiple databases with <code class="language-plaintext highlighter-rouge">for</code> loops and blast each databases.<br />
 Let’s go to folder <code class="language-plaintext highlighter-rouge">LinuxAdvance/forloops</code> and copy three of your genome assemblies into the folder.</p>
@@ -63,7 +55,7 @@ do  makeblastdb -dbtype nucl -in $f
 done
 </code></pre></div></div>
 
-<p>Let’s see what’s going on here. The first line uses a wild card and so it’s basically <code class="language-plaintext highlighter-rouge">for f in A.fasta B.fasta C.fasta</code>. This will create a variable call <code class="language-plaintext highlighter-rouge">f</code>. <code class="language-plaintext highlighter-rouge">A.fasta</code> will be assigned to <code class="language-plaintext highlighter-rouge">f</code> for the first iteration, <code class="language-plaintext highlighter-rouge">B.fasta</code> will be the next, and so on and so forth.<br />
+<p>Let’s see what’s going on here. The first line uses a wild card and so it’s basically <code class="language-plaintext highlighter-rouge">for f in A.fasta B.fasta C.fasta</code>. This will create a variable called <code class="language-plaintext highlighter-rouge">f</code>. <code class="language-plaintext highlighter-rouge">A.fasta</code> will be assigned to <code class="language-plaintext highlighter-rouge">f</code> for the first iteration, <code class="language-plaintext highlighter-rouge">B.fasta</code> will be the next, and so on and so forth.<br />
 Move on to the next line. <code class="language-plaintext highlighter-rouge">do</code> states the things you are going to do for an iteration. And <code class="language-plaintext highlighter-rouge">$f</code> is calling the variable <code class="language-plaintext highlighter-rouge">f</code>. So, for the first iteration, we are running <code class="language-plaintext highlighter-rouge">makeblastdb -dbtype nucl A.fasta</code>. So on and so forth.
 Note that you can have multiple lines after do and the for loop will run through all of them. For example: (Don’t run)</p>
 
@@ -97,8 +89,8 @@ done</pre>
 <p><br /></p>
 
 <h3 id="if-else">if else</h3>
-<p>I’m not using <code class="language-plaintext highlighter-rouge">if</code> <code class="language-plaintext highlighter-rouge">else</code> a lot, but I think it’s worth mentioning.
-Using our former task as example, we want to avoid your query. Therefore we need a <code class="language-plaintext highlighter-rouge">if</code> clause saying “if <code class="language-plaintext highlighter-rouge">f</code> is query, skip it”, or “if <code class="language-plaintext highlighter-rouge">f</code> is not query, do some stuff”.<br />
+<p>I don’t not use <code class="language-plaintext highlighter-rouge">if</code> <code class="language-plaintext highlighter-rouge">else</code> a lot, but I think it’s worth mentioning.<br />
+Using our former task as example, we want to avoid your query. Therefore, we need a <code class="language-plaintext highlighter-rouge">if</code> clause saying “if <code class="language-plaintext highlighter-rouge">f</code> is query, skip it”, or “if <code class="language-plaintext highlighter-rouge">f</code> is not query, do some stuff”.<br />
 Let’s start with the second strategy with an example.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x=somestring
@@ -139,21 +131,21 @@ done</pre>
 </details>
 <p><br /></p>
 
-<h3 id="while-loops">while loops</h3>
+<h3 id="while">while</h3>
 <p>The third strategy is to use <code class="language-plaintext highlighter-rouge">while</code> loops.<br />
 The most common usage of <code class="language-plaintext highlighter-rouge">while</code> loop is to read a file and it will go through each line and assign them to variables.
-Let’s go to <code class="language-plaintext highlighter-rouge">LinuxAdvance/forloops</code>, take a look at <code class="language-plaintext highlighter-rouge">testfile</code> and run this:</p>
+Let’s go to <code class="language-plaintext highlighter-rouge">LinuxAdvance/whileloops</code>, take a look at <code class="language-plaintext highlighter-rouge">testfile</code> and run this:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while read l
 do  echo $l is a letter
 done &lt; testfile
 </code></pre></div></div>
 
-<p>Could you figure out what’s going on?</p>
+<p>Could you figure out what while does?</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  The first line saying while you are reading a line from a file, you assign it to <code>l</code> and do the things between <code>do</code> and <code>done</code>.  
+  The first line says that while you are reading a line from a file, you assign it to <code>l</code> and do the things between <code>do</code> and <code>done</code>.  
   The last line uses <code>&lt;</code> to indicate which file you are reading.
 </details>
 <p><br /></p>
@@ -170,11 +162,22 @@ do makeblastdb -dbtype nucl $l
 done &lt; [&lt;yourfastalist&gt;] </pre>
 Also see that I combined makeblastdb and blast so I don't need two loops! 
 </details>
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  Remember that you can combine the variables with a string and so, you don't need to add <code>.fasta</code> in your fasta list!
+  <pre>while read l
+do makeblastdb -dbtype nucl $l
+  blastn -db $l.fasta -query [&lt;yourquery&gt;] -outfmt 6 -out tblastn-$l.txt  
+done &lt; [&lt;yourfastalist&gt;] </pre>
+  This way, your output file name won't have the ugly <code>.fasta</code> and be so much cleaner!
+</details>
 <p><br /></p>
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
-  There's also <code>elif</code> so you can process multiple if else together. Go learn it yourself!
+  If you type something like 
+  <pre>while read A B C  </pre>
+  It will treat your read in file like a table and put the three columns into variable <code>A</code>, <code>B</code> and <code>C</code>!
 </details>
 <p><br /></p>
 
@@ -195,24 +198,20 @@ Let’s go to <code class="language-plaintext highlighter-rouge">LinuxAdvance/se
   <summary><b><u>Hint</u></b></summary>
   I'm skipping the <code>makeblastdb</code> and <code>blast</code>
   <pre>for f in *.fasta  
-do  sed 's/&gt;/&gt;'$f'/g' $f &gt; temp  
-    mv temp $f
-done  
-cat *.fasta &gt; compiled.fasta  </pre>
+do  sed 's/&gt;/&gt;'$f'/g' $f &gt;&gt; compiled.fasta
+done  </pre>
   You will get something that's sort of usable with this script.<br />
-  But it's ugly. you will have <code>.fasta</code> inside your sequences. What can you do? Well, just pipe it to another <code>sed</code> to remove it (and maybe replace it with something sensible!)
+  But it's ugly. you will have <code>.fasta</code> inside your sequences. What can you do? Well, just pipe it to another <code>sed</code> to remove it (and maybe replace it with something sensible!) <br />
+  Also, if you already have <code>compiled.fasta</code>, it will just be appended continously. So, make sure you remove it first.
 </details>
-<details>
-  <summary><b><u>Click to learn more!</u></b></summary>
-  You might find making a temporary file very inelegant. You can check out <code>-i</code>. I just never remember to use it :).
-</details>
+
 <p><br /></p>
 
 <p>Take a look at the blast results what did you find?</p>
 
 <h3 id="sed-with-regular-expression-regex">sed with regular expression (Regex)</h3>
 
-<h4 id="beginning-and-end-of-a-line">Beginning and end of a line.</h4>
+<h4 id="start-and-end-of-a-line">Start and End of a line</h4>
 
 <p>Normally you won’t have this problem, but what if there’s an additional <code class="language-plaintext highlighter-rouge">&gt;</code> in the middle of the sequence name? That will also add in the sample name that you don’t need right?</p>
 
@@ -227,14 +226,15 @@ done
 <p>Sometimes you also want to add something to the end of a sequence. You can then use <code class="language-plaintext highlighter-rouge">$</code> to specify.
 For example: (do not run)</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/A$/B/g' 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/A$/B/g' somefile
 </code></pre></div></div>
 
 <p>This will replace every <code class="language-plaintext highlighter-rouge">A</code> at end of a line with <code class="language-plaintext highlighter-rouge">B</code>.</p>
 
-<p>I hope that you are interested in Regex now. And we will learn some other useful Regex!</p>
+<p><code class="language-plaintext highlighter-rouge">^</code> and <code class="language-plaintext highlighter-rouge">$</code> are parts of regular expression (Regex). They specify certain search patterns. Using it you can do some more specific or fuzzy searches.
+I hope that you are interested in Regex now. And we will learn some other useful Regex!</p>
 
-<h4 id="wildcards">Wildcards</h4>
+<h4 id="wild-cards">Wild Cards</h4>
 
 <p>Let’s head to <code class="language-plaintext highlighter-rouge">LinuxAdvance/sedregex</code>, take a look at the file <code class="language-plaintext highlighter-rouge">ECMspecies</code> and learn about more Regex.<br />
 First we will learn <code class="language-plaintext highlighter-rouge">.</code>. <code class="language-plaintext highlighter-rouge">.</code> means any single character. Let’s see what happen if we run these two scripts:</p>
@@ -259,7 +259,7 @@ sed 's/../XXX/' ECMspecies
 </details>
 <p><br /></p>
 
-<h4 id="bracket-expressions">Bracket expressions</h4>
+<h4 id="bracket-expressions">Bracket Expressions</h4>
 
 <p>Although <code class="language-plaintext highlighter-rouge">.</code> is useful, we can’t do more nuanced edits. For example, it can not do something like only editting <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">c</code> in the file. But, we can use bracket expressions <code class="language-plaintext highlighter-rouge">[]</code>.</p>
 
@@ -280,7 +280,7 @@ sed 's/[0-3]/XXX/' ECMspecies
 
 <p>You can also specify the amount of times of these brackets need to appear with <code class="language-plaintext highlighter-rouge">\{\}</code>. Let’s look at how it works without brackets first.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/l{2}/XXX/' ECMspecies
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/l\{2\}/XXX/' ECMspecies
 </code></pre></div></div>
 
 <p>What does this do?</p>
@@ -316,7 +316,7 @@ For example,</p>
 
 <p><br /></p>
 
-<h4 id="marked-subexpression">Marked subexpression</h4>
+<h4 id="marked-subexpression">Marked Subexpression</h4>
 
 <p>Now, let’s say we want move the numbers to the beginning of the line, we can use marked subexpression <code class="language-plaintext highlighter-rouge">\(\)</code>.</p>
 
@@ -325,11 +325,15 @@ For example,</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo ABCDEFGH | sed 's/^\(.*\)\(F\)/\2\1/'
 </code></pre></div></div>
 
-<p>What does it do? Let’s ignore the <code class="language-plaintext highlighter-rouge">\(\)</code> first.<br />
-<code class="language-plaintext highlighter-rouge">^</code> indicates the match needs to start from the beginning. After <code class="language-plaintext highlighter-rouge">.*</code> we find <code class="language-plaintext highlighter-rouge">F</code> and we replace them with <code class="language-plaintext highlighter-rouge">\2</code> and <code class="language-plaintext highlighter-rouge">\1</code>.<br />
+<p>What does it do? Let’s ignore the <code class="language-plaintext highlighter-rouge">\(\)</code> first. And so it will look like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo ABCDEFGH | sed 's/^.*F/\2\1/'
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">^</code> indicates the match needs to start from the beginning. After <code class="language-plaintext highlighter-rouge">.*</code> we find <code class="language-plaintext highlighter-rouge">F</code> and we replace them with <code class="language-plaintext highlighter-rouge">\2</code> and <code class="language-plaintext highlighter-rouge">\1</code>.<br />
 <code class="language-plaintext highlighter-rouge">\1</code> and <code class="language-plaintext highlighter-rouge">\2</code> are defined by <code class="language-plaintext highlighter-rouge">\(\)</code>. <code class="language-plaintext highlighter-rouge">\1</code> corresponds to the first and <code class="language-plaintext highlighter-rouge">\2</code> correspond to the second.</p>
 
-<p>If it makes sense, try to move the numbers to the beginning of the line like this:</p>
+<p>If it makes sense, try to move the numbers to the beginning of lines in <code class="language-plaintext highlighter-rouge">ECMspecies</code> like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>114 Laccaria species
+</code></pre></div></div>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -338,15 +342,13 @@ For example,</p>
 
 <p><br /></p>
 
-<h4 id="grep">grep</h4>
+<h3 id="grep">grep</h3>
 <p><code class="language-plaintext highlighter-rouge">grep</code> also supports the usage of Regex. Are you able to find all the genera with species number equal or higher than 10 but lower than 100? (10~99)</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>grep ' [0-9]\{2\} ' ECMspecies  </pre>
 </details>
-
-<p><br /></p>
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
@@ -359,21 +361,228 @@ For example,</p>
 
 <p><br /></p>
 
-<h2 id="dealing-with-tables">dealing with tables</h2>
+<h2 id="dealing-with-tables">Dealing with Tables</h2>
 
 <h3 id="cut">cut</h3>
 
+<p>After that tangent, let’s go back to our Blast results. The format of outfmt is a table, in tab-separated values (<code class="language-plaintext highlighter-rouge">.tsv</code>). Note: there’s also comma-separated values (<code class="language-plaintext highlighter-rouge">.csv</code>).</p>
+
+<p>Go to <code class="language-plaintext highlighter-rouge">LinuxAdvance/tables</code> and copy one of your Blast result into the folder. The option that I use the most is <code class="language-plaintext highlighter-rouge">-f</code> (field). Check the manual with <code class="language-plaintext highlighter-rouge">man</code> to see how to cut out the E-value.</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>cut -f 11 [&lt;yourblastresults&gt;]  </pre>
+</details>
+<p><br /></p>
+
+<p>You can also cut out a few columns. Let’s try the query sequence id, database sequence id, and the start and end for both query and databases.</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>cut -f 1,2,7-10 [&lt;yourblastresults&gt;]  </pre>
+</details>
+
+<details>
+  <summary><b><u>Click to learn more</u></b></summary>
+  <code>.csv</code> is often better than <code>.tsv</code> because handling tabs is not the easiest thing to do. You can use <code>-d</code> to let <code>cut</code> to recognize <code>,</code> instead of tabs as delimiter.
+</details>
+<p><br /></p>
+
 <h3 id="sort">sort</h3>
 
-<p>cut: csv and tsv
-more sort: -k 
-awk</p>
+<p>We used <code class="language-plaintext highlighter-rouge">sort</code> before. However, it sorts by lines. It can sort a table by columns as well.</p>
 
-<p>cut</p>
+<p>You can take a look at <code class="language-plaintext highlighter-rouge">-k</code> (field) in the manual first and see what you find.</p>
 
-<p>sort</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-k field1[,field2], --key=field1[,field2]
+</code></pre></div></div>
 
-<p>awk!</p>
+<p>Basically you need to specify a range to sort with. And normally we only want one column, so it would be something like <code class="language-plaintext highlighter-rouge">-k 1,1</code>.</p>
+
+<p>Let’s try to sort the identity column.</p>
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  <pre>sort -k 3,3 [&lt;yourblastresults&gt;]  </pre>
+</details>
+<p><br /></p>
+
+<p>However, you might notice that the sort doesn’t make sense at all. It’s sorting by characters not numbers.<br />
+To solve this issue, we can add <code class="language-plaintext highlighter-rouge">n</code> before <code class="language-plaintext highlighter-rouge">k</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sort -nk 3,3 [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>It’s also possible to reverse the order</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sort -nrk 3,3 [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>You can also sort by more than one column. By adding more <code class="language-plaintext highlighter-rouge">-k</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sort -k 1,1 -nrk 3,3 [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>Let’s see if you can sort the file by query id, reverse order of database id and a reverse numeric order for the identity.</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>sort -k 1,1 -rk 2,2 -nrk 3,3 [&lt;yourblastresults&gt;]  </pre>
+</details>
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  Like <code>cut</code>, you can let <code>sort</code> to recognize <code>,</code> instead of tabs as delimiter, but with <code>-t</code>.
+</details>
+<p><br /></p>
+
+<h3 id="awk">awk</h3>
+
+<h4 id="variables-in-awk">Variables in awk</h4>
+<p>Well, <code class="language-plaintext highlighter-rouge">awk</code> is a beast. To me, it’s a computational language just like R, C and python, but simpler.<br />
+We won’t be able to cover everything about <code class="language-plaintext highlighter-rouge">awk</code>. Neither I know much about it, but we’ll just go through a few to show case the power of <code class="language-plaintext highlighter-rouge">awk</code>.</p>
+
+<p>Let’s run this and see what happens</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>awk '{print $3, $1}' [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>As you can see, it prints out the third and first fields linked by a space. The fields were indicated by <code class="language-plaintext highlighter-rouge">$</code> (Note: <code class="language-plaintext highlighter-rouge">$0</code> is the whole line). The space is a delimiter introduced by <code class="language-plaintext highlighter-rouge">,</code>. See what happen if you don’t include <code class="language-plaintext highlighter-rouge">,</code>!</p>
+
+<p>OK, but what if we want to use something else as delimiter?<br />
+We can set the output field separater <code class="language-plaintext highlighter-rouge">OFS</code>, with <code class="language-plaintext highlighter-rouge">-v</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>awk -v 'OFS=\t' '{print $3, $1}' [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>The space is now replaced with a tab, which is coded as <code class="language-plaintext highlighter-rouge">\t</code>.</p>
+
+<p>If you want specifically give a special delimiter between two fields, you can replace <code class="language-plaintext highlighter-rouge">,</code> with your delimiter and <code class="language-plaintext highlighter-rouge">"</code>. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>awk '{print $3 "xxx" $1}' [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>You may have notice that <code class="language-plaintext highlighter-rouge">awk</code> treat things in <code class="language-plaintext highlighter-rouge">""</code> as a string and just glue everything together.</p>
+
+<p>Now, your turn. Try to print out the database sequence ids and start and end of the database sequences of each line using a <code class="language-plaintext highlighter-rouge">.csv</code> format. And instead comma, let’s place <code class="language-plaintext highlighter-rouge">-</code> between the start and end.</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>awk -v 'OFS=,' '{print $2, $9 "-" $10}' [&lt;yourblastresults&gt;] </pre>
+</details>
+<p><br /></p>
+
+<h4 id="calculations">Calculations</h4>
+
+<p>You can do calculations in awk as well.
+For example, you can add up a couple numbers:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>awk '{print $9 + $10 - 3}' [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>Here, because <code class="language-plaintext highlighter-rouge">3</code> is a number, you don’t need to add <code class="language-plaintext highlighter-rouge">""</code> around it.</p>
+
+<p>There are also some functions you can use such as square root.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>awk '{print sqrt($9 + $10 - 3)}' [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>Let’s calculate the length of each database sequence of each hit (start to end). (There’s no absolute function in <code class="language-plaintext highlighter-rouge">awk</code>. The easy way is to use square and then square root: <code class="language-plaintext highlighter-rouge">sqrt(X^2)</code>).</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>awk '{print sqrt(($9 - $10)^2) + 1}' [&lt;yourblastresults&gt;] </pre>
+</details>
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  You should notice that Blast tells you the position of the start and the position of the end. Therefore, <code>end - start</code> is not accurate. Instead, you'll need to add 1.
+  <br />
+  Math is important!!!
+</details>
+<p><br /></p>
+
+<h4 id="begin-and-end">Begin and End</h4>
+
+<p>Notice that <code class="language-plaintext highlighter-rouge">awk</code> does stuff in <code class="language-plaintext highlighter-rouge">{}</code> line by line. But sometimes, we want to do things at the beginning or the end of reading a file.</p>
+
+<p>For example, we can print out some stuff to the output file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>awk 'BEGIN{print "start!"}{print $3, $1}END{done!}' [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>You can imagine, if we do some calculation etc. It could be quite powerful.</p>
+
+<p>Like, we can calculate how many lines there are in the file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>awk 'BEGIN{i = 0}{print $3, $1; i = i + 1}END{print "We have " i " lines!"}' [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>First, we assign <code class="language-plaintext highlighter-rouge">0</code> to a variable <code class="language-plaintext highlighter-rouge">i</code> at the beginning. Then we read lines, print out and do the things after <code class="language-plaintext highlighter-rouge">;</code>, which is assign <code class="language-plaintext highlighter-rouge">i+1</code> to <code class="language-plaintext highlighter-rouge">i</code>. (<code class="language-plaintext highlighter-rouge">;</code> indicates the first job is done, and move on to the next part. Just like the new lines in Linux). And at the end, we print out <code class="language-plaintext highlighter-rouge">i</code>.</p>
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  We actually don't need to do this to count the lines. This is just an example.
+</details>
+<p><br /></p>
+
+<h4 id="if-else-1">if else</h4>
+<p>You can also use <code class="language-plaintext highlighter-rouge">if</code> and <code class="language-plaintext highlighter-rouge">else</code> in <code class="language-plaintext highlighter-rouge">awk</code>.<br />
+If we want to print out all the lines of <code class="language-plaintext highlighter-rouge">queryA</code> hits but replace others with <code class="language-plaintext highlighter-rouge">XXX</code>, we can do something like this</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>awk '{if($1=="queryA"){print $0}else{print "XXX"}}' [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>Here, <code class="language-plaintext highlighter-rouge">awk</code> runs the stuff inside the first <code class="language-plaintext highlighter-rouge">{}</code> when reading each line. And it meets an <code class="language-plaintext highlighter-rouge">if</code> clause, asking if the first field is <code class="language-plaintext highlighter-rouge">queryA</code>. If yes, run the things in the second <code class="language-plaintext highlighter-rouge">{}</code>; if no, run the things in the third <code class="language-plaintext highlighter-rouge">{}</code>.</p>
+
+<p>Let’s see if you can use it to figure out the directions of the hits! (You can use <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;</code> and do calculations inside the <code class="language-plaintext highlighter-rouge">if</code> clause too!)</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>awk '{if($10&gt;$9){print "+"}else{print "-"}}' [&lt;yourblastresults&gt;]  </pre>
+</details>
+<p><br /></p>
+
+<p>If clause also can use some operators, such as AND <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> and OR <code class="language-plaintext highlighter-rouge">||</code>. Guess what happens if you run the code below: (It might not work with your result.)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>awk '{if($9&gt;100 &amp;&amp; $10&lt;3000){print $0}}' [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>Play with it to get the idea.</p>
+
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  <code>awk</code> also support <code>sed</code> like expression (something like <code>/ABC/</code>). But I don't use it often since it seems like you can just use if else clauses instead.
+</details>
+<p><br /></p>
+
+<h4 id="line-numbers">Line Numbers</h4>
+
+<p>There are some native variables in <code class="language-plaintext highlighter-rouge">awk</code>. I’ll only introduce Number of Records <code class="language-plaintext highlighter-rouge">NR</code>.<br />
+You can think <code class="language-plaintext highlighter-rouge">NR</code> as the line numbers. Let’s see what happen if we run this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>awk -v 'OFS=\t' '{print NR, $0}' [&lt;yourblastresults&gt;]
+</code></pre></div></div>
+
+<p>What did it do?<br />
+Using <code class="language-plaintext highlighter-rouge">NR</code>, could you print out the 3rd to 5th lines of your blast results?</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>awk '{if(NR&gt;2 &amp;&amp; NR&lt;6){print $0}}' [&lt;yourblastresults&gt;]  </pre>
+  You can replace <code>NR&gt;2</code> with <code>NR&gt;=3</code> which could be more intuitive.
+</details>
+<p><br /></p>
+
+<p>Lastly, let’s try to write a code to turn fastq files to fasta files! Subset a fastq file with <code class="language-plaintext highlighter-rouge">head -n 40</code> to your current directory.<br />
+Remember fastqs are in four line blocks. The first line is the sequence name with <code class="language-plaintext highlighter-rouge">@</code> at the beginning. And the second line is the sequence. Here, <code class="language-plaintext highlighter-rouge">%</code> will be useful. It outputs remainder from a division. For example, <code class="language-plaintext highlighter-rouge">9 % 3 == 0</code> and <code class="language-plaintext highlighter-rouge">6 % 5 == 1</code>.<br />
+Also, you don’t need to do it solely with <code class="language-plaintext highlighter-rouge">awk</code>. Be creative!</p>
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>awk '{if(NR%4==1 || NR%4==2){print}}' [&lt;yourfastqfile&gt;] | sed 's/@/&gt;/g'  </pre>
+</details>
+<p><br /></p>
 
 
   </div>
@@ -386,19 +595,19 @@ awk</p>
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Coinvasion Bioinformatics 2022</h2>
+    <h2 class="footer-heading">NSF Invasion Workshop 2022 - Bioinformatics</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Coinvasion Bioinformatics 2022</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
+          <li class="p-name">NSF Invasion Workshop 2022 - Bioinformatics</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
       </div>
 
       <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>Bioinformatics course for Coinvasion workshop 2022</p>
+        <p>Bioinformatics course for NSF Invasion workshop 2022</p>
       </div>
     </div>
 

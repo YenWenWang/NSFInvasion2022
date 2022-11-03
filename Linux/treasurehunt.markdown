@@ -25,7 +25,7 @@ The secret message: (decoded already)
 To get the materials, run the followings
 
 ```
-git clone https://github.com/YenWenWang/Coinvasion2022TreasureHunt.git
+git clone https://github.com/YenWenWang/Invasion2022Treasurehunt.git
 ```
 
 Good luck!

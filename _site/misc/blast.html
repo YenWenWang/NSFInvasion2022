@@ -3,25 +3,25 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Blast | Coinvasion Bioinformatics 2022</title>
+<title>Blast | NSF Invasion Workshop 2022 - Bioinformatics</title>
 <meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Blast" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Bioinformatics course for Coinvasion workshop 2022" />
-<meta property="og:description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<meta name="description" content="Bioinformatics course for NSF Invasion workshop 2022" />
+<meta property="og:description" content="Bioinformatics course for NSF Invasion workshop 2022" />
 <link rel="canonical" href="http://localhost:4000/misc/blast" />
 <meta property="og:url" content="http://localhost:4000/misc/blast" />
-<meta property="og:site_name" content="Coinvasion Bioinformatics 2022" />
+<meta property="og:site_name" content="NSF Invasion Workshop 2022 - Bioinformatics" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Blast" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for Coinvasion workshop 2022","headline":"Blast","url":"http://localhost:4000/misc/blast"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for NSF Invasion workshop 2022","headline":"Blast","url":"http://localhost:4000/misc/blast"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Coinvasion Bioinformatics 2022" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="NSF Invasion Workshop 2022 - Bioinformatics" /></head>
 <body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Coinvasion Bioinformatics 2022</a><nav class="site-nav">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">NSF Invasion Workshop 2022 - Bioinformatics</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -43,22 +43,25 @@
   </header>
 
   <div class="post-content">
-    <p>add why things are fragmented?
-add what happens if you have gene duplication/paralogs</p>
+    <p><img src="/img/band.png" alt="band" /></p>
 
-<h3 id="knowing-your-dataset">Knowing your dataset</h3>
-<h4 id="queries">Queries</h4>
+<h2 id="knowing-your-dataset">Knowing your dataset</h2>
+<h3 id="queries">Queries</h3>
 
 <p>To start to BLAST on local computers, we will first use two of my favorite genes, encoding DNA polymerase alpha subunit B, and Clathrin heavy chain, as examples. These genes are supposed to be single copied so they would be easier to deal with than many of genes of your interest.<br />
 I’ve took the coding sequences (CDSs) from <i>Amanita phalloides</i> and stored them in a fasta file: <code class="language-plaintext highlighter-rouge">BLAST/query.fasta</code>.
 So let’s head to <code class="language-plaintext highlighter-rouge">BLAST</code> and see what we are dealing with.</p>
 
-<h4 id="databases">Databases</h4>
+<p><br /></p>
+
+<h3 id="databases">Databases</h3>
 
 <p>You should have already played with the genomes already. Pick your favorite one and copy it into the <code class="language-plaintext highlighter-rouge">BLAST</code> directory. Also, we want to generate a protein database as well. Normally, it would be come from a genome annotation, but we will use BUSCOs instead.<br />
 And so, we need to put all the BUSCOs into a file. Figure out a way to do that with the commands we learned! (Single-copied only should be fine.)</p>
 
-<h3 id="making-databases">Making databases</h3>
+<p><br /></p>
+
+<h2 id="making-databases">Making databases</h2>
 
 <p>Making databases for Blast is quite straightforward. You only need <code class="language-plaintext highlighter-rouge">makeblastdb</code>, <code class="language-plaintext highlighter-rouge">-dbtype</code> and <code class="language-plaintext highlighter-rouge">-in</code>. (You might notice that we there’s only one hyphen before these multiple-character options. It’s simply because different developers use different syntax. So, you’ll need to look at tutorials/manuals to learn these softwares.)</p>
 
@@ -78,7 +81,7 @@ And so, we need to put all the BUSCOs into a file. Figure out a way to do that w
 </details>
 <p><br /></p>
 
-<h3 id="blast">BLAST!!</h3>
+<h2 id="blast">BLAST!!</h2>
 
 <p>We will start with <code class="language-plaintext highlighter-rouge">blastn</code>, which is using a nucleotide query to search in a nucleotide database. Let’s try</p>
 
@@ -118,7 +121,37 @@ Why does each query have multiple hits?</p>
 </details>
 <p><br /></p>
 
-<p>How’s the performance of it? When will it be more or less favored than a nucleotide database?</p>
+<p>How’s the performance of it? When will it be more or less favored than a nucleotide database?
+<br /></p>
+
+<h2 id="get-sequence">Get sequence</h2>
+
+<p>Often times we want to get the sequences instead of just having the hit range. There are multiple ways to do it. Here, we will use the Blast suite.</p>
+
+<p>Let’s add an option <code class="language-plaintext highlighter-rouge">-parse_seqids</code>. To your <code class="language-plaintext highlighter-rouge">makeblastdb</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>makeblastdb -dbtype nucl -in [&lt;yourfasta&gt;] -parse_seqids
+</code></pre></div></div>
+
+<p>Adding this option will provide some more information to the database allowing later sequence extraction.</p>
+
+<p>Then you can run:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blastdbcmd -db [&lt;yourfasta&gt;] -dbtype nucl -entry [&lt;hitsequenceid&gt;] -range [&lt;hitsequencerange&gt;]
+</code></pre></div></div>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">hitsequencerange</code> should be typed like <code class="language-plaintext highlighter-rouge">3-21</code>.</p>
+
+<p>You can also extract multiple genes at once. Such as,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blastdbcmd -db [&lt;yourfasta&gt;] -dbtype nucl -entry_batch [&lt;yourregionsofinterest&gt;]
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">yourregionsofinterest</code> should be a file name including an entry and a range in each line, separated by space. For example, <code class="language-plaintext highlighter-rouge">seqid 3-21</code>.</p>
+
+<p>Now, try to extract your own genes! Think and discuss what’s the most sensible strategy for your study.</p>
+
+<p><br /></p>
 
 <h2 id="see-also">See also</h2>
 <ul>
@@ -136,19 +169,19 @@ Why does each query have multiple hits?</p>
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Coinvasion Bioinformatics 2022</h2>
+    <h2 class="footer-heading">NSF Invasion Workshop 2022 - Bioinformatics</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Coinvasion Bioinformatics 2022</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
+          <li class="p-name">NSF Invasion Workshop 2022 - Bioinformatics</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
       </div>
 
       <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>Bioinformatics course for Coinvasion workshop 2022</p>
+        <p>Bioinformatics course for NSF Invasion workshop 2022</p>
       </div>
     </div>
 

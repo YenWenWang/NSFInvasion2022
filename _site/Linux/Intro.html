@@ -3,25 +3,25 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Intro to Linux | Coinvasion Bioinformatics 2022</title>
+<title>Intro to Linux | NSF Invasion Workshop 2022 - Bioinformatics</title>
 <meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Intro to Linux" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Bioinformatics course for Coinvasion workshop 2022" />
-<meta property="og:description" content="Bioinformatics course for Coinvasion workshop 2022" />
+<meta name="description" content="Bioinformatics course for NSF Invasion workshop 2022" />
+<meta property="og:description" content="Bioinformatics course for NSF Invasion workshop 2022" />
 <link rel="canonical" href="http://localhost:4000/Linux/Intro" />
 <meta property="og:url" content="http://localhost:4000/Linux/Intro" />
-<meta property="og:site_name" content="Coinvasion Bioinformatics 2022" />
+<meta property="og:site_name" content="NSF Invasion Workshop 2022 - Bioinformatics" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Intro to Linux" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for Coinvasion workshop 2022","headline":"Intro to Linux","url":"http://localhost:4000/Linux/Intro"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Bioinformatics course for NSF Invasion workshop 2022","headline":"Intro to Linux","url":"http://localhost:4000/Linux/Intro"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Coinvasion Bioinformatics 2022" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="NSF Invasion Workshop 2022 - Bioinformatics" /></head>
 <body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Coinvasion Bioinformatics 2022</a><nav class="site-nav">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">NSF Invasion Workshop 2022 - Bioinformatics</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -43,7 +43,8 @@
   </header>
 
   <div class="post-content">
-    <p>Please press hint if only necessary</p>
+    <p>Please press hint if only necessary.<br />
+Press “Click to learn more!” even if you completed the tasks without hints.</p>
 
 <p><br /></p>
 
@@ -69,7 +70,7 @@
   You can use either absolute path or relative path.
   <pre>cd LinuxIntro/Review  </pre>
   OR
-  <pre>cd /[&amp;ltpwd&amp;gt]/LinuxIntro/Review  </pre>
+  <pre>cd /[&amp;ltpwd&amp;gt]/DennyMaterials/LinuxIntro/Review  </pre>
   (replace <code>[&amp;ltpwd&amp;gt]</code> with your <code>[pwd]</code> output.)
 </details>
 <p><br /></p>
@@ -215,89 +216,86 @@ mv Knowledge/Facts/fileX Knowledge/Facts/Math  </pre>
 <p>CoPy <code class="language-plaintext highlighter-rouge">Knowledge/Facts/Math</code> into current directory without renaming</p>
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>cp fileX Knowledge/Facts/Math .
-&lt;/details&gt;
-<br />
+  <pre>cp fileX Knowledge/Facts/Math .  </pre>
+</details>
+<p><br /></p>
 
-Make `they're definitely correct` to the end of `fileX` without using `nano`.
+<p>Make <code class="language-plaintext highlighter-rouge">they're definitely correct</code> to the end of <code class="language-plaintext highlighter-rouge">fileX</code> without using <code class="language-plaintext highlighter-rouge">nano</code>.</p>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>echo "they're definitely correct" &gt;&gt; fileX  </pre>
   Notice the apostrophe will open a quote, so we need to use the double quotes to suppress it.
 </details>
-<br />
+<p><br /></p>
 
-ReMove `Knowledge/Facts/math`
+<p>ReMove <code class="language-plaintext highlighter-rouge">Knowledge/Facts/math</code></p>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>rm Knowledge/Facts/math  </pre>
   Note: this is dangerous, the files you <code>rm</code> are gone forever. You can't get it back from the recycle bin!
 </details>
-<br />
+<p><br /></p>
 
-ReMove `Knowledge`
+<p>ReMove <code class="language-plaintext highlighter-rouge">Knowledge</code></p>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>rm -r Knowledge  </pre>
 </details>
-<br />
+<p><br /></p>
 
-![band](/img/band.png)
+<p><img src="/img/band.png" alt="band" /></p>
 
-<br />
+<p><br /></p>
 
-## "New" stuff!
+<h2 id="new-stuff">“New” stuff!</h2>
 
-### Compressions &amp; Archives
+<h3 id="compressions--archives">Compressions &amp; Archives</h3>
 
-In bioinformatics we often deal with large files, and so we need to compress the files. Also, there will be times you want to package a folder into an archive, so it's easier to move around. Here you'll learn about how to handle these files!
-<br />
+<p>In bioinformatics we often deal with large files, and so we need to compress the files. Also, there will be times you want to package a folder into an archive, so it’s easier to move around. Here you’ll learn about how to handle these files!
+<br /></p>
 
-#### Compression
-The most common compression method is `gzip`. You might be quite familiar with `zip`, but that's mostly used in Windows.   
-First, go to `LinuxIntro/NewStuff/CompArch`, make two file called `mouth` and `pants`, and try to compress them (You can add any content you want into the two files.)  
-Since we are learning, let's get some help.
+<h4 id="compression">Compression</h4>
+<p>The most common compression method is <code class="language-plaintext highlighter-rouge">gzip</code>. You might be quite familiar with <code class="language-plaintext highlighter-rouge">zip</code>, but that’s mostly used in Windows. <br />
+First, go to <code class="language-plaintext highlighter-rouge">LinuxIntro/NewStuff/CompArch</code>, make two file called <code class="language-plaintext highlighter-rouge">mouth</code> and <code class="language-plaintext highlighter-rouge">pants</code>, and try to compress them (You can add any content you want into the two files.)<br />
+Since we are learning, let’s get some help.</p>
 
-```
-gzip -h
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gzip -h
+</code></pre></div></div>
 
-It opens a manual and tells you how to use this command:
+<p>It opens a manual and tells you how to use this command:</p>
 
-```
-gzip [-123456789acdfhklLNnqrtVv] [-S .suffix] [<file> [<file> ...]]
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gzip [-123456789acdfhklLNnqrtVv] [-S .suffix] [&lt;file&gt; [&lt;file&gt; ...]]
+</code></pre></div></div>
 
-It is a little bit confusing, but what you need to know is anything start with a `-` means it's an option, and the manual tells you what they are below. You don't need the options right now, here we only need `file`, without brackets, greater and lesser signs.
+<p>It is a little bit confusing, but what you need to know is anything start with a <code class="language-plaintext highlighter-rouge">-</code> means it’s an option, and the manual tells you what they are below. You don’t need the options right now, here we only need <code class="language-plaintext highlighter-rouge">file</code>, without brackets, greater and lesser signs.</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>gzip mouth pants  </pre>
 </details>
-<br />
+<p><br /></p>
 
-After zipping it, list all files, what did you find?  
+<p>After zipping it, list all files, what did you find?</p>
 
-Now, let's unzip it with `gunzip`.
+<p>Now, let’s unzip it with <code class="language-plaintext highlighter-rouge">gunzip</code>.</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>gunzip *.gz  </pre>
   If you want to do this, you should make sure that there's no other gz files.
 </details>
-<br />
+<p><br /></p>
 
-What if we want to keep the original file when compressing??  
-Go check the manual again to see what you can do!  
-This time, we will use:
+<p>What if we want to keep the original file when compressing??<br />
+Go check the manual again to see what you can do!<br />
+This time, we will use:</p>
 
-```
-man gzip
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man gzip
+</code></pre></div></div>
 
-This opens the detailed manual with `less`. You can scroll up and down with your mouse and press `q` to leave.
+<p>This opens the detailed manual with <code class="language-plaintext highlighter-rouge">less</code>. You can scroll up and down with your mouse and press <code class="language-plaintext highlighter-rouge">q</code> to leave.</p>
 
-Now, let's complete the task!
+<p>Now, let’s complete the task!</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -306,7 +304,6 @@ Now, let's complete the task!
   <pre>gzip --keep mouth pants  </pre>
 </details>
 
-
 <details>
   <summary><b><u>Fun Fact</u></b></summary>
 
@@ -314,56 +311,52 @@ Now, let's complete the task!
   See <a href="/ref/Chen2000.pdf">Chen et al. 2000</a>  
 
 </details>
-<br />
+<p><br /></p>
 
-#### Archive
-We will use `tar` to archive.  
-Let's make a folder called `stuffs` and put `mouth` and `pants` in it. We will archive `stuffs` into `stuffs.tar`  
-Now, use `-h` again to get some help.
+<h4 id="archive">Archive</h4>
+<p>We will use <code class="language-plaintext highlighter-rouge">tar</code> to archive.<br />
+Let’s make a folder called <code class="language-plaintext highlighter-rouge">stuffs</code> and put <code class="language-plaintext highlighter-rouge">mouth</code> and <code class="language-plaintext highlighter-rouge">pants</code> in it. We will archive <code class="language-plaintext highlighter-rouge">stuffs</code> into <code class="language-plaintext highlighter-rouge">stuffs.tar</code><br />
+Now, use <code class="language-plaintext highlighter-rouge">-h</code> again to get some help.</p>
 
-```
-tar -h
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -h
+</code></pre></div></div>
 
-You will see that tar is a lot more complicated, it can do a lot of things!  
+<p>You will see that tar is a lot more complicated, it can do a lot of things!</p>
 
-```
-First option must be a mode specifier:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>First option must be a mode specifier:
   -c Create  -r Add/Replace  -t List  -u Update  -x Extract
-```
+</code></pre></div></div>
 
-Since we want to make a new archive, we want to focus on `Create`:
+<p>Since we want to make a new archive, we want to focus on <code class="language-plaintext highlighter-rouge">Create</code>:</p>
 
-```
-Create: tar -c [options] [<file> | <dir> | @<archive> | -C <dir> ]
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Create: tar -c [options] [&lt;file&gt; | &lt;dir&gt; | @&lt;archive&gt; | -C &lt;dir&gt; ]
+</code></pre></div></div>
 
-As well as the common options:
+<p>As well as the common options:</p>
 
-```
-Common Options:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Common Options:
   -b #  Use # 512-byte records per I/O block
-  -f <filename>  Location of archive
+  -f &lt;filename&gt;  Location of archive
   -v    Verbose
   -w    Interactive
-```
+</code></pre></div></div>
 
-And so this mean that we need `-c` to create and `-f` to indicate the name of the archive you want to create (Yes, I agree. `tar`'s manual isn't the best).  
-People often use `-v` so they can track the progress, too.
+<p>And so this mean that we need <code class="language-plaintext highlighter-rouge">-c</code> to create and <code class="language-plaintext highlighter-rouge">-f</code> to indicate the name of the archive you want to create (Yes, I agree. <code class="language-plaintext highlighter-rouge">tar</code>’s manual isn’t the best).<br />
+People often use <code class="language-plaintext highlighter-rouge">-v</code> so they can track the progress, too.</p>
 
-With all the information, let's try to archive!
+<p>With all the information, let’s try to archive!</p>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>tar -c -v -f stuffs.tar stuffs  </pre>
   You can also put the all three options together!
   <pre>tar -cvf stuffs.tar stuffs  </pre>
 </details>
-<br />
+<p><br /></p>
 
-List the files, what did you see?
+<p>List the files, what did you see?</p>
 
-Now, remove the `stuffs` folder, and extract the tar file.  
-(Use `tar -h` or `man tar` for information!)
+<p>Now, remove the <code class="language-plaintext highlighter-rouge">stuffs</code> folder, and extract the tar file.<br />
+(Use <code class="language-plaintext highlighter-rouge">tar -h</code> or <code class="language-plaintext highlighter-rouge">man tar</code> for information!)</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -373,81 +366,80 @@ tar -x -v -f stuffs.tar stuffs  </pre>
   <pre>rm -r stuffs  
 tar -xvf stuffs.tar stuffs</pre>
 </details>
-<br />
+<p><br /></p>
 
-#### Archive + Compress
-You can archive and compress at the same time with `tar`!  
-We will archive and compress `stuff` into `stuff.tar.gz`
+<h4 id="archive--compress">Archive + Compress</h4>
+<p>You can archive and compress at the same time with <code class="language-plaintext highlighter-rouge">tar</code>!<br />
+We will archive and compress <code class="language-plaintext highlighter-rouge">stuff</code> into <code class="language-plaintext highlighter-rouge">stuff.tar.gz</code></p>
 
-Same drill: use `man` or `-h` for help and figure out how to do it!  
+<p>Same drill: use <code class="language-plaintext highlighter-rouge">man</code> or <code class="language-plaintext highlighter-rouge">-h</code> for help and figure out how to do it!</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>tar -czvf stuffs.tar.gz stuffs  </pre>
 </details>
-<br />
+<p><br /></p>
 
-Compare the file size between compressed and uncompressed archives.  
-Remember how to do it?
+<p>Compare the file size between compressed and uncompressed archives.<br />
+Remember how to do it?</p>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>ls -lh stuffs.tar*  </pre>
 </details>
-<br />
+<p><br /></p>
 
-#### See contents in tar without unpacking
-Sometimes an archive is so huge, say 200 GB. You know extracting it will crash your poor laptop, but you want to know what's inside. What should you do?
+<h4 id="see-contents-in-tar-without-unpacking">See contents in tar without unpacking</h4>
+<p>Sometimes an archive is so huge, say 200 GB. You know extracting it will crash your poor laptop, but you want to know what’s inside. What should you do?</p>
 
-Let's look at `List` in the `tar` manual! You should be able to figure out how to do it.
+<p>Let’s look at <code class="language-plaintext highlighter-rouge">List</code> in the <code class="language-plaintext highlighter-rouge">tar</code> manual! You should be able to figure out how to do it.</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>ls -lh stuffs.tar*  </pre>
 </details>
-<br />
+<p><br /></p>
 
-Now, extract `mouth` only (Same drill)
+<p>Now, extract <code class="language-plaintext highlighter-rouge">mouth</code> only (Same drill)</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   Remember that you need to provide the full path
   <pre>tar -xzf stuffs.tar stuffs/mouth  </pre>
 </details>
-<br />
+<p><br /></p>
 
-#### Read compressed files without extraction
-You can actually read compressed files without extracting them into new files! But, why do we want to do that? Because we can directly feed it into other commands with pipes `|`, which saves disk space and computational time (We will talk about it later).
+<h4 id="read-compressed-files-without-extraction">Read compressed files without extraction</h4>
+<p>You can actually read compressed files without extracting them into new files! But, why do we want to do that? Because we can directly feed it into other commands with pipes <code class="language-plaintext highlighter-rouge">|</code>, which saves disk space and computational time (We will talk about it later).</p>
 
-Let's run the followings and see what you got.
-```
-echo nonsense &gt; temp.txt
+<p>Let’s run the followings and see what you got.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo nonsense &gt; temp.txt
 gzip temp.txt
 gzcat temp.txt.gz
-```
+</code></pre></div></div>
 
-### Head and Tail  
-You know `head` already it spits out the first few lines of a file. It could be handy if you want to take a quick glance at a file.  
-But do you know `head` can do more than that?  
-For example, you can specify how many lines you want it to spit out.  
-Same drill, go to `LinuxIntro/NewStuff/HeadTailAndWordCount` and try to read file see what's the first three lines of `HeadAndTails.txt`?
+<h3 id="head-and-tail">Head and Tail</h3>
+<p>You know <code class="language-plaintext highlighter-rouge">head</code> already it spits out the first few lines of a file. It could be handy if you want to take a quick glance at a file.<br />
+But do you know <code class="language-plaintext highlighter-rouge">head</code> can do more than that?<br />
+For example, you can specify how many lines you want it to spit out.<br />
+Same drill, go to <code class="language-plaintext highlighter-rouge">LinuxIntro/NewStuff/HeadTailAndWordCount</code> and try to read file see what’s the first three lines of <code class="language-plaintext highlighter-rouge">HeadAndTails.txt</code>?</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>head -n 3 HeadAndTails.txt  </pre>
 </details>
-<br />
+<p><br /></p>
 
-On the other hand, when you are dealing error messages you may want to look at the last few lines of the file. Then, we can use `tail`.  
-Now, let's try to find out the last two lines of `HeadAndTails.txt`. (The syntax is the same).
+<p>On the other hand, when you are dealing error messages you may want to look at the last few lines of the file. Then, we can use <code class="language-plaintext highlighter-rouge">tail</code>.<br />
+Now, let’s try to find out the last two lines of <code class="language-plaintext highlighter-rouge">HeadAndTails.txt</code>. (The syntax is the same).</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>tail -n 2 HeadAndTails.txt  </pre>
 </details>
-<br />
+<p><br /></p>
 
-Sometimes, you want to remove the first few lines. And you can use `tail` to do that!  
-However, we don't have a good manual. So, let's google to get help and try to remove the first line using `tail`!
+<p>Sometimes, you want to remove the first few lines. And you can use <code class="language-plaintext highlighter-rouge">tail</code> to do that!<br />
+However, we don’t have a good manual. So, let’s google to get help and try to remove the first line using <code class="language-plaintext highlighter-rouge">tail</code>!</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -459,32 +451,31 @@ However, we don't have a good manual. So, let's google to get help and try to re
   <code>head</code> should be able to do similar things, too, but it depends on the version that you have: My laptop isn't capable of that :(.
 </details>
 
-<br />
+<p><br /></p>
 
-### Counting Characters, Words and Lines
-Sometimes you need to count how many raw reads you got from a sequencing service, or you want to count mamy nucleotides there are in a gene. Then, we can use `wc`.  
-Stay in `LinuxIntro/NewStuff/HeadTailAndWordCount` and run 
-```
-wc HeadsAndTails.txt
-```
-You can see that there are four columns, the first three are numeric the last one is your file name.  
-But what does each number mean? Try to find it out yourself!
+<h3 id="counting-characters-words-and-lines">Counting Characters, Words and Lines</h3>
+<p>Sometimes you need to count how many raw reads you got from a sequencing service, or you want to count mamy nucleotides there are in a gene. Then, we can use <code class="language-plaintext highlighter-rouge">wc</code>.<br />
+Stay in <code class="language-plaintext highlighter-rouge">LinuxIntro/NewStuff/HeadTailAndWordCount</code> and run</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wc HeadsAndTails.txt
+</code></pre></div></div>
+<p>You can see that there are four columns, the first three are numeric the last one is your file name.<br />
+But what does each number mean? Try to find it out yourself!</p>
 
-You can also use options to specify which number you want to see. Look at manual and play with the four options!
+<p>You can also use options to specify which number you want to see. Look at manual and play with the four options!</p>
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
   You may notice <code>-m</code> and <code>-c</code> are nearly the same. That's because <code>-m</code> is character <code>-c</code> is bytes and normally one character is one byte. But when we use certain coding systems, some characters require two bytes to store, which makes the difference.
 </details>
-<br />
+<p><br /></p>
 
-Note: It's also not that simple to count nucleotides, but this is a starting point.
-<br />
+<p>Note: It’s also not that simple to count nucleotides, but this is a starting point.
+<br /></p>
 
-### Pipes `|`
-Pipes `|` are one of the most powerful tool in Linux in my opinion.  
+<h3 id="pipes-">Pipes <code class="language-plaintext highlighter-rouge">|</code></h3>
+<p>Pipes <code class="language-plaintext highlighter-rouge">|</code> are one of the most powerful tool in Linux in my opinion.</p>
 
-Before we learn about pipe, let's revisit `wc` and `ls`. Go to `LinuxIntro/NewStuff/pipe` and figure out a way to count files in the folder!  
+<p>Before we learn about pipe, let’s revisit <code class="language-plaintext highlighter-rouge">wc</code> and <code class="language-plaintext highlighter-rouge">ls</code>. Go to <code class="language-plaintext highlighter-rouge">LinuxIntro/NewStuff/pipe</code> and figure out a way to count files in the folder!</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -492,109 +483,102 @@ Before we learn about pipe, let's revisit `wc` and `ls`. Go to `LinuxIntro/NewSt
 wc -l listoffiles  </pre><br />
   That gives you 8 files, but there should be 7 only. 
 </details>
-<br />
+<p><br /></p>
 
-If you did not use `|`, you might get one more file counted due to the temporary file. To avoid this, we can simply not make the temporary file with `|`. Run:
+<p>If you did not use <code class="language-plaintext highlighter-rouge">|</code>, you might get one more file counted due to the temporary file. To avoid this, we can simply not make the temporary file with <code class="language-plaintext highlighter-rouge">|</code>. Run:</p>
 
-```
-ls -l | wc -l
-```
-What `|` is doing here is storing the "standard output" (STDOUT) from `ls` into memory and directly feed it as "standard input" (STDIN) to the next step. So, not only it saves space, it also saves a lot of time!  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls -l | wc -l
+</code></pre></div></div>
+<p>What <code class="language-plaintext highlighter-rouge">|</code> is doing here is storing the “standard output” (STDOUT) from <code class="language-plaintext highlighter-rouge">ls</code> into memory and directly feed it as “standard input” (STDIN) to the next step. So, not only it saves space, it also saves a lot of time!</p>
 
-Let's use `|` again to get the 3rd to 8th lines of `BadGuy`!
+<p>Let’s use <code class="language-plaintext highlighter-rouge">|</code> again to get the 3rd to 8th lines of <code class="language-plaintext highlighter-rouge">BadGuy</code>!</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>head -n 8 BadGuy | tail -n 5  </pre><br />
   Need some calculations!
 </details>
-<br />
+<p><br /></p>
 
-### Same and Different
-#### Diff
-Say today your lab is sharing a dataset and you made some edits, but you forgot what they are exactly. We can use `diff` to solve this issue.  
-Head to `LinuxIntro/NewStuff/DiffSort` and compare `AfricanCountriesA` and `AfricanCountriesB`
+<h3 id="same-and-different">Same and Different</h3>
+<h4 id="diff">Diff</h4>
+<p>Say today your lab is sharing a dataset and you made some edits, but you forgot what they are exactly. We can use <code class="language-plaintext highlighter-rouge">diff</code> to solve this issue.<br />
+Head to <code class="language-plaintext highlighter-rouge">LinuxIntro/NewStuff/DiffSort</code> and compare <code class="language-plaintext highlighter-rouge">AfricanCountriesA</code> and <code class="language-plaintext highlighter-rouge">AfricanCountriesB</code></p>
 
-```
-diff AfricanCountriesA AfricanCountriesB
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>diff AfricanCountriesA AfricanCountriesB
+</code></pre></div></div>
 
-Try to figure out what the results mean!  
-Note: This is a very simple dataset so you can infer what the command is doing by looking at the dataset. Now, what if you have larger datasets and you want to know what the command is doing without Googling or asking? (It's a useful skill!)
-<br />
+<p>Try to figure out what the results mean!<br />
+Note: This is a very simple dataset so you can infer what the command is doing by looking at the dataset. Now, what if you have larger datasets and you want to know what the command is doing without Googling or asking? (It’s a useful skill!)
+<br /></p>
 
-#### Comm
-`diff` can tell you where there's a difference, but sometimes you want to know what's the same. To do so, we can use `comm`. Let's run the following and see what happens.
+<h4 id="comm">Comm</h4>
+<p><code class="language-plaintext highlighter-rouge">diff</code> can tell you where there’s a difference, but sometimes you want to know what’s the same. To do so, we can use <code class="language-plaintext highlighter-rouge">comm</code>. Let’s run the following and see what happens.</p>
 
-```
-comm AfricanCountriesA AfricanCountriesB
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>comm AfricanCountriesA AfricanCountriesB
+</code></pre></div></div>
 
-What are the three columns?
+<p>What are the three columns?</p>
 
-We can use the options to suppress certain columns. Play with the three options `-1`, `-2` and `-3`.  
-You can also combine the options into `-12`, `-13` and `-23`. 
-And so, back to the original problem, how to get the lines common to both `AfricanCountriesA` and `AfricanCountriesB`?  
+<p>We can use the options to suppress certain columns. Play with the three options <code class="language-plaintext highlighter-rouge">-1</code>, <code class="language-plaintext highlighter-rouge">-2</code> and <code class="language-plaintext highlighter-rouge">-3</code>.<br />
+You can also combine the options into <code class="language-plaintext highlighter-rouge">-12</code>, <code class="language-plaintext highlighter-rouge">-13</code> and <code class="language-plaintext highlighter-rouge">-23</code>. 
+And so, back to the original problem, how to get the lines common to both <code class="language-plaintext highlighter-rouge">AfricanCountriesA</code> and <code class="language-plaintext highlighter-rouge">AfricanCountriesB</code>?</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>comm -12 AfricanCountriesA AfricanCountriesB  </pre>
 </details>
-<br />
+<p><br /></p>
 
+<h3 id="sort-and-unique">Sort and Unique</h3>
+<h4 id="sort">Sort</h4>
+<p><code class="language-plaintext highlighter-rouge">sort</code> can be useful to organize things. Let’s sort <code class="language-plaintext highlighter-rouge">AfricanCountriesA</code> with</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sort AfricanCountriesA
+</code></pre></div></div>
+<p>How are the countries sorted?</p>
 
-### Sort and Unique
-#### Sort
-`sort` can be useful to organize things. Let's sort `AfricanCountriesA` with 
-```
-sort AfricanCountriesA
-```
-How are the countries sorted?
-
-Now, let's sort `numbers`. How are the numbers sorted?  
-Try to figure out how to sort it numerically! 
+<p>Now, let’s sort <code class="language-plaintext highlighter-rouge">numbers</code>. How are the numbers sorted?<br />
+Try to figure out how to sort it numerically!</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>sort -n numbers  </pre>
 </details>
-<br />
+<p><br /></p>
 
-#### Unique
-`uniq` can be used to remove duplicated items and is often used with `sort`. Why? Run:
+<h4 id="unique">Unique</h4>
+<p><code class="language-plaintext highlighter-rouge">uniq</code> can be used to remove duplicated items and is often used with <code class="language-plaintext highlighter-rouge">sort</code>. Why? Run:</p>
 
-```
-uniq numbers
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uniq numbers
+</code></pre></div></div>
 
-You'll see that it only removes a `23`. That is because it only compares the two lines next to each other. So `sort` can solve this issue! Try again!
+<p>You’ll see that it only removes a <code class="language-plaintext highlighter-rouge">23</code>. That is because it only compares the two lines next to each other. So <code class="language-plaintext highlighter-rouge">sort</code> can solve this issue! Try again!</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>sort -n numbers | uniq  </pre>
 </details>
 
-<br />
+<p><br /></p>
 
-### Basic grep and sed
-#### grep
-`grep` is a tool that you can use to search a pattern in files. There are many uses, but we are going to learn the basic ones first.  
-First let's find anything with `Africa` in `AfricanCountriesA`.
+<h3 id="basic-grep-and-sed">Basic grep and sed</h3>
+<h4 id="grep">grep</h4>
+<p><code class="language-plaintext highlighter-rouge">grep</code> is a tool that you can use to search a pattern in files. There are many uses, but we are going to learn the basic ones first.<br />
+First let’s find anything with <code class="language-plaintext highlighter-rouge">Africa</code> in <code class="language-plaintext highlighter-rouge">AfricanCountriesA</code>.</p>
 
-```
-grep Africa AfricanCountriesA
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep Africa AfricanCountriesA
+</code></pre></div></div>
 
-You should see two countries. Now, let's do the inverse: find everything without `Africa`. (Check `-v` in the manual.)
+<p>You should see two countries. Now, let’s do the inverse: find everything without <code class="language-plaintext highlighter-rouge">Africa</code>. (Check <code class="language-plaintext highlighter-rouge">-v</code> in the manual.)</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>grep -v Africa AfricanCountriesA  </pre>
 </details>
 
-<br />
+<p><br /></p>
 
-We can also count how many hits without `Africa` we got. (There are multiple ways.)
+<p>We can also count how many hits without <code class="language-plaintext highlighter-rouge">Africa</code> we got. (There are multiple ways.)</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -603,15 +587,14 @@ We can also count how many hits without `Africa` we got. (There are multiple way
   <pre>grep -v Africa AfricanCountriesA | wc -l  </pre>
 </details>
 
-<br />
+<p><br /></p>
 
-Lastly, check out `-o`. What does it do? And let's search for "c".
+<p>Lastly, check out <code class="language-plaintext highlighter-rouge">-o</code>. What does it do? And let’s search for “c”.</p>
 
-```
-grep -o c AfricanCountriesA
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -o c AfricanCountriesA
+</code></pre></div></div>
 
-It just print out a bunch of "c". Seems useless right? But there's actually some uses for it. Check the manual and discuss what use there might be!
+<p>It just print out a bunch of “c”. Seems useless right? But there’s actually some uses for it. Check the manual and discuss what use there might be!</p>
 <details>
   <summary><b><u>Hint</u></b></summary>
   It print out all exact hits. (And multiple times within a line). <br />
@@ -620,70 +603,66 @@ It just print out a bunch of "c". Seems useless right? But there's actually some
   There are more uses for it and you'll find it out when you learn about advanced <code>grep</code>! 
 </details>
 
-<br />
+<p><br /></p>
 
-#### sed
-`sed` is another command with a whole lot of uses. However, it's syntax is quite strange, so practicing it would help you master this useful command. We're covering two most common ones: substitute and delete. 
+<h4 id="sed">sed</h4>
+<p><code class="language-plaintext highlighter-rouge">sed</code> is another command with a whole lot of uses. However, it’s syntax is quite strange, so practicing it would help you master this useful command. We’re covering two most common ones: substitute and delete.</p>
 
-We'll start with "delete". Let's open `sed` manual with `man` and look at synopsis.
-```
-sed [-Ealnru] command [-I extension] [-i extension] [file ...]
-```
-Here we need `command` and `file`. File is simple, but what should `command` be? We can scroll down to `Sed Functions`.  
-You will see there's a whole bunch of functions you can use, but to substitute a line, we need `d`. Scroll down and you should see a section start with this:
-```
-[2addr]d
-```
+<p>We’ll start with “delete”. Let’s open <code class="language-plaintext highlighter-rouge">sed</code> manual with <code class="language-plaintext highlighter-rouge">man</code> and look at synopsis.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed [-Ealnru] command [-I extension] [-i extension] [file ...]
+</code></pre></div></div>
+<p>Here we need <code class="language-plaintext highlighter-rouge">command</code> and <code class="language-plaintext highlighter-rouge">file</code>. File is simple, but what should <code class="language-plaintext highlighter-rouge">command</code> be? We can scroll down to <code class="language-plaintext highlighter-rouge">Sed Functions</code>.<br />
+You will see there’s a whole bunch of functions you can use, but to substitute a line, we need <code class="language-plaintext highlighter-rouge">d</code>. Scroll down and you should see a section start with this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[2addr]d
+</code></pre></div></div>
 
-`[2addr]` means that you can provide two addresses where you want the command to act on. The manual do provide information on how to use it but I'll just let you know two common cases.
+<p><code class="language-plaintext highlighter-rouge">[2addr]</code> means that you can provide two addresses where you want the command to act on. The manual do provide information on how to use it but I’ll just let you know two common cases.</p>
 
-The first one is a number (or multiple number splitting by `,`). It specifies which `line` the command will take place. Try to remove the third and fifth lines from `AfricanCountriesA`.
+<p>The first one is a number (or multiple number splitting by <code class="language-plaintext highlighter-rouge">,</code>). It specifies which <code class="language-plaintext highlighter-rouge">line</code> the command will take place. Try to remove the third and fifth lines from <code class="language-plaintext highlighter-rouge">AfricanCountriesA</code>.</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>sed '3,5d' AfricanCountriesA  </pre>
   It's a good practice to add <code>'</code> for sed command because there often are weird characters that bash may interpret differently.
 </details>
-<br />
+<p><br /></p>
 
-The second one is a query (like `grep`), but you need one `/` on the two sides of the query. And it will remove the lines that match.  
-Try to remove lines with `Africa` from `AfricanCountriesA`.
+<p>The second one is a query (like <code class="language-plaintext highlighter-rouge">grep</code>), but you need one <code class="language-plaintext highlighter-rouge">/</code> on the two sides of the query. And it will remove the lines that match.<br />
+Try to remove lines with <code class="language-plaintext highlighter-rouge">Africa</code> from <code class="language-plaintext highlighter-rouge">AfricanCountriesA</code>.</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>sed '/Africa/d' AfricanCountriesA  </pre>
   Remember how to do the same thing with <code>grep</code>?
 </details>
-<br />
+<p><br /></p>
 
-Now, let's move on to "substitute".  
-When we look at the manual, we'll see:
-```
-[2addr]s/regular expression/replacement/flags
-```
-Basically the `regular expression` is your query. And you can replace the query with `replacement`. `[2addr]` usage is like its usage in `d`, which we can leave blank here (so that it will do the command on every line). `flags` are some additional options for the command. Let's leave it blank now.
-And so, try to replace `a` with `x`
+<p>Now, let’s move on to “substitute”.<br />
+When we look at the manual, we’ll see:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[2addr]s/regular expression/replacement/flags
+</code></pre></div></div>
+<p>Basically the <code class="language-plaintext highlighter-rouge">regular expression</code> is your query. And you can replace the query with <code class="language-plaintext highlighter-rouge">replacement</code>. <code class="language-plaintext highlighter-rouge">[2addr]</code> usage is like its usage in <code class="language-plaintext highlighter-rouge">d</code>, which we can leave blank here (so that it will do the command on every line). <code class="language-plaintext highlighter-rouge">flags</code> are some additional options for the command. Let’s leave it blank now.
+And so, try to replace <code class="language-plaintext highlighter-rouge">a</code> with <code class="language-plaintext highlighter-rouge">x</code></p>
 
-```
-sed 's/a/x/' AfricanCountriesA
-```
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed 's/a/x/' AfricanCountriesA
+</code></pre></div></div>
 
-What did you find?  
-It doesn't seem to replace every `a` right? Look at the flags and find one that allows you to replace every `a`.
+<p>What did you find?<br />
+It doesn’t seem to replace every <code class="language-plaintext highlighter-rouge">a</code> right? Look at the flags and find one that allows you to replace every <code class="language-plaintext highlighter-rouge">a</code>.</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>sed 's/a/x/g' AfricanCountriesA  </pre>
   "g" stands for global! (I think.)
 </details>
-<br />
+<p><br /></p>
 
-You can also replace multiple characters and special characters. Howabout replacing "an" with "@$!"? 
+<p>You can also replace multiple characters and special characters. Howabout replacing “an” with “@$!”?</p>
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>sed 's/an/@$!/g' AfricanCountriesA  </pre>
 </details>
-<br />
+<p><br /></p>
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
@@ -691,107 +670,107 @@ You can also replace multiple characters and special characters. Howabout replac
   If this is the case, you can use other characters except for <code>\</code> to replace <code>/</code>! E.g.
   <pre>sed 's@/@X@g' yourfile  </pre>
 </details>
-<br />
+<p><br /></p>
 
-Both `grep` and `sed` also allow super-useful fuzzy matching with regular expressions. We will explore them tomorrow!
+<p>Both <code class="language-plaintext highlighter-rouge">grep</code> and <code class="language-plaintext highlighter-rouge">sed</code> also allow super-useful fuzzy matching with regular expressions. We will explore them tomorrow!</p>
 
-<br />
+<p><br /></p>
 
-![band](/img/band.png)
+<p><img src="/img/band.png" alt="band" /></p>
 
-<br />
+<p><br /></p>
 
-## Good practice and miscellaneous things you should know
+<h2 id="good-practice-and-miscellaneous-things-you-should-know">Good practice and miscellaneous things you should know</h2>
 
-### Paths and Variables
-Variables are useful when you need to run same codes with different arguments. Let's say we want to run `cat` and `echo` multiple times. We can use a variable, let's say `file`, and also assign a value `AfricanCountriesA` to `file`. 
+<h3 id="paths-and-variables">Paths and Variables</h3>
+<p>Variables are useful when you need to run same codes with different arguments. Let’s say we want to run <code class="language-plaintext highlighter-rouge">cat</code> and <code class="language-plaintext highlighter-rouge">echo</code> multiple times. We can use a variable, let’s say <code class="language-plaintext highlighter-rouge">file</code>, and also assign a value <code class="language-plaintext highlighter-rouge">AfricanCountriesA</code> to <code class="language-plaintext highlighter-rouge">file</code>.</p>
 
-```
-file=AfricanCountriesA
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file=AfricanCountriesA
 cat $file
 echo $file
-```
+</code></pre></div></div>
 
-We first use `=` to assign the variable. Then, we call the variable with `$`. This way, we will be able to see the contents of `AfricanCountriesA` and the file name itself.  
-We can further assign different values to `file`. Such as,
+<p>We first use <code class="language-plaintext highlighter-rouge">=</code> to assign the variable. Then, we call the variable with <code class="language-plaintext highlighter-rouge">$</code>. This way, we will be able to see the contents of <code class="language-plaintext highlighter-rouge">AfricanCountriesA</code> and the file name itself.<br />
+We can further assign different values to <code class="language-plaintext highlighter-rouge">file</code>. Such as,</p>
 
-```
-file=AfricanCountriesB
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file=AfricanCountriesB
 cat $file
 echo $file
-```
+</code></pre></div></div>
 
-It might not seem very useful right now, but if you have complicated codes. You only need to save the codes once instead of multiple times if you use variables. We will also talk about other uses soon (tomorrow!)
+<p>You can also combine the variables with other strings to create new strings. They will just glue together. For example,</p>
 
-<br />
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>char=B
+cat AfricanCountries$char
+</code></pre></div></div>
 
-### Tabs Tabs Tabs!
-OK I should have said this before, but if you're stuck, just press `tab`!
+<p>It might not seem very useful right now, but if you have complicated codes. You only need to save the codes once instead of multiple times if you use variables. We will also talk about other uses soon (tomorrow!)</p>
 
-Some more details: A normal UNIX syntax is start with a command and add options, arguments etc. If you press `tab` when you are at the command part, it will search in your `PATH` (a special environmental variable that's already defined) and try to find one that fits to fill in. If you press `tab` when you at the options/arguments part it will search in your present working directory and try to find a file (including directories) that fits to fill in.  
-If there are more than two hits, it won't give you anything. But then, you can press `tab` another time and it will give you a list of hits.
+<p><br /></p>
 
-<br />
+<h3 id="tabs-tabs-tabs">Tabs Tabs Tabs!</h3>
+<p>OK I should have said this before, but if you’re stuck, just press <code class="language-plaintext highlighter-rouge">tab</code>!</p>
 
-### Don't use Word to store your codes
-Word messes up everything! To prove it, try to TYPE in the followings and paste in terminal to run it.
+<p>Some more details: A normal UNIX syntax is start with a command and add options, arguments etc. If you press <code class="language-plaintext highlighter-rouge">tab</code> when you are at the command part, it will search in your <code class="language-plaintext highlighter-rouge">PATH</code> (a special environmental variable that’s already defined) and try to find one that fits to fill in. If you press <code class="language-plaintext highlighter-rouge">tab</code> when you at the options/arguments part it will search in your present working directory and try to find a file (including directories) that fits to fill in.<br />
+If there are more than two hits, it won’t give you anything. But then, you can press <code class="language-plaintext highlighter-rouge">tab</code> another time and it will give you a list of hits.</p>
 
-```
-echo "stupid" &gt; MicrosoftWord
-```
+<p><br /></p>
 
-What did you find?  
+<h3 id="dont-use-word-to-store-your-codes">Don’t use Word to store your codes</h3>
+<p>Word messes up everything! To prove it, try to TYPE in the followings and paste in terminal to run it.</p>
 
-OK so it's not Word is stupid but it's too smart that it automatically changes some of the characters for the writers. However, it's not good for Bioinformatics.  
-So, I suggest you use a text editor or [Visual Studio Code](https://code.visualstudio.com/) to store your codes.  
-(Visual Studio Code is quite useful. It understands some computer languages and will highlight things to help you read your codes.)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "stupid" &gt; MicrosoftWord
+</code></pre></div></div>
 
-<br />
+<p>What did you find?</p>
 
-### Space Oddity
-Do you know how to read a file `Coinvasion workshop.txt` with cat?
-The space between `Coinvasion` and `workshop` make your system thinks they are two different files!
+<p>OK so it’s not Word is stupid but it’s too smart that it automatically changes some of the characters for the writers. However, it’s not good for Bioinformatics.<br />
+So, I suggest you use a text editor or <a href="https://code.visualstudio.com/">Visual Studio Code</a> to store your codes.<br />
+(Visual Studio Code is quite useful. It understands some computer languages and will highlight things to help you read your codes.)</p>
 
-No worries, there's a solution. Just add `\` before the space like this:
-```
-cat Coinvasion\ workshop.txt
-```
-`\`, the "back slash", is a special character that can suppress other special characters' function (or will give a character a function). We will explore it later. (the next section has some examples, too.)  
+<p><br /></p>
 
-My recommendation is to avoid spaces in your file naming system (you probably already know that). Alternatives include using upper cases, hyphens, underscores... Such as,
+<h3 id="space-oddity">Space Oddity</h3>
+<p>Do you know how to read a file <code class="language-plaintext highlighter-rouge">Coinvasion workshop.txt</code> with <code class="language-plaintext highlighter-rouge">cat</code>?
+The space between <code class="language-plaintext highlighter-rouge">Coinvasion</code> and <code class="language-plaintext highlighter-rouge">workshop</code> make your system thinks they are two different files!</p>
 
-```
-CoinvasionWorkshop.txt
+<p>No worries, there’s a solution. Just add <code class="language-plaintext highlighter-rouge">\</code> before the space like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat Coinvasion\ workshop.txt
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">\</code>, the “back slash”, is a special character that can suppress other special characters’ function (or will give a character a function). We will explore it later. (the next section has some examples, too.)</p>
+
+<p>My recommendation is to avoid spaces in your file naming system (you probably already know that). Alternatives include using upper cases, hyphens, underscores… Such as,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CoinvasionWorkshop.txt
 Coinvasion-workshop.txt
 Coinvasion_workshop.txt
-```
+</code></pre></div></div>
 
-<br />
+<p><br /></p>
 
-### New Line and Carriage Return
-Sometimes codes behaves weirdly, why are txt files sometimes have blank lines when loaded into R? This is especially common when you save an Excel file into a txt file.  
-So, a new line is actually a character `\n` in Linux (and Unix) (and a tab is `\t`). However, in Windows it's `\r\n`, older MacOS use `\r`. And Office Excel follow the Windows coding system.  
+<h3 id="new-line-and-carriage-return">New Line and Carriage Return</h3>
+<p>Sometimes codes behaves weirdly, why are txt files sometimes have blank lines when loaded into R? This is especially common when you save an Excel file into a txt file.<br />
+So, a new line is actually a character <code class="language-plaintext highlighter-rouge">\n</code> in Linux (and Unix) (and a tab is <code class="language-plaintext highlighter-rouge">\t</code>). However, in Windows it’s <code class="language-plaintext highlighter-rouge">\r\n</code>, older MacOS use <code class="language-plaintext highlighter-rouge">\r</code>. And Office Excel follow the Windows coding system.</p>
 
 <details>
   <summary><b><u>Fun Fact</u></b></summary>
   Here, <code>\n</code> means New line and <code>\r</code> means carriage Return and it's because in type writer world you need to first return the carriage <code>\r</code> and make a line break <code>\n</code>.
 </details>
-<br />
+<p><br /></p>
 
-Do you know how to remove `\r`? (Remember `sed`?)
+<p>Do you know how to remove <code class="language-plaintext highlighter-rouge">\r</code>? (Remember <code class="language-plaintext highlighter-rouge">sed</code>?)</p>
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>sed 's/\r//g' file  </pre>
 </details>
-<br />
+<p><br /></p>
 
-![band](/img/band.png)
+<p><img src="/img/band.png" alt="band" /></p>
 
-<br />
+<p><br /></p>
 
-## See also 
-</filename></dir></archive></dir></file></file></file></pre></details>
+<h2 id="see-also">See also</h2>
 
   </div>
 
@@ -803,19 +782,19 @@ Do you know how to remove `\r`? (Remember `sed`?)
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Coinvasion Bioinformatics 2022</h2>
+    <h2 class="footer-heading">NSF Invasion Workshop 2022 - Bioinformatics</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Coinvasion Bioinformatics 2022</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
+          <li class="p-name">NSF Invasion Workshop 2022 - Bioinformatics</li><li><a class="u-email" href="mailto:yen-wen.wang@yale.edu">yen-wen.wang@yale.edu</a></li></ul>
       </div>
 
       <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>Bioinformatics course for Coinvasion workshop 2022</p>
+        <p>Bioinformatics course for NSF Invasion workshop 2022</p>
       </div>
     </div>
 

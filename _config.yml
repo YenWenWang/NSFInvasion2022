@@ -22,7 +22,7 @@ title: NSF Invasion Workshop 2022 - Bioinformatics
 email: yen-wen.wang@yale.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Bioinformatics course for NSF Invasion workshop 2022
-url: "https://yenwenwang.github.io/Invasion2022" # the base hostname & protocol for your site, e.g. 
+url: "https://yenwenwang.github.io/NSFInvasion2022" # the base hostname & protocol for your site, e.g. 
 
 # Build settings
 theme: minima
