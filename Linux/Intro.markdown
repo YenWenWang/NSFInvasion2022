@@ -680,7 +680,7 @@ It might not seem very useful right now, but if you have complicated codes. You 
 ### Tabs Tabs Tabs!
 OK I should have said this before, but if you're stuck, just press `tab`!
 
-Some more details: A normal UNIX syntax is start with a command and add options, arguments etc. If you press `tab` when you are at the command part, it will search in your `PATH` (a special environmental variable that's already defined) and try to find one that fits to fill in. If you press `tab` when you at the options/arguments part it will search in your present working directory and try to find a file (including directories) that fits to fill in.  
+Some more details: A normal Linux syntax is start with a command and add options, arguments etc. If you press `tab` when you are at the command part, it will search in your `PATH` (a special environmental variable that's already defined) and try to find one that fits to fill in. If you press `tab` when you at the options/arguments part it will search in your present working directory and try to find a file (including directories) that fits to fill in.  
 If there are more than two hits, it won't give you anything. But then, you can press `tab` another time and it will give you a list of hits.
 
 <br/>
