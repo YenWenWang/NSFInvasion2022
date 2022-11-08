@@ -27,6 +27,7 @@ And so, we need to put all the BUSCOs into a file. Figure out a way to do that w
 Making databases for Blast is quite straightforward. You only need `makeblastdb`, `-dbtype` and `-in`. (You might notice that we there's only one hyphen before these multiple-character options. It's simply because different developers use different syntax. So, you'll need to look at tutorials/manuals to learn these softwares.)
 
 I will help you with the genome database.
+(Remember to load module before running `module load ncbi-blast-2.12.0+`)
 
 ```
 makeblastdb -dbtype nucl -in [<yourfasta>]

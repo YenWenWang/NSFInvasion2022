@@ -9,7 +9,7 @@ title: '"Advanced" Linux'
 ## Loops and Ifs
 ### for
 We are using BLAST to learn about loops. And we will be using your favorite genes. First, we will build multiple databases with `for` loops and blast each databases.  
-Let's go to folder `LinuxAdvance/forloops` and copy three of your genome assemblies into the folder.
+Go to folder `LinuxAdvance/forloops` and copy three of your genome assemblies into the folder.
 
 ```
 for f in *.fasta
@@ -18,8 +18,8 @@ done
 ```
 
 Let's see what's going on here. The first line uses a wild card and so it's basically `for f in A.fasta B.fasta C.fasta`. This will create a variable called `f`. `A.fasta` will be assigned to `f` for the first iteration, `B.fasta` will be the next, and so on and so forth.  
-Move on to the next line. `do` states the things you are going to do for an iteration. And `$f` is calling the variable `f`. So, for the first iteration, we are running `makeblastdb -dbtype nucl A.fasta`. So on and so forth.
-Note that you can have multiple lines after do and the for loop will run through all of them. For example: (Don't run)
+Move on to the next line. `do` states the things you are going to do for an iteration. And `$f` is calling the variable `f`. So, for the first iteration, we are running `makeblastdb -dbtype nucl A.fasta`. So on and so forth.  
+Note: you can have multiple lines after do and the for loop will run through all of them. For example: (Don't run)
 
 ```
 for f in *.fasta
@@ -63,7 +63,7 @@ then echo $x is not somestring
 fi
 ```
 
-In this example, we first assign "somestring" to `x`. The second line ask if `x` is not somestring (`!=` is not equal). Now, the `[]` pass a true to if, so the if clause continue to run things from `then` to `fi`. You can try assign something else to `x` and see what happens.
+In this example, we first assign "somestring" to `x`. The second line ask if `x` is not somestring (`!=` is not equal). Now, the `[]` pass a true to `if`, so the if clause continue to run things from `then` to `fi`. You can try assign something else to `x` and see what happens.
 Note: You need the space between `[` and `$x` and between `somestring` and `]`.  
 
 Now, let's try the first strategy.
@@ -81,7 +81,7 @@ You can see the solution is not elegant. You still need to run something when `[
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
-  There's also <code>elif</code> so you can process multiple if else together. Go learn it yourself!
+  There's also <code>elif</code> so you can process multiple if else together. Learn it yourself later!
 </details>
 <br/>
 
@@ -123,8 +123,8 @@ Note: use `nano` to create the files that you are reading with `while`.
   <summary><b><u>Hint</u></b></summary>
   It should be something like this:
   <pre>while read l
-do makeblastdb -dbtype nucl $l
-  blastn -db $l -query [&lt;yourquery&gt;] -outfmt 6 -out tblastn-$l.txt  
+do  makeblastdb -dbtype nucl $l
+    blastn -db $l -query [&lt;yourquery&gt;] -outfmt 6 -out tblastn-$l.txt  
 done &lt; [&lt;yourfastalist&gt;] </pre>
 Also see that I combined makeblastdb and blast so I don't need two loops! 
 </details>
@@ -132,8 +132,8 @@ Also see that I combined makeblastdb and blast so I don't need two loops!
   <summary><b><u>Click to learn more!</u></b></summary>
   Remember that you can combine the variables with a string and so, you don't need to add <code>.fasta</code> in your fasta list!
   <pre>while read l
-do makeblastdb -dbtype nucl $l
-  blastn -db $l.fasta -query [&lt;yourquery&gt;] -outfmt 6 -out tblastn-$l.txt  
+do  makeblastdb -dbtype nucl $l
+    blastn -db $l.fasta -query [&lt;yourquery&gt;] -outfmt 6 -out tblastn-$l.txt  
 done &lt; [&lt;yourfastalist&gt;] </pre>
   This way, your output file name won't have the ugly <code>.fasta</code> and be so much cleaner!
 </details>
@@ -149,7 +149,7 @@ done &lt; [&lt;yourfastalist&gt;] </pre>
 
 ## Advance sed and grep
 ### sed with variables
-To make a combined database with multiple genomes, we technically only need to concatenate all the genome files and then use `makeblastdb`. However, it would be hard to know which contig or scaffold is from which sample. So, we are going back to `sed` to label these contigs/scaffolds. And although we do not necessarily need complicated coding to accomplish it, it's a good point to introduce you regular expressions. Just bear with me.
+To make a combined database with multiple genomes, we technically only need to concatenate all the genome files and then use `makeblastdb`. However, it would be hard to know which contig or scaffold is from which sample. So, we are going back to `sed` to label these contigs/scaffolds. And although we do not necessarily need complicated coding to accomplish it, it's a good place to introduce you regular expressions. Just bear with me.
 
 If we look at our assemblies, each sequence have a sequence name start with `>`. The easiest way to add sample information is to replace `>` with `>[<sample name>]`.  
 Note that because you are using `''` in `sed` and that will suppress the meaning of `$` for calling variables, so you'll need to use `''` to address it. Basically, if you want to replace variable `X` with variable `Y`, you should code 
@@ -191,8 +191,17 @@ do  sed 's/^>/>'$f'/g' $f > temp
 done 
 ```
 
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  This is quite inelegant, but you can't just <code>></code> to <code>$f</code> because it will mess up the file and <code>sed</code> won't be able to work with it.<br/>
+  Instead you can use <code>-i</code> to write the original file and it won't make any issues. 
+</details>
+<br/>
+
+
+
 Sometimes you also want to add something to the end of a sequence. You can then use `$` to specify.
-For example: (do not run)
+For example: (Don't run)
 
 ```
 sed 's/A$/B/g' somefile
@@ -217,7 +226,8 @@ Notice that I didn't add `g` at the end of the `sed` expression, so it will only
 
 `*` is often used with `.`. What it does is matching the preceding element zero or more times (It's different from `bash`'s wildcard.) 
 
-So what does this do?
+So what does this do? (Think before you run it!)
+
 ```
 sed 's/ .*/XXX/g' ECMspecies
 ```

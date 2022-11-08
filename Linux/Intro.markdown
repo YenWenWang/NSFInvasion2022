@@ -714,7 +714,6 @@ What did you find?
 OK so it's not Word is stupid but it's too smart that it automatically changes some of the characters for the writers. However, it's not good for Bioinformatics.  
 So, I suggest you use a text editor or [Visual Studio Code](https://code.visualstudio.com/) to store your codes.  
 (Visual Studio Code is quite useful. It understands some computer languages and will highlight things to help you read your codes.)
-
 <br/>
 
 ### Space Oddity
@@ -759,4 +758,3 @@ Do you know how to remove `\r`? (Remember `sed`?)
 
 <br/>
 
-## See also 
