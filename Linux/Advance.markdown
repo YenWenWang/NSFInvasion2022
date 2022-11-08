@@ -357,7 +357,7 @@ If it makes sense, try to move the numbers to the beginning of lines in `ECMspec
 
 After that tangent, let's go back to our Blast results. The format of outfmt is a table, in tab-separated values (`.tsv`). Note: there's also comma-separated values (`.csv`).
 
-Go to `LinuxAdvance/tables` and copy one of your Blast result into the folder. The option that I use the most is `-f` (field). Check the manual with `man` to see how to cut out the E-value.
+Go to `LinuxAdvance/tables` and copy one of your Blast result into the folder. The option that I use the most is `-f` (field). Google to see how to cut out the E-value.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -380,20 +380,13 @@ You can also cut out a few columns. Let's try the query sequence id, database se
 
 ### sort
 
-We used `sort` before. However, it sorts by lines. It can sort a table by columns as well.
-
-You can take a look at `-k` (field) in the manual first and see what you find.
-
-```
--k field1[,field2], --key=field1[,field2]
-```
-
-Basically you need to specify a range to sort with. And normally we only want one column, so it would be something like `-k 1,1`.
+We used `sort` before. However, it sorts by lines. We can use `-k` to specify certain columns to `sort`. `sort -k 1,10 [<yourfile>]` would be sorting all 1~10 columns.  
+Normally we only want one column, so we generally code `-k 1,1`.
 
 Let's try to sort the identity column. 
 
 <details>
-  <summary><b><u>Click to learn more!</u></b></summary>
+  <summary><b><u>Hint</u></b></summary>
   <pre>sort -k 3,3 [&lt;yourblastresults&gt;]  </pre>
 </details>
 <br/>

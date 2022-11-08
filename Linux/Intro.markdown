@@ -246,7 +246,7 @@ Right now, we don't need `[OPTION]` (usually it's like `-x` or `--xxx` and the m
 
 After zipping it, list all files, what did you find?  
 
-Now, let's unzip it with `gunzip`.
+Now, let's unzip them with `gunzip`.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -255,8 +255,8 @@ Now, let's unzip it with `gunzip`.
 </details>
 <br/>
 
-What if we want to keep the original file when compressing??  
-Go check the manual again to see what you can do!  
+What if we want to keep the original file when compressing?  
+Go to check the manual again to see what you can do!  
 This time, we will use:
 
 ```
@@ -648,7 +648,7 @@ Both `grep` and `sed` also allow super-useful fuzzy matching with regular expres
 
 ## Good practice and miscellaneous things you should know
 
-### Paths and Variables
+### Variables
 Variables are useful when you need to run same codes with different arguments. Let's say we want to run `cat` and `echo` multiple times. We can use a variable, let's say `file`, and also assign a value `AfricanCountriesA` to `file`. 
 
 ```
@@ -721,7 +721,7 @@ Coinvasion_workshop.txt
 
 ### New Line and Carriage Return
 Sometimes codes behaves weirdly, why are txt files sometimes have blank lines when loaded into R? This is especially common when you save an Excel file into a txt file.  
-So, a new line is actually a character `\n` in Linux (and Unix) (and a tab is `\t`). However, in Windows it's `\r\n`, older MacOS use `\r`. And Office Excel follow the Windows coding system.  
+So, a new line is actually a character `\n` in Linux (and Unix) (and a tab is `\t`). However, in Windows it's `\r\n`, older MacOS use `\r`. And Office Excel follow the Windows coding system. But R will interpret both `\r` and `\n` as new lines. I recommend to change everything to `\n`.  
 
 <details>
   <summary><b><u>Fun Fact</u></b></summary>
