@@ -4,7 +4,7 @@ permalink: /Linux/Intro
 title: "Intro to Linux"
 ---
 
-Please press hint if only necessary.  
+Please press "Hint" if only necessary.  
 Press "Click to learn more!" even if you completed the tasks without hints.
 
 <br/>
