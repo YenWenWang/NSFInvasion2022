@@ -232,7 +232,7 @@ So what does this do? (Think before you run it!)
 sed 's/ .*/XXX/g' ECMspecies
 ```
 
-Let's try to add `feminine` after genus names that end with `a`, add `masculine` after genus names that end with `us`. Also, remove the numbers and species. (Ignore `Tuber`)
+Let's try to add `feminine` after genus names that end with `a`, add `masculine` after genus names that end with `us`. Also, remove the numbers and species. You'll need to run `sed` twice. Remember pipes `|`? (Ignore `Tuber`)
 
 <details>
   <summary><b><u>Hint</u></b></summary>

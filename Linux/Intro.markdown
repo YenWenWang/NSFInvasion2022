@@ -25,11 +25,11 @@ What's the Present Working Directory? (i.e. which directory are you in?)
 </details>
 <br/>
 
-Change Directory to `LinuxIntro/Review`.
+Change Directory to `DennyMaterials/LinuxIntro/Review`.
 <details>
   <summary><b><u>Hint</u></b></summary>
   You can use either absolute path or relative path.
-  <pre>cd LinuxIntro/Review  </pre>
+  <pre>cd DennyMaterials/LinuxIntro/Review  </pre>
   OR
   <pre>cd /[&lt;pwd&gt;]/DennyMaterials/LinuxIntro/Review  </pre>
   (replace <code>[&lt;pwd&gt;]</code> with your <code>[pwd]</code> output.)
@@ -65,7 +65,7 @@ Go to the home directory.
 <br/>
 
 ### File Exploration
-First, go to directory `LinuxIntro/Review/FileExploration`.  
+First, go to directory `LinuxIntro/Review/FileExploration`. (I'm not writing out `DennyMaterials` from now on.)  
 Then, LiSt the files.
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -73,32 +73,38 @@ Then, LiSt the files.
 </details>
 <br/>
 
-Which is the oldest file and which is the largest file?
+When is `file1` created and which is the largest file?
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>ls -lh  </pre>
-  <code>-l</code> provide the details of the files and <code>-h</code> provides human-readable file size etc. <br/>
+  <code>-l</code> is an option, providing the details of the files and <code>-h</code> is a second option, providing human-readable file size etc. <br/>
   We merged the two options together into <code>-lh</code> (This only works with single character options.)
 </details>
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
-  You can sort the files by time and size!
+  You can sort the files by time or size!
   <pre>ls -lht  
 ls -lhS  </pre>
 </details>
 <br/>
 
-You might find that some of the "files" are directories. But how to tell which one is which?
-Look at the first column of your `ls -l` results. If it starts with a `d`, it's a directory! Other options include using tab completion (my personal go to), or `ls -p`, if there's a `/` after the name, that's a directory.
+You might find that some of the "files" are directories. But how to tell which one is which?  
+Look at the first column of your `ls -l` results. If it starts with a `d`, it's a directory!  
+Other options include using tab completion (my personal go to), or `ls -p`, if there's a `/` after the name, that's a directory.
 
-Now, what's in `directory"X"`, where X can be anything?
+Now, what's in `directory"X"`, where "X" can be anything?
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>ls directory*  </pre>
   <code>*</code> is one of the wildcards, it can be anything at any length! However, the syntax is not the same in every situation. We will explore other usage of wildcards later!
 </details>
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  Check Hint about wildcards!
+</details>
 <br/>
+
 
 What's in `directoryRecipes/FiveSpiceSeaweed`?
 <details>
@@ -144,7 +150,7 @@ mkdir Knowledge/Believes  </pre>
   <summary><b><u>Click to learn more!</u></b></summary>
   You can make all directories at once!
   <pre>mkdir -p Knowledge/Facts Knowledge/Believes  </pre>
-  <code>-p</code> is "recursive" this way you can create the parent and child directories at the same time.
+  <code>-p</code> is "recursive". This way you can create the parent and child directories at the same time.
 </details>
 <br/>
 
@@ -189,10 +195,10 @@ Make `they're definitely correct` to the end of `fileX` without using `nano`.
 </details>
 <br/>
 
-ReMove `Knowledge/Facts/math`
+ReMove `Knowledge/Facts/Math`
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>rm Knowledge/Facts/math  </pre>
+  <pre>rm Knowledge/Facts/Math  </pre>
   Note: this is dangerous, the files you <code>rm</code> are gone forever. You can't get it back from the recycle bin!
 </details>
 <br/>
@@ -227,10 +233,10 @@ gzip -h
 It opens a manual and tells you how to use this command:
 
 ```
-gzip [-123456789acdfhklLNnqrtVv] [-S .suffix] [<file> [<file> ...]]
+Usage: gzip [OPTION]... [FILE]...
 ```
 
-It is a little bit confusing, but what you need to know is anything start with a `-` means it's an option, and the manual tells you what they are below. You don't need the options right now, here we only need `file`, without brackets, greater and lesser signs.
+Right now, we don't need `[OPTION]` (usually it's like `-x` or `--xxx` and the manual tells you what they are below.) So, here we only need to replace `[FILE]` with file names.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -257,21 +263,24 @@ This time, we will use:
 man gzip
 ```
 
-This opens the detailed manual with `less`. You can scroll up and down with your mouse and press `q` to leave.
+This opens the detailed manual with `less`. You can scroll up and down with your mouse and press `q` to leave. (Check out `Advanced usage`.)
 
 Now, let's complete the task!
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>gzip -k mouth pants  </pre>
-  OR
-  <pre>gzip --keep mouth pants  </pre>
+  <pre>gzip -c mouth > mouth.gzip  
+gzip -c pants > pants.gzip</pre>
+Check out <code>-c</code> in <code>OPTIONS</code> as well.
 </details>
 
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  In different version of <code>gzip</code> you can use <code>-k</code> or <code>--keep</code>. Unfortunately, it's not available here.
+</details>
 
 <details>
   <summary><b><u>Fun Fact</u></b></summary>
-
   Compressibility can be used to estimate the complexity and relatedness of genomes. <br/>
   See <a href="/ref/Chen2000.pdf">Chen et al. 2000</a>  
 
@@ -281,43 +290,24 @@ Now, let's complete the task!
 #### Archive
 We will use `tar` to archive.  
 Let's make a folder called `stuffs` and put `mouth` and `pants` in it. We will archive `stuffs` into `stuffs.tar`  
-Now, use `-h` again to get some help.
+Now, use `--help` to get some help. (`--help` normally is `-h` but some programs use one or another.)
 
 ```
-tar -h
+tar --help
 ```
 
-You will see that tar is a lot more complicated, it can do a lot of things!  
-
-```
-First option must be a mode specifier:
-  -c Create  -r Add/Replace  -t List  -u Update  -x Extract
-```
-
-Since we want to make a new archive, we want to focus on `Create`:
-
-```
-Create: tar -c [options] [<file> | <dir> | @<archive> | -C <dir> ]
-```
-
-As well as the common options:
-
-```
-Common Options:
-  -b #  Use # 512-byte records per I/O block
-  -f <filename>  Location of archive
-  -v    Verbose
-  -w    Interactive
-```
-
-And so this mean that we need `-c` to create and `-f` to indicate the name of the archive you want to create (Yes, I agree. `tar`'s manual isn't the best).  
-People often use `-v` so they can track the progress, too.
+You will see that `tar` is a lot more complicated, it can do a lot of things! Check out the `Examples` in the beginning!
 
 With all the information, let's try to archive!
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>tar -c -v -f stuffs.tar stuffs  </pre>
-  You can also put the all three options together!
+  <pre>tar -cf stuffs.tar stuffs  </pre>
+</details>
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  As mentioned before, <code>-cf</code> is the same as <code>-c -f</code>, usually you can stack these one-character options together.
+  <br/><br/>
+  People often use <code>-v</code> to the process verbose. It will tell you which file it is archiving. Could be a good practice!
   <pre>tar -cvf stuffs.tar stuffs  </pre>
 </details>
 <br/>
@@ -325,7 +315,7 @@ With all the information, let's try to archive!
 List the files, what did you see?
 
 Now, remove the `stuffs` folder, and extract the tar file.  
-(Use `tar -h` or `man tar` for information!)
+(Use `tar --help` or `man tar` for information!)
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -341,7 +331,7 @@ tar -xvf stuffs.tar stuffs</pre>
 You can archive and compress at the same time with `tar`!  
 We will archive and compress `stuff` into `stuff.tar.gz`
 
-Same drill: use `man` or `-h` for help and figure out how to do it!  
+Same drill: use `man` or `--help` for help and figure out how to do it! (check out `Compression options`)  
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -351,6 +341,7 @@ Same drill: use `man` or `-h` for help and figure out how to do it!
 
 Compare the file size between compressed and uncompressed archives.  
 Remember how to do it?
+
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>ls -lh stuffs.tar*  </pre>
@@ -360,7 +351,7 @@ Remember how to do it?
 #### See contents in tar without unpacking
 Sometimes an archive is so huge, say 200 GB. You know extracting it will crash your poor laptop, but you want to know what's inside. What should you do?
 
-Let's look at `List` in the `tar` manual! You should be able to figure out how to do it.
+Let's look at `Examples` in `tar` manual again!
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -368,12 +359,12 @@ Let's look at `List` in the `tar` manual! You should be able to figure out how t
 </details>
 <br/>
 
-Now, extract `mouth` only (Same drill)
+Now, we want to extract `mouth` only. Because it's hard to find the information in manual, why don't you Google for information? (No, Googling is not cheating! Also, discuss how to Google rather than how to write the codes.) 
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   Remember that you need to provide the full path
-  <pre>tar -xzf stuffs.tar stuffs/mouth  </pre>
+  <pre>tar -xzf stuffs.tar.gz stuffs/mouth  </pre>
 </details>
 <br/>
 
@@ -391,25 +382,24 @@ gzcat temp.txt.gz
 You know `head` already it spits out the first few lines of a file. It could be handy if you want to take a quick glance at a file.  
 But do you know `head` can do more than that?  
 For example, you can specify how many lines you want it to spit out.  
-Same drill, go to `LinuxIntro/NewStuff/HeadTailAndWordCount` and try to read file see what's the first three lines of `HeadAndTails.txt`?
+Same drill, go to `LinuxIntro/NewStuff/HeadTailAndWordCount` and try to read file see what's the first three lines of `HeadsAndTails.txt`?
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>head -n 3 HeadAndTails.txt  </pre>
+  <pre>head -n 3 HeadsAndTails.txt  </pre>
 </details>
 <br/>
 
 On the other hand, when you are dealing error messages you may want to look at the last few lines of the file. Then, we can use `tail`.  
-Now, let's try to find out the last two lines of `HeadAndTails.txt`. (The syntax is the same).
+Now, let's try to find out the last two lines of `HeadsAndTails.txt`. (The syntax is the same).
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>tail -n 2 HeadAndTails.txt  </pre>
+  <pre>tail -n 2 HeadsAndTails.txt  </pre>
 </details>
 <br/>
 
-Sometimes, you want to remove the first few lines. And you can use `tail` to do that!  
-However, we don't have a good manual. So, let's google to get help and try to remove the first line using `tail`!
+Sometimes, you want to remove the first few lines. And you can use `tail` to do that! (You can use manual or try to Google it!)  
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -440,13 +430,13 @@ You can also use options to specify which number you want to see. Look at manual
 </details>
 <br/>
 
-Note: It's also not that simple to count nucleotides, but this is a starting point.
+Note: It's also not that simple to count nucleotides, but this could be a starting point.
 <br/>
 
 ### Pipes `|`
-Pipes `|` are one of the most powerful tool in Linux in my opinion.  
+Pipe `|` is one of the most powerful tool in Linux in my opinion.  
 
-Before we learn about pipe, let's revisit `wc` and `ls`. Go to `LinuxIntro/NewStuff/pipe` and figure out a way to count files in the folder!  
+Before we learn about pipe, let's revisit `wc` and `ls`. Go to `LinuxIntro/NewStuff/pipe` and figure out a way to count files in the folder! (You will need to direct output from `ls` to a file and use `wc` on it.)  
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -456,19 +446,20 @@ wc -l listoffiles  </pre><br/>
 </details>
 <br/>
 
-If you did not use `|`, you might get one more file counted due to the temporary file. To avoid this, we can simply not make the temporary file with `|`. Run:
+Since we did not use `|`, we will get one more file counted due to the temporary file. To avoid this, we can simply not make the temporary file with `|`. Run:
 
 ```
 ls -l | wc -l
 ```
-What `|` is doing here is storing the "standard output" (STDOUT) from `ls` into memory and directly feed it as "standard input" (STDIN) to the next step. So, not only it saves space, it also saves a lot of time!  
 
-Let's use `|` again to get the 3rd to 8th lines of `BadGuy`!
+What `|` is doing here is storing the "standard output" (STDOUT) from `ls` into memory and directly feed it as "standard input" (STDIN) to the next step. So, not only it makes your script shorter, it also saves a lot of computational time!  
+
+Let's use `|` again to get the 3rd to 8th lines of `BadGuy`! (Think about which commands we used to get specific lines of a file.)
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>head -n 8 BadGuy | tail -n 5  </pre><br/>
-  Need some calculations!
+  Need to do some calculations!
 </details>
 <br/>
 
@@ -494,9 +485,9 @@ comm AfricanCountriesA AfricanCountriesB
 
 What are the three columns?
 
-We can use the options to suppress certain columns. Play with the three options `-1`, `-2` and `-3`.  
-You can also combine the options into `-12`, `-13` and `-23`. 
-And so, back to the original problem, how to get the lines common to both `AfricanCountriesA` and `AfricanCountriesB`?  
+We can use the options to suppress certain columns. Play with the three options `-1`, `-2` and `-3` and try to figure out what's going on. 
+You can also combine the options into `-12`, `-13` and `-23`.  
+Back to the original problem, how to get the lines common to both `AfricanCountriesA` and `AfricanCountriesB`?  
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -514,7 +505,7 @@ sort AfricanCountriesA
 How are the countries sorted?
 
 Now, let's sort `numbers`. How are the numbers sorted?  
-Try to figure out how to sort it numerically! 
+Try to figure out how to `sort` it numerically! (Note that `sort -h` sort of "freeze" your terminal. It's because of weird functionality of sort. Don't worry and use `--help` or `man` instead.)
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -529,7 +520,7 @@ Try to figure out how to sort it numerically!
 uniq numbers
 ```
 
-You'll see that it only removes a `23`. That is because it only compares the two lines next to each other. So `sort` can solve this issue! Try again!
+You'll see that it only removes a `23` but not the duplicated `2`. That is because it only compares the two lines next to each other. So `sort` can solve this issue! Try again!
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -579,66 +570,56 @@ It just print out a bunch of "c". Seems useless right? But there's actually some
   It print out all exact hits. (And multiple times within a line). <br/>
   You can pipe it to <code>wc -l</code> and get a count of the hits!
   <pre>grep -o c AfricanCountriesA | wc -l  </pre>
-  There are more uses for it and you'll find it out when you learn about advanced <code>grep</code>! 
 </details>
 
 <br/>
 
 #### sed
-`sed` is another command with a whole lot of uses. However, it's syntax is quite strange, so practicing it would help you master this useful command. We're covering two most common ones: substitute and delete. 
+`sed` is another command with a whole lot of uses. However, it's syntax is quite strange, so practicing it would help you master this useful command. We're covering two most common ones: substitute and delete lines. 
 
-We'll start with "delete". Let's open `sed` manual with `man` and look at synopsis.
-```
-sed [-Ealnru] command [-I extension] [-i extension] [file ...]
-```
-Here we need `command` and `file`. File is simple, but what should `command` be? We can scroll down to `Sed Functions`.  
-You will see there's a whole bunch of functions you can use, but to substitute a line, we need `d`. Scroll down and you should see a section start with this:
-```
-[2addr]d
-```
-
-`[2addr]` means that you can provide two addresses where you want the command to act on. The manual do provide information on how to use it but I'll just let you know two common cases.
-
-The first one is a number (or multiple number splitting by `,`). It specifies which `line` the command will take place. Try to remove the third and fifth lines from `AfricanCountriesA`.
+We'll start with "delete lines". We will start with deleting certain positions of lines. Again, `sed` manual is not the best. So let's Google to see how to delete the third to fifth lines from `AfricanCountriesA`.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>sed '3,5d' AfricanCountriesA  </pre>
-  It's a good practice to add <code>'</code> for sed command because there often are weird characters that bash may interpret differently.
+</details>
+
+<details>
+  <summary><b><u>Click to learn more</u></b></summary>
+  It's a good practice to add <code>'</code> in <code>sed</code> command:
+  <pre>sed '3,5d' AfricanCountriesA  </pre>
+  It's because there often are weird characters that shell may interpret differently. <code>'</code> will suppress those interpretations.
 </details>
 <br/>
 
-The second one is a query (like `grep`), but you need one `/` on the two sides of the query. And it will remove the lines that match.  
-Try to remove lines with `Africa` from `AfricanCountriesA`.
+We can also remove lines with a pattern. Same drill, Google again and try to remove lines with `Africa` from `AfricanCountriesA`.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>sed '/Africa/d' AfricanCountriesA  </pre>
   Remember how to do the same thing with <code>grep</code>?
 </details>
+
+<details>
+  <summary><b><u>Click to learn more</u></b></summary>
+  The idea of all these craziness is that <code>d</code> means delete and anything matches what's before will be deleted. If it's number, it will delete the lines at those position (3,5 means 3~5). If it's things like <code>/XXX/</code>, it's doing a <code>grep</code> like searching.
+</details>
 <br/>
 
-Now, let's move on to "substitute".  
-When we look at the manual, we'll see:
-```
-[2addr]s/regular expression/replacement/flags
-```
-Basically the `regular expression` is your query. And you can replace the query with `replacement`. `[2addr]` usage is like its usage in `d`, which we can leave blank here (so that it will do the command on every line). `flags` are some additional options for the command. Let's leave it blank now.
-And so, try to replace `a` with `x`
+Now, let's move on to "substitute". I'll help you with this. Instead of `d`, we will use `s`.
 
 ```
 sed 's/a/x/' AfricanCountriesA
 ```
 
-What did you find?  
-It doesn't seem to replace every `a` right? Look at the flags and find one that allows you to replace every `a`.
+It should replace the things between the first `/` pair (`a`) with the things between the second `/` pair `x`. But, what did you find?  
 
-<details>
-  <summary><b><u>Hint</u></b></summary>
-  <pre>sed 's/a/x/g' AfricanCountriesA  </pre>
-  "g" stands for global! (I think.)
-</details>
-<br/>
+It only replaces the first `a`s in a line right?  
+We can add `g` at the end of the `sed` command for globally replacement 
+
+```
+sed 's/a/x/g' AfricanCountriesA 
+```
 
 You can also replace multiple characters and special characters. Howabout replacing "an" with "@$!"? 
 <details>
@@ -654,6 +635,8 @@ You can also replace multiple characters and special characters. Howabout replac
   <pre>sed 's@/@X@g' yourfile  </pre>
 </details>
 <br/>
+
+It might look like that `s` and `d` have completely different syntax, but there's actually a rationale behind. We won't touch on it in this workshop, but you are welcome to discuss with others or me.
 
 Both `grep` and `sed` also allow super-useful fuzzy matching with regular expressions. We will explore them tomorrow!
 
@@ -713,7 +696,7 @@ What did you find?
 
 OK so it's not Word is stupid but it's too smart that it automatically changes some of the characters for the writers. However, it's not good for Bioinformatics.  
 So, I suggest you use a text editor or [Visual Studio Code](https://code.visualstudio.com/) to store your codes.  
-(Visual Studio Code is quite useful. It understands some computer languages and will highlight things to help you read your codes.)
+(Visual Studio Code is quite useful. It understands some computer languages and will highlight things to help you read your codes. We will explore it together.)
 <br/>
 
 ### Space Oddity
@@ -746,15 +729,11 @@ So, a new line is actually a character `\n` in Linux (and Unix) (and a tab is `\
 </details>
 <br/>
 
-Do you know how to remove `\r`? (Remember `sed`?)
+Do you know how to remove `\r`? (Just think about it and press Hint.)
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>sed 's/\r//g' file  </pre>
 </details>
-<br/>
-
-![band](../img/band.png)
-
 <br/>
 
