@@ -261,7 +261,7 @@ sed 's/[0-3]/XXX/' ECMspecies
 
 What just happened then? Look at the `Boletus` line. Found anything?
 
-You can also specify the amount of times of these brackets need to appear with `\{\}`. Let's look at how it works without brackets first.
+You can also specify the amount of times of these brackets need to appear with `\{\}`. (`\`s provide the "regular expression meanings" to `{` and `}`). Let's look at how it works without brackets first. 
 
 ```
 sed 's/l\{2\}/XXX/' ECMspecies
@@ -305,7 +305,7 @@ What does it do?
 
 #### Marked Subexpression
 
-Now, let's say we want move the numbers to the beginning of the line, we can use marked subexpression `\(\)`. 
+Now, let's say we want move the numbers to the beginning of the line, we can use marked subexpression `\(\)`. (Like `\{` and `\}`, `\`s provide the "regular expression meanings" to `(` and `)`.)
 
 Run the followings:
 
@@ -320,7 +320,8 @@ echo ABCDEFGH | sed 's/^.*F/\2\1/'
 `^` indicates the match needs to start from the beginning. After `.*` we find `F` and we replace them with `\2` and `\1`.  
 `\1` and `\2` are defined by `\(\)`. `\1` corresponds to the first and `\2` correspond to the second.  
 
-If it makes sense, try to move the numbers to the beginning of lines in `ECMspecies` like this:
+If it makes sense, try to move the numbers to the beginning of lines in `ECMspecies` so your output would be something like this:
+
 ```
 114 Laccaria species
 ```
@@ -355,9 +356,9 @@ If it makes sense, try to move the numbers to the beginning of lines in `ECMspec
 
 ### cut
 
-After that tangent, let's go back to our Blast results. The format of outfmt is a table, in tab-separated values (`.tsv`). Note: there's also comma-separated values (`.csv`).
+After that tangent, let's go back to our Blast results. The format of outfmt is a table, in tab-separated values (`tsv`). Note: there's also comma-separated values (`csv`).
 
-Go to `LinuxAdvance/tables` and copy one of your Blast result into the folder. The option that I use the most is `-f` (field). Google to see how to cut out the E-value.
+Go to `LinuxAdvance/tables` and copy one of your Blast result into the folder. The option that I use the most is `-f` (field). Google to see how to use `cut` to extract the E-value.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -365,7 +366,7 @@ Go to `LinuxAdvance/tables` and copy one of your Blast result into the folder. T
 </details>
 <br/>
 
-You can also cut out a few columns. Let's try the query sequence id, database sequence id, and the start and end for both query and databases. 
+You can also `cut` out a few columns. Let's try the query sequence id, database sequence id, and the start and end for both query and databases. (Google it!)
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -374,7 +375,7 @@ You can also cut out a few columns. Let's try the query sequence id, database se
 
 <details>
   <summary><b><u>Click to learn more</u></b></summary>
-  <code>.csv</code> is often better than <code>.tsv</code> because handling tabs is not the easiest thing to do. You can use <code>-d</code> to let <code>cut</code> to recognize <code>,</code> instead of tabs as delimiter.
+  <code>csv</code> is often better than <code>tsv</code> because handling tabs is not the easiest thing to do. You can use <code>-d</code> to let <code>cut</code> to recognize <code>,</code> instead of tabs as delimiter.
 </details>
 <br/>
 
@@ -404,7 +405,7 @@ It's also possible to reverse the order
 sort -nrk 3,3 [<yourblastresults>]
 ```
 
-You can also sort by more than one column. By adding more `-k`.
+You can also sort by more than one column. By adding more `-k`s.
 
 ```
 sort -k 1,1 -nrk 3,3 [<yourblastresults>]
