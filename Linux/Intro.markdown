@@ -130,7 +130,15 @@ Make a file named `fileX` with `1+1=3` as its content with `nano`.
 </details>
 <br/>
 
-Let's remove `fileX` and use `echo` and `>` instead.
+Let's ReMove `fileX`.
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>rm fileX  </pre>
+</details>
+<br/>
+
+Use `echo` and `>` to create `fileX` instead.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
