@@ -16,6 +16,7 @@ layout: home
 ### Linux
 - [Intro to Linux](Linux/Intro)  
 - ["Advanced" Linux](Linux/Advance)
+- [TreasureHunt?!](Linux/TreasureHunt)
 
 ### Others
 - [Blast](misc/blast)
