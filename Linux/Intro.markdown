@@ -379,8 +379,7 @@ gzcat temp.txt.gz
 ```
 
 ### Head and Tail  
-You know `head` already it spits out the first few lines of a file. It could be handy if you want to take a quick glance at a file.  
-But do you know `head` can do more than that?  
+You know that `head` spits out the first few lines of a file already. It could be handy if you want to take a quick glance at a file. But do you know `head` can do more than that?  
 For example, you can specify how many lines you want it to spit out.  
 Same drill, go to `LinuxIntro/NewStuff/HeadTailAndWordCount` and try to read file see what's the first three lines of `HeadsAndTails.txt`?
 
@@ -399,7 +398,7 @@ Now, let's try to find out the last two lines of `HeadsAndTails.txt`. (The synta
 </details>
 <br/>
 
-Sometimes, you want to remove the first few lines. And you can use `tail` to do that! (You can use manual or try to Google it!)  
+Sometimes, you want to remove the first few lines. And you can use `tail` to do that! (You can use manual or Google)  
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -487,6 +486,7 @@ What are the three columns?
 
 We can use the options to suppress certain columns. Play with the three options `-1`, `-2` and `-3` and try to figure out what's going on. 
 You can also combine the options into `-12`, `-13` and `-23`.  
+
 Back to the original problem, how to get the lines common to both `AfricanCountriesA` and `AfricanCountriesB`?  
 
 <details>
