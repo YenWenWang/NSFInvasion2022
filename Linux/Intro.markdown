@@ -125,7 +125,7 @@ Make a file named `fileX` with `1+1=3` as its content with `nano`.
   <summary><b><u>Hint</u></b></summary>
   <pre>nano fileX  
 # type in 1+1=3  
-# control C  
+# control X  
 # click Y  </pre>
 </details>
 <br/>
