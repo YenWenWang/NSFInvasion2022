@@ -377,6 +377,7 @@ echo nonsense > temp.txt
 gzip temp.txt
 gzcat temp.txt.gz
 ```
+<br/>
 
 ### Head and Tail  
 You know that `head` spits out the first few lines of a file already. It could be handy if you want to take a quick glance at a file. But do you know `head` can do more than that?  
