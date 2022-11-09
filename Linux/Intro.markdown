@@ -521,7 +521,7 @@ Try to figure out how to `sort` it numerically! (Note that `sort -h` sort of "fr
 uniq numbers
 ```
 
-You'll see that it only removes a `23` but not the duplicated `2`. That is because it only compares the two lines next to each other. So `sort` can solve this issue! Try again!
+You'll see that it only removes a `23` but not the duplicated `2`. That is because it only compares the two lines next to each other. So `sort` can solve this issue! Try again (remember to use `|`)!
 
 <details>
   <summary><b><u>Hint</u></b></summary>
