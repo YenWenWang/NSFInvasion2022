@@ -162,7 +162,7 @@ mkdir Knowledge/Believes  </pre>
 </details>
 <br/>
 
-Make `fileY` and `fileZ` with anything inside.  
+Make `fileY` and `fileZ` in `LinuxIntro/Review/FileDirHandle` with anything inside.  
 ConCATenate `fileY` and `fileZ` and append them to the end of `fileX`
 <details>
   <summary><b><u>Hint</u></b></summary>
