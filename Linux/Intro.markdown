@@ -192,7 +192,7 @@ mv Knowledge/Facts/fileX Knowledge/Facts/Math  </pre>
 CoPy `Knowledge/Facts/Math` into current directory without renaming
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>cp fileX Knowledge/Facts/Math .  </pre>
+  <pre>cp Knowledge/Facts/Math .  </pre>
 </details>
 <br/>
 
