@@ -26,7 +26,7 @@ To get the materials, get on to the cluster and run the followings
 
 ```
 git clone https://github.com/YenWenWang/Invasion2022Treasurehunt.git
-cd TreasureHunt
+cd Invasion2022Treasurehunt
 ```
 
 Good luck!
