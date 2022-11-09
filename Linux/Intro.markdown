@@ -639,7 +639,15 @@ You can also replace multiple characters and special characters. Howabout replac
 <br/>
 
 <details>
-  <summary><b><u>Click to learn more!</u></b></summary>
+  <summary><b><u>Click to learn more 1!</u></b></summary>
+  You can replace <code>g</code> with a number and it will replace the N occurrence of the query. E.g. 
+  <pre>sed 's/an/@$!/2' AfricanCountriesA  </pre> 
+  will replace the second "an" in everyline in AfricanCountriesA.
+</details>
+<br/>
+
+<details>
+  <summary><b><u>Click to learn more2!</u></b></summary>
   Sometimes you may want to replace <code>/</code> with something else, but <code>/</code> is used already! <br/>
   If this is the case, you can use other characters except for <code>\</code> to replace <code>/</code>! E.g.
   <pre>sed 's@/@X@g' yourfile  </pre>
