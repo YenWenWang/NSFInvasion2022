@@ -355,7 +355,7 @@ Let's look at `Examples` in `tar` manual again!
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>ls -lh stuffs.tar*  </pre>
+  <pre>tar -tf stuffs.tar  </pre>
 </details>
 <br/>
 
