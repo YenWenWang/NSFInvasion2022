@@ -10,33 +10,36 @@ title: "Blast"
 ### Queries
 
 To start to BLAST on local computers, we will first use two of my favorite genes, encoding DNA polymerase alpha subunit B, and Clathrin heavy chain, as examples. These genes are supposed to be single copied so they would be easier to deal with than many of genes of your interest.  
-I've took the coding sequences (CDSs) from <i>Amanita phalloides</i> and stored them in a fasta file: `BLAST/query.fasta`.
-So let's head to `BLAST` and see what we are dealing with.
+I've took the coding sequences (CDSs; basically the things translated into proteins) from <i>Amanita phalloides</i> (a distantly related <i>Amanita</i> species) and stored them in a fasta file: `DennyMaterials/BLAST/query.fasta`.
+So let's head to `DennyMaterials/BLAST` and look at the contents of `query.fasta`.
 
 <br/>
 
 ### Databases
 
-You should have already played with the genomes already. Pick your favorite one and copy it into the `BLAST` directory. Also, we want to generate a protein database as well. Normally, it would be come from a genome annotation, but we will use BUSCOs instead.  
-And so, we need to put all the BUSCOs into a file. Figure out a way to do that with the commands we learned! (Single-copied only should be fine.)
+You should have already played with the genomes already. Copy your assembly into the `BLAST` directory. Also, we want to generate a protein database as well. Normally, it would be come from a genome annotation, but we will use BUSCOs instead.  
+So, we need to put all the BUSCOs into a file. Figure out a way to do that with the commands we learned! (Single-copied only should be fine.)
 
 <br/>
 
 ## Making databases
 
-Making databases for Blast is quite straightforward. You only need `makeblastdb`, `-dbtype` and `-in`. (You might notice that we there's only one hyphen before these multiple-character options. It's simply because different developers use different syntax. So, you'll need to look at tutorials/manuals to learn these softwares.)
+Making databases for Blast is quite straightforward. You only need `makeblastdb`, `-dbtype` and `-in`. (You might notice that we there's only one hyphen before these multiple-character options, but normally there should be two. This is simply because different developers use different syntax. So, you'll need to look at tutorials/manuals to learn these softwares.)
 
 I will help you with the genome database.
-(Remember to load module before running `module load ncbi-blast-2.12.0+`)
+(Remember to load module first by running `module load ncbi-blast-2.12.0+`)
 
 ```
 makeblastdb -dbtype nucl -in [<yourfasta>]
 ```
 
-Basically, you need to specify it's a nucleotide database. Check what's in the directory!
+You want to replace `[<yourfasta>]` with your genome fasta file. And by `-dbtype nucl` you specify that it's a nucleotide database. Check what's in the directory!
 
 Now, you also know how to make a protein database! (Use `makeblastdb -help` to get help.) 
-
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  <pre>makeblastdb -dbtype prot -in [&lt;yourfasta&gt;]  </pre>
+</details>
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
   It is worth noting that you can change output database name with <code>-out</code>. It is useful when you want to build a database for a fasta from a different folder. For example,
@@ -52,9 +55,9 @@ We will start with `blastn`, which is using a nucleotide query to search in a nu
 blastn -db [<databasename>] -query query.fasta -out blastn.txt
 ```
 
-`[<databasename>]` is your fasta filename, if you didn't use the `-out` option.
+`[<databasename>]` is your fasta filename if you didn't use the `-out` option.
 
-Now, take a look at `blastn.txt`. What did you see? Why is that?
+Now, take a look at `blastn.txt`. What did you see? Why is that? (Talk!!!)
 
 How about we translate the genes into protein using [Expasy](https://web.expasy.org/translate/), save them into fasta format and use the protein sequences to blast? (Which blast should you use?)
 
@@ -66,7 +69,7 @@ How about we translate the genes into protein using [Expasy](https://web.expasy.
 
 What did you find? Why does it perform differently from `blastn`?
 
-Okay, that is all good, but the output format isn't the best: it's hard to extract information. I like to use `-outfmt 6` instead. It gives you a "tab-delimited file", which is basically a table.
+Okay, that is all good, but the output format isn't the best: it's hard to extract information. I like to use `-outfmt 6` instead. It gives you a "tab-delimited file", which is basically a table but instead of grids, it uses tabs and new lines.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
@@ -106,7 +109,7 @@ Then you can run:
 blastdbcmd -db [<yourfasta>] -dbtype nucl -entry [<hitsequenceid>] -range [<hitsequencerange>]
 ```
 
-Note that `hitsequencerange` should be typed like `3-21`. 
+Note that `[<hitsequencerange>]` should be typed like `3-21`. 
 
 You can also extract multiple genes at once. Such as, 
 
@@ -114,9 +117,7 @@ You can also extract multiple genes at once. Such as,
 blastdbcmd -db [<yourfasta>] -dbtype nucl -entry_batch [<yourregionsofinterest>]
 ```
 
-`yourregionsofinterest` should be a file name including an entry and a range in each line, separated by space. For example, `seqid 3-21`.
-
-Now, try to extract your own genes! Think and discuss what's the most sensible strategy for your study.  
+`yourregionsofinterest` should be a file name including an entry and a range in each line, separated by a space. For example, `seqid 3-21`.
 
 <br/>
 

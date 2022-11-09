@@ -63,7 +63,7 @@ then echo $x is not somestring
 fi
 ```
 
-In this example, we first assign "somestring" to `x`. The second line ask if `x` is not somestring (`!=` is not equal). Now, the `[]` pass a true to `if`, so the if clause continue to run things from `then` to `fi`. You can try assign something else to `x` and see what happens.
+In this example, we first assign "somestring" to `x`. The second line ask if `x` is not somestring (`!=` is not equal). Now, the `[]` pass a true to `if`, so the `if` clause continue to run things from `then` to `fi`. You can try assign something else to `x` and see what happens.
 Note: You need the space between `[` and `$x` and between `somestring` and `]`.  
 
 Now, let's try the first strategy.
@@ -98,7 +98,7 @@ done</pre>
 
 ### while
 The third strategy is to use `while` loops.  
-The most common usage of `while` loop is to read a file and it will go through each line and assign them to variables.
+The most common usage of `while` loops is to read a file and it will go through each line and assign them to variables.
 Let's go to `LinuxAdvance/whileloops`, take a look at `testfile` and run this:
 
 ```
@@ -116,7 +116,7 @@ Could you figure out what while does?
 </details>
 <br/>
 
-Now, your turn, copy three of your genome assemblies and the fasta with genes of interest into the folder. Then, write a code to complete the task.
+Now, your turn, copy your genome assemblies, two genome assemblies from your friends, and the fasta with genes of interest into the folder. Then, write a code to complete the task.
 Note: use `nano` to create the files that you are reading with `while`.
 
 <details>

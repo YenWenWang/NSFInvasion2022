@@ -384,7 +384,7 @@ Let's run the followings and see what you got.
 ```
 echo nonsense > temp.txt
 gzip temp.txt
-gzcat temp.txt.gz
+zcat temp.txt.gz
 ```
 <br/>
 
