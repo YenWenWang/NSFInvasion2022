@@ -18,8 +18,16 @@ So let's head to `DennyMaterials/BLAST` and look at the contents of `query.fasta
 ### Databases
 
 You should have already played with the genomes already. Copy the genome assembly (likely in `~/11666_SizeFiltered.fasta` or `~/busco/11666_SizeFiltered.fasta`) into the `~/DennyMaterials/BLAST` directory. Also, we want to generate a protein database as well. Normally, it would be come from a genome annotation, but we will use BUSCOs instead.  
-So, we need to put all the BUSCOs into a file, and we will only use single-copied ones. (They should be in `home/genhons*/11666_buscoOut/run_basidiomycota_odb10/busco_sequences/single_copy_busco_sequences`). Figure out a way to do that with the commands we learned! (Single-copied only should be fine.)
+So, we need to put all the BUSCOs into a file, and we will only use single-copied ones. (They should be in `~/busco/home/genhons*/11666_buscoOut/run_basidiomycota_odb10/busco_sequences/single_copy_busco_sequences`). Figure out a way to do that with the commands we learned! (Remember `cat`?)
 
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  To copy the genome, you do something like
+  <pre>cp [&lt;path to genome&gt;] .  </pre>
+  To make the protein database, you do something like
+  <pre>cat ~/busco/home/genhons*/11666_buscoOut/run_basidiomycota_odb10/busco_sequences/single_copy_busco_sequences/* .  </pre>
+  If your busco failed let us know.
+</details>
 <br/>
 
 ## Making databases
