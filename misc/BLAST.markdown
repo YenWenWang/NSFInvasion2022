@@ -17,7 +17,7 @@ So let's head to `DennyMaterials/BLAST` and look at the contents of `query.fasta
 
 ### Databases
 
-You should have already played with the genomes already. Copy your assembly (or Tuan's assembly) into the `BLAST` directory. Also, we want to generate a protein database as well. Normally, it would be come from a genome annotation, but we will use BUSCOs instead.  
+You should have already played with the genomes already. Copy the genome assembly (`~/11666_S343_spades/scaffolds.fasta`) into the `~/DennyMaterials/BLAST` directory. Also, we want to generate a protein database as well. Normally, it would be come from a genome annotation, but we will use BUSCOs instead.  
 So, we need to put all the BUSCOs into a file. Figure out a way to do that with the commands we learned! (Single-copied only should be fine.)
 
 <br/>

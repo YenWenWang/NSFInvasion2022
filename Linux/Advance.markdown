@@ -427,7 +427,7 @@ Let's see if you can sort the file by query id, reverse order of database id and
 ### awk
 
 #### Variables in awk
-Well, `awk` is a beast. To me, it's a computational language just like R, C and python, but simpler.  
+`awk` is a beast. To me, it's a computational language just like R, C and python, but simpler.  
 We won't be able to cover everything about `awk`. Neither I know much about it, but we'll just go through a few to show case the power of `awk`.
 
 Let's run this and see what happens
@@ -436,7 +436,7 @@ Let's run this and see what happens
 awk '{print $3, $1}' [<yourblastresults>]
 ```
 
-As you can see, it prints out the third and first fields linked by a space. The fields were indicated by `$` (Note: `$0` is the whole line). The space is a delimiter introduced by `,`. See what happen if you don't include `,`! 
+As you can see, it prints out a line with the third and first fields linked by a space. The fields were indicated by `$` (Note: `$0` is the whole line). The space is a delimiter introduced by `,`. See what happen if you don't include `,`! 
 
 OK, but what if we want to use something else as delimiter?  
 We can set the output field separater `OFS`, with `-v`.
@@ -455,13 +455,23 @@ awk '{print $3 "xxx" $1}' [<yourblastresults>]
 
 You may have notice that `awk` treat things in `""` as a string and just glue everything together.
 
-Now, your turn. Try to print out the database sequence ids and start and end of the database sequences of each line using a `.csv` format. And instead comma, let's place `-` between the start and end.
+Now, your turn. Try to print out the database sequence ids and start and end of the database sequences of each line using a `csv` format. And instead comma, let's place `-` between the start and end.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
   <pre>awk -v 'OFS=,' '{print $2, $9 "-" $10}' [&lt;yourblastresults&gt;] </pre>
 </details>
 <br/>
+
+#### Do multiple things per line
+
+Run this code and compare it with the results from our first `awk`.
+
+```
+awk '{print "column3 = " $3; print "column3 = " $1}' [<yourblastresults>]
+```
+
+What does `;` do?
 
 #### Calculations
 
@@ -513,7 +523,7 @@ Like, we can calculate how many lines there are in the file.
 awk 'BEGIN{i = 0}{print $3, $1; i = i + 1}END{print "We have " i " lines!"}' [<yourblastresults>]
 ```
 
-First, we assign `0` to a variable `i` at the beginning. Then we read lines, print out and do the things after `;`, which is assign `i+1` to `i`. (`;` indicates the first job is done, and move on to the next part. Just like the new lines in Linux). And at the end, we print out `i`.
+First, we assign `0` to a variable `i` at the beginning. Then we read lines, print out and do the things after `;`, which is assign `i+1` to `i`. (`;` indicates the first job is done, and move on to the next part in the same line. Just like the new lines in Linux). And at the end, we print out `i`.
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
@@ -580,5 +590,9 @@ Also, you don't need to do it solely with `awk`. Be creative!
   <summary><b><u>Hint</u></b></summary>
   <pre>awk '{if(NR%4==1 || NR%4==2){print}}' [&lt;yourfastqfile&gt;] | sed 's/@/>/g'  </pre>
 </details>
-<br/>
 
+<details>
+  <summary><b><u>Click to learn more!</u></b></summary>
+  We talked about <code>bioawk</code> as well, it feels very similar to <code>awk</code>, but syntax is different. It's not native in Linux, so I don't use it, but it seems pretty powerful too.
+</details>
+<br/>
