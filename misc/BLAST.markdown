@@ -25,7 +25,7 @@ So, we need to put all the BUSCOs into a file, and we will only use single-copie
   To copy the genome, you do something like
   <pre>cp [&lt;path to genome&gt;] .  </pre>
   To make the protein database, you do something like
-  <pre>cat ~/busco/home/genhons*/11666_buscoOut/run_basidiomycota_odb10/busco_sequences/single_copy_busco_sequences/* .  </pre>
+  <pre>cat ~/busco/home/genhons*/11666_buscoOut/run_basidiomycota_odb10/busco_sequences/single_copy_busco_sequences/* &gt; busco.fasta  </pre>
   If your busco failed let us know.
 </details>
 <br/>
