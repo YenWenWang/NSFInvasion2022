@@ -141,6 +141,7 @@ Use `makeblastdb` to create a database (remember to add `-parse_seqids` to allow
   <summary><b><u>Hint</u></b></summary>
   <pre>blastn -db [&lt;databasename&gt;] -query Gemlquery.fasta -outfmt 6 -out blastn-Geml.txt  </pre>
 </details>
+<br/>
 
 Take a quick look at the results. Do you see multiple lines with the same subject ID for the top hit? It shouldn't, but do you know why? Are there any query sequence without any hits? (Let us know if that's the case!)
 
