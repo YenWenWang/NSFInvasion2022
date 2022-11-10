@@ -9,7 +9,7 @@ title: '"Advanced" Linux'
 ## Loops and Ifs
 ### for
 We are using BLAST to learn about loops. And we will be using your favorite genes. First, we will build multiple databases with `for` loops and blast each databases.  
-Go to folder `LinuxAdvance/forloops` and copy three of your genome assemblies into the folder.
+Go to folder `LinuxAdvance/forloops` and copy three genome assemblies into the folder.
 
 ```
 for f in *.fasta
@@ -116,7 +116,7 @@ Could you figure out what while does?
 </details>
 <br/>
 
-Now, your turn, copy your genome assemblies, two genome assemblies from your friends, and the fasta with genes of interest into the folder. Then, write a code to complete the task.
+Now, your turn, copy the same three genome assemblies from your friends, and the fasta with genes of interest into the folder. Then, write a code to complete the task.
 Note: use `nano` to create the files that you are reading with `while`.
 
 <details>
