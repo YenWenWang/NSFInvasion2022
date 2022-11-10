@@ -9,7 +9,7 @@ title: '"Advanced" Linux'
 ## Loops and Ifs
 ### for
 We are using BLAST to learn about loops. And we will be using your favorite genes. First, we will build multiple databases with `for` loops and blast each databases.  
-Go to folder `LinuxAdvance/forloops` and copy three genome assemblies into the folder.
+Go to folder `LinuxAdvance/forloops` and copy three genome assemblies (including the `11666_SizeFiltered.fasta` you were working with and the two fasta files in `~/../genhons1/Blast`) into the folder.
 
 ```
 for f in *.fasta
