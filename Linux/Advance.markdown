@@ -343,7 +343,7 @@ If it makes sense, try to move the numbers to the beginning of lines in `ECMspec
 
 <details>
   <summary><b><u>Click to learn more!</u></b></summary>
-  The Regex we used was POSIX basic regex. There's also a thing called POSIX extended basic regex. You can use <code>-E</code> to enable it. You don't need <code>\</code> for <code>{}</code> and <code>()</code> if you are using the extended version. And there are a few other functions that you can use. Learn more [here](https://en.wikipedia.org/wiki/Regular_expression)!
+  The Regex we used was POSIX basic regex. There's also a thing called POSIX extended basic regex. You can use <code>-E</code> to enable it. You don't need <code>\</code> for <code>{}</code> and <code>()</code> if you are using the extended version. And there are a few other functions that you can use. Learn more <a href="https://en.wikipedia.org/wiki/Regular_expression">here</a>!
 </details>
 
 <br/>

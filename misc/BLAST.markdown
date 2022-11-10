@@ -114,10 +114,10 @@ Adding this option will provide some more information to the database allowing l
 Then you can run:
 
 ```
-blastdbcmd -db [<yourfasta>] -dbtype nucl -entry [<hitsequenceid>] -range [<hitsequencerange>]
+blastdbcmd -db [<yourfasta>] -dbtype nucl -entry [<hitsequenceid>] -range [<hitsequencerange>] -strand [<plus or minus>]
 ```
 
-Note that `[<hitsequencerange>]` should be typed like `3-21`. 
+Note that `[<hitsequencerange>]` should be typed like `3-21` and `[<plus or minus>]` depends on if you want the forward or reverse strand of the sequence.
 
 You can also extract multiple genes at once. Such as, 
 
@@ -125,7 +125,34 @@ You can also extract multiple genes at once. Such as,
 blastdbcmd -db [<yourfasta>] -dbtype nucl -entry_batch [<yourregionsofinterest>]
 ```
 
-`yourregionsofinterest` should be a file name including an entry and a range in each line, separated by a space. For example, `seqid 3-21`.
+`yourregionsofinterest` should be a file name including an entry, a strand direction and a range in each line, separated by a space. For example, `seqid minus 3-21`.
+
+<br/>
+
+### Extract Genes for Phylogenetics
+
+Now, we want to extract genes to make a phylogeny. This way, we can compare our samples to the samples from previous studies. We have prepared the <i>A. muscaria</i>  sequences from [Geml et al. 2008](https://www.sciencedirect.com/science/article/pii/S105579030800208X?via%3Dihub) and you only need to extract the same four genes from your genome.  
+
+Head to `DennyMaterials`, make a directory called `phyloBLAST` and copy your genome and the query (`/home/genhons1/DennyMaterials/Gemlquery.fasta`) to the folder.
+
+Use `makeblastdb` to create a database (remember to add `-parse_seqids` to allow sequences retrieval) and `blastn` to search for the four genes from `Gemlquery.fasta` in your genome.
+
+<details>
+  <summary><b><u>Hint</u></b></summary>
+  <pre>blastn -db [&lt;databasename&gt;] -query Gemlquery.fasta -outfmt 6 -out blastn-Geml.txt  </pre>
+</details>
+
+Take a quick look at the results. Do you see multiple lines with the same subject ID for the top hit? It shouldn't, but do you know why? Are there any query sequence without any hits? (Let us know if that's the case!)
+
+Use `blastdbcmd` to extract the top hit sequence for each query sequence. Like below: (I'm doing one at a time so that it's not too complicated.)
+
+```
+blastdbcmd -db [<databasename>] -dbtype nucl -entry [<subjectid>] -range [<subjectrange>] -strand [<plus or minus>] > [<genename>].fasta
+```
+
+`[<subjectid>]` is in the second column of your blast results. `[<subjectrange>]` is `start-end` of the subject (Note the `start` needs to be lower than `end`). And `[<plus or minus>]` is decided by if your blast hit is forward or reverse (if the "subject start" in your result is lower than "subject end", it needs to be `plus`, otherwise it should be `minus`.)
+
+Now, you should get four `[<genename>].fasta`. Concatenate them, name the file with your genome ID and copy it to `/home/genhons1/StudentBlastResults`.
 
 <br/>
 
