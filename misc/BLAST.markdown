@@ -158,10 +158,10 @@ blastdbcmd -db [<databasename>] -dbtype nucl -entry [<subjectid>] -range [<subje
 
 Now, you should get four `[<genename>].fasta`. Rename the sequences with the gene names (its, lsu, tef1a or btub; you can use `sed`, `nano`...) 
 
-Lastly, copy each fasta into corresponding `/home/genhons1/StudentBlastResults/[<genename>]` and change the file name into your sample name and underscroll your name. <b>Remember to not copy into the file and then change the name: IT WILL MESS THINGS UP!</b> It should look like this.
+Lastly, copy each fasta into corresponding `/home/genhons1/StudentBlastResults/[<genename>]` and change the file name into your sample name, underscroll gene name, underscroll your name. <b>Remember to not copy into the file and then change the name: IT WILL MESS THINGS UP!</b> It should look like this.
 
 ```
-cp [<genename>].fasta /home/genhons1/StudentBlastResults/[<genename>]/[<samplename>].fasta
+cp [<genename>].fasta /home/genhons1/StudentBlastResults/[<genename>]/[<samplename>]_[<genename>]_[<yourname>].fasta
 ```
 
 <br/>
