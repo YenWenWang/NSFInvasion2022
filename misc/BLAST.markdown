@@ -133,7 +133,9 @@ blastdbcmd -db [<yourfasta>] -dbtype nucl -entry_batch [<yourregionsofinterest>]
 
 Now, we want to extract genes to make a phylogeny. This way, we can compare our samples to the samples from previous studies. We have prepared the <i>A. muscaria</i>  sequences from [Geml et al. 2008](https://www.sciencedirect.com/science/article/pii/S105579030800208X?via%3Dihub) and you only need to extract the same four genes from your genome.  
 
-Head to `DennyMaterials`, make a directory called `phyloBLAST` and copy your genome and the query (`/home/genhons1/DennyMaterials/Gemlquery.fasta`) to the folder.
+Head to `DennyMaterials`, make a directory called `phyloBLAST` and copy the query (`/home/genhons1/DennyMaterials/Gemlquery.fasta`) to the folder.
+
+Next, copy your genome assembly to the folder, too. Everyone has a different sample. You can figure out the one for which you are responsible by looking into the files in `~/Data/Illumina/`. And copy the corresponding assembly fasta file from `/home/genhons1/PhylogenomicMaterials/genomes/` into your current directory.
 
 Use `makeblastdb` to create a database (remember to add `-parse_seqids` to allow sequences retrieval) and `blastn` to search for the four genes from `Gemlquery.fasta` in your genome.
 
@@ -153,7 +155,13 @@ blastdbcmd -db [<databasename>] -dbtype nucl -entry [<subjectid>] -range [<subje
 
 `[<subjectid>]` is in the second column of your blast results. `[<subjectrange>]` is `start-end` of the subject (Note the `start` needs to be lower than `end`). And `[<plus or minus>]` is decided by if your blast hit is forward or reverse (if the "subject start" in your result is lower than "subject end", it needs to be `plus`, otherwise it should be `minus`.)
 
-Now, you should get four `[<genename>].fasta`. Concatenate them, name the file with your genome ID and copy it to `/home/genhons1/StudentBlastResults`.
+Now, you should get four `[<genename>].fasta`. Rename the sequences with the gene names (its, lsu, tef1a or btub; you can use `sed`, `nano`...) 
+
+Lastly, copy each fasta into `/home/genhons1/StudentBlastResults/[<genename>]` your sample name. It should look like this.
+
+```
+cp [<genename>].fasta /home/genhons1/StudentBlastResults/[<genename>]/[<samplename>].fasta
+```
 
 <br/>
 
