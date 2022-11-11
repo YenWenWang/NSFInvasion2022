@@ -131,23 +131,24 @@ blastdbcmd -db [<yourfasta>] -dbtype nucl -entry_batch [<yourregionsofinterest>]
 
 ### Extract Genes for Phylogenetics
 
-Now, we want to extract genes to make a phylogeny. This way, we can compare our samples to the samples from previous studies. We have prepared the <i>A. muscaria</i>  sequences from [Geml et al. 2008](https://www.sciencedirect.com/science/article/pii/S105579030800208X?via%3Dihub) and you only need to extract the same four genes from your genome.  
+Now, we want to extract genes to make a phylogeny. This way, we can compare our samples to the samples from previous studies. We have prepared the <i>A. muscaria</i> sequences from [Geml et al. 2008](https://www.sciencedirect.com/science/article/pii/S105579030800208X?via%3Dihub) and you only need to extract the same four genes from your genome.  
 
 Head to `DennyMaterials`, make a directory called `phyloBLAST` and copy the query (`/home/genhons1/DennyMaterials/Gemlquery.fasta`) to the folder.
 
-Next, copy your genome assembly to the folder, too. Everyone has a different sample. You can figure out the one for which you are responsible by looking into the files in `~/Data/Illumina/`. And copy the corresponding assembly fasta file from `/home/genhons1/PhylogenomicMaterials/genomes/` into your current directory.
+Next, copy your genome assembly to the folder, too. Everyone has a different sample. You can figure out the one for which you are responsible by looking into the files in `~/Data/Illumina/`. And copy the corresponding assembly fasta file from `/home/genhons1/PhylogenomicMaterials/genomes/` into `phyloBLAST`.
 
 Use `makeblastdb` to create a database (remember to add `-parse_seqids` to allow sequences retrieval) and `blastn` to search for the four genes from `Gemlquery.fasta` in your genome.
 
 <details>
   <summary><b><u>Hint</u></b></summary>
-  <pre>blastn -db [&lt;databasename&gt;] -query Gemlquery.fasta -outfmt 6 -out blastn-Geml.txt  </pre>
+  <pre>makeblastdb -dbtype nucl -in [&lt;yourgenomefasta&gt;] -parse_seqids  </pre>
+  <pre>blastn -db [&lt;yourgenomefasta&gt;] -query Gemlquery.fasta -outfmt 6 -out blastn-Geml.txt  </pre>
 </details>
 <br/>
 
-Take a quick look at the results. Do you see multiple lines with the same subject ID for the top hit? It shouldn't, but do you know why? Are there any query sequence without any hits? (Let us know if that's the case!)
+Take a quick look at the results. Do you see multiple lines with the same subject ID for the top hit? It shouldn't. But btub and tef1a are protein coding genes, why aren't they fragments? Also, are there any query sequence without any hits? (Let us know if that's the case!)
 
-Use `blastdbcmd` to extract the top hit sequence for each query sequence. Like below: (I'm doing one at a time so that it's not too complicated.)
+Use `blastdbcmd` to extract the top hit sequence for each query sequence. Like below: (I'm showing one at a time so that it's not too complicated.)
 
 ```
 blastdbcmd -db [<databasename>] -dbtype nucl -entry [<subjectid>] -range [<subjectrange>] -strand [<plus or minus>] > [<genename>].fasta
@@ -157,7 +158,7 @@ blastdbcmd -db [<databasename>] -dbtype nucl -entry [<subjectid>] -range [<subje
 
 Now, you should get four `[<genename>].fasta`. Rename the sequences with the gene names (its, lsu, tef1a or btub; you can use `sed`, `nano`...) 
 
-Lastly, copy each fasta into `/home/genhons1/StudentBlastResults/[<genename>]` your sample name. It should look like this.
+Lastly, copy each fasta into corresponding `/home/genhons1/StudentBlastResults/[<genename>]` and change the file name into your sample name. <b>Remember to not copy into the file and then change the name: IT WILL MESS THINGS UP!</b> It should look like this.
 
 ```
 cp [<genename>].fasta /home/genhons1/StudentBlastResults/[<genename>]/[<samplename>].fasta
