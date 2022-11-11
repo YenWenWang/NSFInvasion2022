@@ -156,7 +156,7 @@ blastdbcmd -db [<databasename>] -dbtype nucl -entry [<subjectid>] -range [<subje
 
 `[<subjectid>]` is in the second column of your blast results. `[<subjectrange>]` is `start-end` of the subject (Note the `start` needs to be lower than `end`). And `[<plus or minus>]` is decided by if your blast hit is forward or reverse (if the "subject start" in your result is lower than "subject end", it needs to be `plus`, otherwise it should be `minus`.)
 
-Now, you should get four `[<genename>].fasta`. Rename the sequences with the sample names (you can use `sed`, `nano`...) 
+Now, you should get four `[<genename>].fasta`. Rename the sequences with the sample names underscroll yourname (you can use `sed`, `nano`...; look like `>[<samplename>]_[<yourname>]`) 
 
 Lastly, copy each fasta into corresponding `/home/genhons1/StudentBlastResults/[<genename>]` and change the file name into your sample name, underscroll gene name, underscroll your name. <b>Remember to not copy into the file and then change the name: IT WILL MESS THINGS UP!</b> It should look like this.
 
