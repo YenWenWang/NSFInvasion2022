@@ -131,7 +131,7 @@ blastdbcmd -db [<yourfasta>] -dbtype nucl -entry_batch [<yourregionsofinterest>]
 
 ### Extract Genes for Phylogenetics
 
-Now, we want to extract genes to make a phylogeny. This way, we can compare our samples to the samples from previous studies. We have prepared the <i>A. muscaria</i> sequences from [Geml et al. 2008](https://www.sciencedirect.com/science/article/pii/S105579030800208X?via%3Dihub) and you only need to extract the same four genes from your genome.  
+Now, we want to extract genes to make a phylogeny. This way, we can compare our samples to the samples from previous studies. We have prepared the <i>A. muscaria</i> sequences from [Geml et al. 2008](https://www.sciencedirect.com/science/article/pii/S105579030800208X?via%3Dihub) and [Vargas et al. 2008](https://pringlelab.botany.wisc.edu/documents/vargas2019.pdf), so you only need to extract the same four genes from your genome.  
 
 Head to `DennyMaterials`, make a directory called `phyloBLAST` and copy the query (`/home/genhons1/DennyMaterials/Gemlquery.fasta`) to the folder.
 
