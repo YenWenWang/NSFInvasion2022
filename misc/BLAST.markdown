@@ -146,7 +146,7 @@ Use `makeblastdb` to create a database (remember to add `-parse_seqids` to allow
 </details>
 <br/>
 
-Take a quick look at the results. Do you see multiple lines with the same subject ID for the top hit? It shouldn't. But btub and tef1a are protein coding genes, why aren't they fragments? Also, are there any query sequence without any hits? (Let us know if that's the case!)
+Take a quick look at the results. Do you see multiple lines with the same subject ID for the top hit? It shouldn't. But btub and tef1a are protein coding genes, why aren't they fragments? Also, are there any query sequence without any hits?
 
 Use `blastdbcmd` to extract the top hit sequence for each query sequence. Like below: (I'm showing one at a time so that it's not too complicated.)
 
