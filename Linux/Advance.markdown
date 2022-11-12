@@ -9,7 +9,7 @@ title: '"Advanced" Linux'
 ## Loops and Ifs
 ### for
 We are using BLAST to learn about loops. And we will be using your favorite genes. First, we will build multiple databases with `for` loops and blast each databases.  
-Go to folder `LinuxAdvance/forloops` and copy three genome assemblies (including the `11666_SizeFiltered.fasta` you were working with and the two fasta files in `~/../genhons1/Blast`) into the folder.
+Go to folder `LinuxAdvance/forloops` and copy three genome assemblies fasta files from `/home/genhons1/PhylogenomicMaterials/genomes/` into the folder.
 
 ```
 for f in *.fasta
@@ -19,7 +19,7 @@ done
 
 Let's see what's going on here. The first line uses a wild card and so it's basically `for f in A.fasta B.fasta C.fasta`. This will create a variable called `f`. `A.fasta` will be assigned to `f` for the first iteration, `B.fasta` will be the next, and so on and so forth.  
 Move on to the next line. `do` states the things you are going to do for an iteration. And `$f` is calling the variable `f`. So, for the first iteration, we are running `makeblastdb -dbtype nucl A.fasta`. So on and so forth.  
-Note: you can have multiple lines after do and the for loop will run through all of them. For example: (Don't run)
+Note: you can have multiple lines after `do` and the `for` loop will run through all of them. For example: (Do not run)
 
 ```
 for f in *.fasta
@@ -28,7 +28,7 @@ do  echo making database for $f
 done
 ```
 
-How about you try to run blast through all databases now? Copy the fasta with genes of interest into the folder and write a code to complete the task!
+How about you try to run blast through all databases now? Copy a fasta file with genes of interest (can be `/home/genhons1/DennyMaterials/Gemlquery.fasta` or something else that you are interested in) into the folder and write a code to complete the task!
 
 <details>
   <summary><b><u>Hint</u></b></summary>
