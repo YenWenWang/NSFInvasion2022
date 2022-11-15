@@ -12,6 +12,15 @@ layout: home
 
 <br/>
 
+To redo the exercise, you can download the materials with this line if you are on a MacOSX/Linux machine:  
+Note that the version can be different so you'll need to test things out yourself. 
+Also, some of the materials do not exist. Let me know if you need help.
+
+
+```
+git clone https://github.com/YenWenWang/Invasion2022DennyMaterials.git
+```
+
 ## Table of Contents
 ### Linux
 - [Intro to Linux](Linux/Intro)  
